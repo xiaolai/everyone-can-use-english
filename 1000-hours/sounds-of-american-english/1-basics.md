@@ -6,7 +6,7 @@ The fundamentals of English pronunciation, in reality, are quite straightforward
 
 ## 1.1 字母表（Alphabets）
 
-英语总计使用 26 个**字母**（*letters*），各有大小写之分。在欧洲语言之中，英语是罕见的不使用**修饰符**（*diacritics*）的文字 —— 所谓修饰符，指的是拉丁字母上附加的标记，用以区分发音或者意义，比如，*â*、*é*、*ç*，等等。
+英语总计使用 26 个**字母**（*letters*），各有大小写之分。在欧洲语言之中，英语是罕见的不使用**修饰符**（*diacritics*）的文字 —— 所谓修饰符，指的是字母上附加的标记，用以区分发音或者意义，比如，*â*、*é*、*ç*，等等。
 
 Modern English is composed of *26* letters, each with both *uppercase* and *lowercase* forms. English stands out among European languages for not using [diacritics](https://en.wikipedia.org/wiki/Diacritic), which are special marks added to letters to alter their pronunciation or meaning, such as *â*, *é* or *ç*, etc.
 
@@ -125,6 +125,6 @@ In general, there are the following few forms of syllable composition in English
 * `cvccc`： *text* `/tekst/` <span class="speak-word-inline" data-audio-us="/audios/text-us.mp3"></span>
 * `ccvccc`： *flexed* `/flekst/` <span class="speak-word-inline" data-audio-us="/audios/flexed-us.mp3"></span>
 
-如果一个单词由多个音节构成的话，那么为了能够读得顺畅、清晰且易于识别，那么其中可能会有某个音节是**重音**；如果音节数量更多，可能还会有某个或某些音节是**次重音**。一般来说，**一个词汇只有一个重音**，**但有可能存在多个次重音**。比如 *serendipity* `/ˌserənˈdɪpɪti/`。之前的那个 *19* 个音节构成的词汇，其中有 *7* 个**次重音**，*1* 个**重音**。
+如果一个单词由多个音节构成的话，那么为了能够读得顺畅、清晰且易于识别，那么其中可能会有某个音节是**重音**；如果音节数量更多，可能还会有某个或某些音节是**次重音**。一般来说，**一个词汇只有一个重音**，**但有可能存在多个次重音**。比如 *serendipity* `/ˌserənˈdɪpɪti/`<span class="speak-word-inline" data-audio-uk="/audios/us/serendipity-us-jen.mp3"></span>。之前的那个 *19* 个音节构成的词汇，其中有 *7* 个**次重音**，*1* 个**重音**。
 
-When a word is composed of multiple syllables, for smooth and clear pronunciation that's easily recognizable, one syllable may be stressed -- these are called *primary stresses*. If the word has many syllables, it could also have some *secondary stress*. Normally, **a single primary stress exists in each word**, **but there might be several secondary ones**. Take the word *serendipity* `/ˌserənˈdɪpɪti/` as an example, it follows this rule. That whopping 19-syllable-long leviathan we examined before had 7 instances of secondary stressing to accompany its lone instance of primary stressing.
+When a word is composed of multiple syllables, for smooth and clear pronunciation that's easily recognizable, one syllable may be stressed -- these are called *primary stresses*. If the word has many syllables, it could also have some *secondary stress*. Normally, **a single primary stress exists in each word**, **but there might be several secondary ones** - take the word *serendipity* `/ˌserənˈdɪpɪti/`<span class="speak-word-inline" data-audio-uk="/audios/us/serendipity-us-jen.mp3"></span>as an example. That whopping 19-syllable-long leviathan we examined before had 7 instances of secondary stressing to accompany its lone instance of primary stressing.

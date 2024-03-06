@@ -1,4 +1,4 @@
-# 3.1 口腔内气流共鸣位置
+# 2.1.1. 口腔内气流共鸣位置
 
 不同的元音在发声时，“口腔内气流共鸣位置” 不同（以下示意图中并未收录双元音）—— 这是 D.J. 音标的作者 Daniel Jones 的研究成果（插图参考 [Wikipedia](https://en.wikipedia.org/wiki/Vowel_diagram) 重新绘制）：
 
