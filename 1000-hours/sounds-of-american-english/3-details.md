@@ -15,6 +15,3 @@ Firstly, almost every single phoneme morphs here and there within fluent speech.
 更大的困难来自于我们的大脑机制。随着年龄的增加，大脑会过滤母语中用不到的声音，以便提高语音识别的效率 —— 也恰恰是这一点造成了绝大多数成年人学外语的最大障碍。有些声音我们听不到、听不清楚，有些声音听到了却无法分辨，有些声音被我们自己在不知不觉中替换成了另外的样子…… 应对方式只有一个，集中注意力反复听，反复练 —— 注意力集中才是真正的关键。
 
 An even greater challenge stems from how our brain functions over time: as we age, our minds begin filtering out unnecessary sounds not present in native tongues as noises to enhance linguistic efficiency - which happens also to be a major obstacle for most adults learning foreign languages as some sounds go unheard or indistinct while others get mistakenly replaced unconsciously... The only weapon at hand? Again, *repetition* - repeately listen and practice, with full *attention*, which is another indispensbile key.
-
-
-
