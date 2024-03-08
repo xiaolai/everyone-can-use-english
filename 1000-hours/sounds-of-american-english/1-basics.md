@@ -97,7 +97,7 @@ English approximately has 28 *consonants*.
 |           | Voiced        | `dʒ`, `dr`, `dz`        |
 | Nasal     | Voiced        | `m`, `n`, `ŋ`           |
 | Lateral   | Voiced        | `l`                     |
-| Semivowel | Voiced        | `j`, `w`                |
+| Semivowel |               | `j`, `w`                |
 
 ## 1.3 音节（Syllables）
 
