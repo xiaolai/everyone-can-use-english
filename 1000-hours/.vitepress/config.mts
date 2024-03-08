@@ -165,6 +165,14 @@ export default withMermaid(
                         text: "3.2.1. 分类",
                         link: "/sounds-of-american-english/3.2.1-categorization",
                       },
+                      {
+                        text: "3.2.2. p/b",
+                        link: "/sounds-of-american-english/3.2.2-pb",
+                      },
+                      {
+                        text: "3.2.3. t/d",
+                        link: "/sounds-of-american-english/3.2.3-td",
+                      },
                     ]
                   },
                 ],
