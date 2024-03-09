@@ -4,9 +4,9 @@
 
 Despite speaking different languages, humans share the same structure of brain and articulators. It's this commonality that grants every human infants the potential to master any language on Earth - a fascinating yet often overlooked fact.
 
-我们用**嘴**说话…… 更详细地讲，我们讲英文的时候所使用的**发声器官**主要包括：**下巴**（*lower jaw*）、**嘴唇**（*lips*）、**牙齿**（*teeth*）、**龈脊**（*alveolar ridge*）、**舌尖**（*tongue tip*）、**舍背**（*tongue roof*）、**咽**（*pharynx*）、**喉**（*larynx*）、**声带**（*vocal cords*）等等。
+我们用**嘴**说话…… 更详细地讲，我们讲英文的时候所使用的**发声器官**主要包括：**下巴**（*lower jaw*）、**嘴唇**（*lips*）、**牙齿**（*teeth*）、**龈脊**（*alveolar ridge*）、**舌尖**（*tongue tip*）、**舍背**（*tongue roof*）、**硬颚**（*hard palate*）、**软腭**（*soft palate*）、**咽**（*pharynx*）、**喉**（*larynx*）、**声带**（*vocal cords*）等等。
 
-We use our *mouths* as a means of communication... To be more precise, when speaking English, key components of speech production include: *lower jaw* (or mandible), *lips*, *teeth*; *alveolar ridge* (the small bump right behind your upper front teeth); *tongue tip* and *rongue roof* or dorsum; and then throat areas which can be further divided into two parts: *pharynx* and *larynx*. Last but not least come your voice makers - *vocal cords.*
+We use our *mouths* as a means of communication... To be more precise, when speaking English, key components of speech production include: *lower jaw* (or mandible), *lips*, *teeth*; *alveolar ridge* (the small bump right behind your upper front teeth); *tongue tip* and *rongue roof* or dorsum; *hard palate* and *soft palate*, and then throat areas which can be further divided into two parts: *pharynx* and *larynx*. Last but not least come your voice makers - *vocal cords.*
 
 ![Speech Tract (zh-CN)](/images/Speech-Tract(zh-CN).svg)
 

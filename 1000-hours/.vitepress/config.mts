@@ -173,6 +173,26 @@ export default withMermaid(
                         text: "3.2.3. t/d",
                         link: "/sounds-of-american-english/3.2.3-td",
                       },
+                      {
+                        text: "3.2.4. k/g",
+                        link: "/sounds-of-american-english/3.2.4-kg",
+                      },
+                      {
+                        text: "3.2.5. f/v",
+                        link: "/sounds-of-american-english/3.2.5-fv",
+                      },
+                      {
+                        text: "3.2.6. s/z",
+                        link: "/sounds-of-american-english/3.2.6-sz",
+                      },
+                      {
+                        text: "3.2.7. θ/ð",
+                        link: "/sounds-of-american-english/3.2.7-θð",
+                      },
+                      {
+                        text: "3.2.8. ʃ/ʒ",
+                        link: "/sounds-of-american-english/3.2.8-ʃʒ",
+                      },
                     ]
                   },
                 ],
