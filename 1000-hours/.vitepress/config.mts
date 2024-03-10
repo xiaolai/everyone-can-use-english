@@ -237,6 +237,28 @@ export default withMermaid(
                       },
                     ]
                   },
+                  {
+                    text: "3.4. 连接",
+                    link: "/sounds-of-american-english/3.4-connecting",
+                    items: [
+                      {
+                        text: "3.4.1. 停顿",
+                        link: "/sounds-of-american-english/3.4.1-stop",
+                      },                      
+                      {
+                        text: "3.4.1. 辅音 + 元音",
+                        link: "/sounds-of-american-english/3.4.1-cv",
+                      },
+                      {
+                        text: "3.4.2. 辅音 + 辅音",
+                        link: "/sounds-of-american-english/3.4.2-cc",
+                      },
+                      {
+                        text: "3.4.2. 元音 + 元音",
+                        link: "/sounds-of-american-english/3.4.3-vv",
+                      },
+                    ]
+                  },
                 ],
               },
             ],
