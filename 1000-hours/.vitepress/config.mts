@@ -193,6 +193,34 @@ export default withMermaid(
                         text: "3.2.8. ʃ/ʒ",
                         link: "/sounds-of-american-english/3.2.8-ʃʒ",
                       },
+                      {
+                        text: "3.2.9. h",
+                        link: "/sounds-of-american-english/3.2.9-h",
+                      },
+                      {
+                        text: "3.2.10. tʃ/dʒ",
+                        link: "/sounds-of-american-english/3.2.10-tʃdʒ",
+                      },
+                      {
+                        text: "3.2.11. tr/dr",
+                        link: "/sounds-of-american-english/3.2.11-trdr",
+                      },
+                      {
+                        text: "3.2.12. ts/dz",
+                        link: "/sounds-of-american-english/3.2.12-tsdz",
+                      },
+                      {
+                        text: "3.2.13. m, n, ŋ",
+                        link: "/sounds-of-american-english/3.2.13-mnŋ",
+                      },
+                      {
+                        text: "3.2.14. l, r",
+                        link: "/sounds-of-american-english/3.2.14-lr",
+                      },
+                      {
+                        text: "3.2.15. j, w",
+                        link: "/sounds-of-american-english/3.2.15-jw",
+                      },
                     ]
                   },
                 ],
