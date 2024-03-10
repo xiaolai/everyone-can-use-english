@@ -223,6 +223,20 @@ export default withMermaid(
                       },
                     ]
                   },
+                  {
+                    text: "3.3. 音节",
+                    link: "/sounds-of-american-english/3.3-syllables",
+                    items: [
+                      {
+                        text: "3.3.1. 构成",
+                        link: "/sounds-of-american-english/3.3.1-structure",
+                      },
+                      {
+                        text: "3.3.2. 重音",
+                        link: "/sounds-of-american-english/3.3.2-stress",
+                      },
+                    ]
+                  },
                 ],
               },
             ],
