@@ -239,7 +239,7 @@ export default withMermaid(
                   },
                   {
                     text: "3.4. 连接",
-                    link: "/sounds-of-american-english/3.4-connecting",
+                    link: "/sounds-of-american-english/3.4-linking",
                     items: [
                       {
                         text: "3.4.1. 停顿",
