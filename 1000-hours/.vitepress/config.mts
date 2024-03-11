@@ -111,7 +111,6 @@ export default withMermaid(
               },
               {
                 text: "2. 发声器官",
-                collapsed: true,
                 link: "/sounds-of-american-english/2-articulators",
               },
               {
@@ -121,6 +120,7 @@ export default withMermaid(
                 items: [
                   {
                     text: "3.1. 元音",
+                    collapsed: true,
                     link: "/sounds-of-american-english/3.1-vowels",
                     items: [
                       {
@@ -159,6 +159,7 @@ export default withMermaid(
                   },
                   {
                     text: "3.2. 辅音",
+                    collapsed: true,
                     link: "/sounds-of-american-english/3.2-consonants",
                     items: [
                       {
@@ -225,6 +226,7 @@ export default withMermaid(
                   },
                   {
                     text: "3.3. 音节",
+                    collapsed: true,
                     link: "/sounds-of-american-english/3.3-syllables",
                     items: [
                       {
@@ -239,6 +241,7 @@ export default withMermaid(
                   },
                   {
                     text: "3.4. 连接",
+                    collapsed: true,
                     link: "/sounds-of-american-english/3.4-linking",
                     items: [
                       {
@@ -256,6 +259,33 @@ export default withMermaid(
                       {
                         text: "3.4.4. 元音 + 元音",
                         link: "/sounds-of-american-english/3.4.4-vv",
+                      },
+                    ]
+                  },
+                  {
+                    text: "3.5. 韵律",
+                    collapsed: true,
+                    link: "/sounds-of-american-english/3.5-prosody",
+                    items: [
+                      {
+                        text: "3.5.1. 高低",
+                        link: "/sounds-of-american-english/3.5.1-pitch",
+                      },                      
+                      {
+                        text: "3.5.2. 起伏",
+                        link: "/sounds-of-american-english/3.5.2-intonation",
+                      },
+                      {
+                        text: "3.5.3. 轻重",
+                        link: "/sounds-of-american-english/3.5.3-weight",
+                      },
+                      {
+                        text: "3.5.4. 缓急",
+                        link: "/sounds-of-american-english/3.5.4-speed",
+                      },
+                      {
+                        text: "3.5.5. 长短",
+                        link: "/sounds-of-american-english/3.5.5-length",
                       },
                     ]
                   },
