@@ -273,15 +273,15 @@ export default withMermaid(
                       },                      
                       {
                         text: "3.5.2. 起伏",
-                        link: "/sounds-of-american-english/3.5.2-intonation",
+                        link: "/sounds-of-american-english/3.5.2-tone",
                       },
                       {
                         text: "3.5.3. 轻重",
-                        link: "/sounds-of-american-english/3.5.3-weight",
+                        link: "/sounds-of-american-english/3.5.3-emphasis",
                       },
                       {
                         text: "3.5.4. 缓急",
-                        link: "/sounds-of-american-english/3.5.4-speed",
+                        link: "/sounds-of-american-english/3.5.4-rhythm",
                       },
                     ]
                   },
