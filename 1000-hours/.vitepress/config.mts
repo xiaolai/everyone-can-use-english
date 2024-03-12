@@ -283,10 +283,6 @@ export default withMermaid(
                         text: "3.5.4. 缓急",
                         link: "/sounds-of-american-english/3.5.4-speed",
                       },
-                      {
-                        text: "3.5.5. 长短",
-                        link: "/sounds-of-american-english/3.5.5-length",
-                      },
                     ]
                   },
                 ],
