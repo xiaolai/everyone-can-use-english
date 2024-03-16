@@ -281,12 +281,27 @@ export default withMermaid(
                       },
                       {
                         text: "3.5.4. 缓急",
-                        link: "/sounds-of-american-english/3.5.4-rhythm",
+                        link: "/sounds-of-american-english/3.5.4-pace",
                       },
                     ]
                   },
                 ],
               },
+              {
+                text: "4. 收官",
+                collapsed: true,
+                link: "/sounds-of-american-english/4-wrapping-up",
+                items: [
+                  {
+                    text: "4.1. 流利",
+                    link: "/sounds-of-american-english/4.1-fluency",
+                  },
+                  {
+                    text: "4.2. 情绪",
+                    link: "/sounds-of-american-english/4.2-emotions",
+                  },
+                ],
+              },              
             ],
           },
           // {
