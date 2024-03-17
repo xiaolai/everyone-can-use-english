@@ -107,6 +107,10 @@ export default withMermaid(
                     text: "1.2. 音素",
                     link: "/sounds-of-american-english/1.2-phonemes",
                   },
+                  {
+                    text: "1.3. 音标",
+                    link: "/sounds-of-american-english/1.3-phonetics",
+                  },
                 ],
               },
               {

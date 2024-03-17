@@ -4,12 +4,38 @@
 
 Despite speaking different languages, humans share the same structure of brain and articulators. It's this commonality that grants every human infants the potential to master any language on Earth - a fascinating yet often overlooked fact.
 
-我们用**嘴**说话…… 更详细地讲，我们讲英文的时候所使用的**发声器官**主要包括：**下巴**（*lower jaw*）、**嘴唇**（*lips*）、**牙齿**（*teeth*）、**龈脊**（*alveolar ridge*）、**舌尖**（*tongue tip*）、**舍背**（*tongue roof*）、**硬颚**（*hard palate*）、**软腭**（*soft palate*）、**咽**（*pharynx*）、**喉**（*larynx*）、**声带**（*vocal cords*）等等。
+我们用**嘴**说话…… 更详细地讲，我们讲英文的时候所使用的**发声器官**主要包括：**下巴**（*lower jaw*）、**嘴唇**（*lips*）、**牙齿**（*teeth*）、**龈脊**（*alveolar ridge*）、**舌尖**（*tongue tip*）、**舍背**（*tongue roof*）、**舌尾**（*back of tongue*）、**软腭**（*soft palate*）、**咽**（*pharynx*）、**喉**（*larynx*）、**声带**（*vocal cords*）等等。
+
+![Speech Tract (zh-CN)](/images/articulators-cn.svg)
 
 We use our *mouths* as a means of communication... To be more precise, when speaking English, key components of speech production include: *lower jaw* (or mandible), *lips*, *teeth*; *alveolar ridge* (the small bump right behind your upper front teeth); *tongue tip* and *rongue roof* or dorsum; *hard palate* and *soft palate*, and then throat areas which can be further divided into two parts: *pharynx* and *larynx*. Last but not least come your voice makers - *vocal cords.*
 
-![Speech Tract (zh-CN)](/images/Speech-Tract(zh-CN).svg)
+![Speech Tract (zh-CN)](/images/articulators-en.svg)
 
 另外一个重要的方面是**呼吸**（*breathe*）—— 呼吸不仅影响声音，也影响节奏；因为换气的必要，自然语流中总是存在**停顿**（*pause*）。
 
 The act of breathing also plays a vital role — it not only affects speech sound quality but rhythm too due to natural *pauses* for airflow regulation during continuous speech flow.
+
+以下的 X 光视频展示了一个歌手在演唱歌曲时发声器官的活动情况[^1]：
+
+Here's an X-ray video showcasing the movement of a singer's articulators while performing a song:
+
+<video controls width="720"> <source src="/videos/articulator-movement-singing.mp4" type="video/mp4"></source>Your browser does not support the video tag. </video>
+
+以下是朗读一些单词的时候发声器官活动情况的 3D 展示[^2]：
+Here's a 3D illustration showcasing the activity of articulators when pronouncing certain words:
+
+<video controls width="720"> <source src="/videos/3d-presentation.mp4" type="video/mp4"></source>Your browser does not support the video tag. </video>
+
+说话或者唱歌，形象地来看，很像是口腔体操，锻炼更多的却是大脑内的神经元及其它们之间的连接。
+
+When you think about it, speaking or singing is like oral gymnastics, but the real workout is for the neurons in your brain and the connections among them.
+
+练习英语的时候，最需要注意的发声器官之一是**舌头**，很多辅音都需要**舌尖**从**正确的位置**开始发声…… 以下展示的是英文中舌尖最常用的 *4* 个位置 —— 在随后的讲解中会反复看到：
+
+When practicing English, one of the most critical articulators is your *tongue*. Many consonants require *the tongue tip* to start making a sound from the *right position*... What follows are the *4* most common positions of the tongue tip in English — you'll see them often in our subsequent discussions:
+
+![articulator-tongue-tip-positions](/images/articulator-tongue-tip-positions.svg)
+
+[^1]: https://www.youtube.com/watch?v=2N5q85G3ydk&t=4s
+[^2]: https://www.youtube.com/watch?v=wYwk07QM4rc
