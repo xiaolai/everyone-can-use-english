@@ -111,198 +111,198 @@ export default withMermaid(
                     text: "1.3. 音标",
                     link: "/sounds-of-american-english/1.3-phonetics",
                   },
-                ],
-              },
-              {
-                text: "2. 发声器官",
-                link: "/sounds-of-american-english/2-articulators",
-              },
-              {
-                text: "3. 详解",
-                collapsed: true,
-                link: "/sounds-of-american-english/3-details",
-                items: [
                   {
-                    text: "3.1. 元音",
-                    collapsed: true,
-                    link: "/sounds-of-american-english/3.1-vowels",
-                    items: [
-                      {
-                        text: "3.1.1. 口型",
-                        link: "/sounds-of-american-english/3.1.1-lips",
-                      },
-                      {
-                        text: "3.1.2. ʌ/ɑ",
-                        link: "/sounds-of-american-english/3.1.2-ʌ",
-                      },
-                      {
-                        text: "3.1.3. e/æ",
-                        link: "/sounds-of-american-english/3.1.3-e",
-                      },
-                      {
-                        text: "3.1.4. ə/əː",
-                        link: "/sounds-of-american-english/3.1.4-ə",
-                      },
-                      {
-                        text: "3.1.5. ɪ/iː",
-                        link: "/sounds-of-american-english/3.1.5-i",
-                      },
-                      {
-                        text: "3.1.6. ʊ/uː",
-                        link: "/sounds-of-american-english/3.1.6-u",
-                      },
-                      {
-                        text: "3.1.7. ɔ/ɔː",
-                        link: "/sounds-of-american-english/3.1.7-ɔ",
-                      },
-                      {
-                        text: "3.1.8. aɪ... əʊ",
-                        link: "/sounds-of-american-english/3.1.8-aɪ",
-                      },
-                    ]
-                  },
-                  {
-                    text: "3.2. 辅音",
-                    collapsed: true,
-                    link: "/sounds-of-american-english/3.2-consonants",
-                    items: [
-                      {
-                        text: "3.2.1. 分类",
-                        link: "/sounds-of-american-english/3.2.1-categorization",
-                      },
-                      {
-                        text: "3.2.2. p/b",
-                        link: "/sounds-of-american-english/3.2.2-pb",
-                      },
-                      {
-                        text: "3.2.3. t/d",
-                        link: "/sounds-of-american-english/3.2.3-td",
-                      },
-                      {
-                        text: "3.2.4. k/g",
-                        link: "/sounds-of-american-english/3.2.4-kg",
-                      },
-                      {
-                        text: "3.2.5. f/v",
-                        link: "/sounds-of-american-english/3.2.5-fv",
-                      },
-                      {
-                        text: "3.2.6. s/z",
-                        link: "/sounds-of-american-english/3.2.6-sz",
-                      },
-                      {
-                        text: "3.2.7. θ/ð",
-                        link: "/sounds-of-american-english/3.2.7-θð",
-                      },
-                      {
-                        text: "3.2.8. ʃ/ʒ",
-                        link: "/sounds-of-american-english/3.2.8-ʃʒ",
-                      },
-                      {
-                        text: "3.2.9. h",
-                        link: "/sounds-of-american-english/3.2.9-h",
-                      },
-                      {
-                        text: "3.2.10. tʃ/dʒ",
-                        link: "/sounds-of-american-english/3.2.10-tʃdʒ",
-                      },
-                      {
-                        text: "3.2.11. tr/dr",
-                        link: "/sounds-of-american-english/3.2.11-trdr",
-                      },
-                      {
-                        text: "3.2.12. ts/dz",
-                        link: "/sounds-of-american-english/3.2.12-tsdz",
-                      },
-                      {
-                        text: "3.2.13. m, n, ŋ",
-                        link: "/sounds-of-american-english/3.2.13-mnŋ",
-                      },
-                      {
-                        text: "3.2.14. l, r",
-                        link: "/sounds-of-american-english/3.2.14-lr",
-                      },
-                      {
-                        text: "3.2.15. j, w",
-                        link: "/sounds-of-american-english/3.2.15-jw",
-                      },
-                    ]
-                  },
-                  {
-                    text: "3.3. 音节",
-                    collapsed: true,
-                    link: "/sounds-of-american-english/3.3-syllables",
-                    items: [
-                      {
-                        text: "3.3.1. 构成",
-                        link: "/sounds-of-american-english/3.3.1-structure",
-                      },
-                      {
-                        text: "3.3.2. 重音",
-                        link: "/sounds-of-american-english/3.3.2-stress",
-                      },
-                    ]
-                  },
-                  {
-                    text: "3.4. 连接",
-                    collapsed: true,
-                    link: "/sounds-of-american-english/3.4-linking",
-                    items: [
-                      {
-                        text: "3.4.1. 停顿",
-                        link: "/sounds-of-american-english/3.4.1-stop",
-                      },                      
-                      {
-                        text: "3.4.2. 辅音 + 元音",
-                        link: "/sounds-of-american-english/3.4.2-cv",
-                      },
-                      {
-                        text: "3.4.3. 辅音 + 辅音",
-                        link: "/sounds-of-american-english/3.4.3-cc",
-                      },
-                      {
-                        text: "3.4.4. 元音 + 元音",
-                        link: "/sounds-of-american-english/3.4.4-vv",
-                      },
-                    ]
-                  },
-                  {
-                    text: "3.5. 韵律",
-                    collapsed: true,
-                    link: "/sounds-of-american-english/3.5-prosody",
-                    items: [
-                      {
-                        text: "3.5.1. 高低",
-                        link: "/sounds-of-american-english/3.5.1-pitch",
-                      },                      
-                      {
-                        text: "3.5.2. 起伏",
-                        link: "/sounds-of-american-english/3.5.2-tone",
-                      },
-                      {
-                        text: "3.5.3. 轻重",
-                        link: "/sounds-of-american-english/3.5.3-emphasis",
-                      },
-                      {
-                        text: "3.5.4. 缓急",
-                        link: "/sounds-of-american-english/3.5.4-pace",
-                      },
-                    ]
+                    text: "1.4. 器官",
+                    link: "/sounds-of-american-english/1.4-articulators",
                   },
                 ],
               },
               {
-                text: "4. 收官",
+                text: "2. 详解",
                 collapsed: true,
-                link: "/sounds-of-american-english/4-wrapping-up",
+                link: "/sounds-of-american-english/2-details",
                 items: [
                   {
-                    text: "4.1. 流利",
-                    link: "/sounds-of-american-english/4.1-fluency",
+                    text: "2.1. 元音",
+                    collapsed: true,
+                    link: "/sounds-of-american-english/2.1-vowels",
+                    items: [
+                      {
+                        text: "2.1.1. 口型",
+                        link: "/sounds-of-american-english/2.1.1-lips",
+                      },
+                      {
+                        text: "2.1.2. ʌ/ɑ",
+                        link: "/sounds-of-american-english/2.1.2-ʌ",
+                      },
+                      {
+                        text: "2.1.3. e/æ",
+                        link: "/sounds-of-american-english/2.1.3-e",
+                      },
+                      {
+                        text: "2.1.4. ə/əː",
+                        link: "/sounds-of-american-english/2.1.4-ə",
+                      },
+                      {
+                        text: "2.1.5. ɪ/iː",
+                        link: "/sounds-of-american-english/2.1.5-i",
+                      },
+                      {
+                        text: "2.1.6. ʊ/uː",
+                        link: "/sounds-of-american-english/2.1.6-u",
+                      },
+                      {
+                        text: "2.1.7. ɔ/ɔː",
+                        link: "/sounds-of-american-english/2.1.7-ɔ",
+                      },
+                      {
+                        text: "2.1.8. aɪ... əʊ",
+                        link: "/sounds-of-american-english/2.1.8-aɪ",
+                      },
+                    ]
                   },
                   {
-                    text: "4.2. 情绪",
-                    link: "/sounds-of-american-english/4.2-emotions",
+                    text: "2.2. 辅音",
+                    collapsed: true,
+                    link: "/sounds-of-american-english/2.2-consonants",
+                    items: [
+                      {
+                        text: "2.2.1. 分类",
+                        link: "/sounds-of-american-english/2.2.1-categorization",
+                      },
+                      {
+                        text: "2.2.2. p/b",
+                        link: "/sounds-of-american-english/2.2.2-pb",
+                      },
+                      {
+                        text: "2.2.3. t/d",
+                        link: "/sounds-of-american-english/2.2.3-td",
+                      },
+                      {
+                        text: "2.2.4. k/g",
+                        link: "/sounds-of-american-english/2.2.4-kg",
+                      },
+                      {
+                        text: "2.2.5. f/v",
+                        link: "/sounds-of-american-english/2.2.5-fv",
+                      },
+                      {
+                        text: "2.2.6. s/z",
+                        link: "/sounds-of-american-english/2.2.6-sz",
+                      },
+                      {
+                        text: "2.2.7. θ/ð",
+                        link: "/sounds-of-american-english/2.2.7-θð",
+                      },
+                      {
+                        text: "2.2.8. ʃ/ʒ",
+                        link: "/sounds-of-american-english/2.2.8-ʃʒ",
+                      },
+                      {
+                        text: "2.2.9. h",
+                        link: "/sounds-of-american-english/2.2.9-h",
+                      },
+                      {
+                        text: "2.2.10. tʃ/dʒ",
+                        link: "/sounds-of-american-english/2.2.10-tʃdʒ",
+                      },
+                      {
+                        text: "2.2.11. tr/dr",
+                        link: "/sounds-of-american-english/2.2.11-trdr",
+                      },
+                      {
+                        text: "2.2.12. ts/dz",
+                        link: "/sounds-of-american-english/2.2.12-tsdz",
+                      },
+                      {
+                        text: "2.2.13. m, n, ŋ",
+                        link: "/sounds-of-american-english/2.2.13-mnŋ",
+                      },
+                      {
+                        text: "2.2.14. l, r",
+                        link: "/sounds-of-american-english/2.2.14-lr",
+                      },
+                      {
+                        text: "2.2.15. j, w",
+                        link: "/sounds-of-american-english/2.2.15-jw",
+                      },
+                    ]
+                  },
+                  {
+                    text: "2.3. 音节",
+                    collapsed: true,
+                    link: "/sounds-of-american-english/2.3-syllables",
+                    items: [
+                      {
+                        text: "2.3.1. 构成",
+                        link: "/sounds-of-american-english/2.3.1-structure",
+                      },
+                      {
+                        text: "2.3.2. 重音",
+                        link: "/sounds-of-american-english/2.3.2-stress",
+                      },
+                    ]
+                  },
+                  {
+                    text: "2.4. 连接",
+                    collapsed: true,
+                    link: "/sounds-of-american-english/2.4-linking",
+                    items: [
+                      {
+                        text: "2.4.1. 停顿",
+                        link: "/sounds-of-american-english/2.4.1-stop",
+                      },                      
+                      {
+                        text: "2.4.2. 辅音 + 元音",
+                        link: "/sounds-of-american-english/2.4.2-cv",
+                      },
+                      {
+                        text: "2.4.3. 辅音 + 辅音",
+                        link: "/sounds-of-american-english/2.4.3-cc",
+                      },
+                      {
+                        text: "2.4.4. 元音 + 元音",
+                        link: "/sounds-of-american-english/2.4.4-vv",
+                      },
+                    ]
+                  },
+                  {
+                    text: "2.5. 韵律",
+                    collapsed: true,
+                    link: "/sounds-of-american-english/2.5-prosody",
+                    items: [
+                      {
+                        text: "2.5.1. 高低",
+                        link: "/sounds-of-american-english/2.5.1-pitch",
+                      },                      
+                      {
+                        text: "2.5.2. 起伏",
+                        link: "/sounds-of-american-english/2.5.2-tone",
+                      },
+                      {
+                        text: "2.5.3. 轻重",
+                        link: "/sounds-of-american-english/2.5.3-emphasis",
+                      },
+                      {
+                        text: "2.5.4. 缓急",
+                        link: "/sounds-of-american-english/2.5.4-pace",
+                      },
+                    ]
+                  },
+                ],
+              },
+              {
+                text: "3. 收官",
+                collapsed: true,
+                link: "/sounds-of-american-english/3-wrapping-up",
+                items: [
+                  {
+                    text: "3.1. 流利",
+                    link: "/sounds-of-american-english/3.1-fluency",
+                  },
+                  {
+                    text: "3.2. 情绪",
+                    link: "/sounds-of-american-english/3.2-emotions",
                   },
                 ],
               },              
