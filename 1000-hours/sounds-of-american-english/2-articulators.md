@@ -4,6 +4,12 @@
 
 Despite speaking different languages, humans share the same structure of brain and articulators. It's this commonality that grants every human infants the potential to master any language on Earth - a fascinating yet often overlooked fact.
 
+**说话**对大脑来说是一项异常复杂的活动，大约要它协调差不多 100 块的肌肉才能发出一个音素的声音[^1]。
+
+*Speaking* is an extraordinarily complex activity for the brain, requiring its coordination of nearly 100 muscles just to produce a single phoneme.
+
+<video controls width="720"> <source src="/videos/speech-form-brain-signals.mp4" type="video/mp4"></source>Your browser does not support the video tag. </video>
+
 我们用**嘴**说话…… 更详细地讲，我们讲英文的时候所使用的**发声器官**主要包括：**下巴**（*lower jaw*）、**嘴唇**（*lips*）、**牙齿**（*teeth*）、**龈脊**（*alveolar ridge*）、**舌尖**（*tongue tip*）、**舍背**（*tongue roof*）、**舌尾**（*back of tongue*）、**软腭**（*soft palate*）、**咽**（*pharynx*）、**喉**（*larynx*）、**声带**（*vocal cords*）等等。
 
 ![Speech Tract (zh-CN)](/images/articulators-cn.svg)
@@ -16,13 +22,13 @@ We use our *mouths* as a means of communication... To be more precise, when spea
 
 The act of breathing also plays a vital role — it not only affects speech sound quality but rhythm too due to natural *pauses* for airflow regulation during continuous speech flow.
 
-以下的 X 光视频展示了一个歌手在演唱歌曲时发声器官的活动情况[^1]：
+以下的 X 光视频展示了一个歌手在演唱歌曲时发声器官的活动情况[^2]：
 
 Here's an X-ray video showcasing the movement of a singer's articulators while performing a song:
 
 <video controls width="720"> <source src="/videos/articulator-movement-singing.mp4" type="video/mp4"></source>Your browser does not support the video tag. </video>
 
-以下是朗读一些单词的时候发声器官活动情况的 3D 展示[^2]：
+以下是朗读一些单词的时候发声器官活动情况的 3D 展示[^3]：
 Here's a 3D illustration showcasing the activity of articulators when pronouncing certain words:
 
 <video controls width="720"> <source src="/videos/3d-presentation.mp4" type="video/mp4"></source>Your browser does not support the video tag. </video>
@@ -37,5 +43,6 @@ When practicing English, one of the most critical articulators is your *tongue*.
 
 ![articulator-tongue-tip-positions](/images/articulator-tongue-tip-positions.svg)
 
-[^1]: https://www.youtube.com/watch?v=2N5q85G3ydk&t=4s
-[^2]: https://www.youtube.com/watch?v=wYwk07QM4rc
+[^1]: https://www.youtube.com/watch?v=YHFx6O5x5Hw
+[^2]: https://www.youtube.com/watch?v=2N5q85G3ydk
+[^3]: https://www.youtube.com/watch?v=wYwk07QM4rc
