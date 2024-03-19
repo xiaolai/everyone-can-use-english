@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1669px" height="800px" viewBox="0 0 1669 800" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>tongue-positions-of-vowels</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="tongue-positions-of-vowels">
+            <rect id="Rectangle" x="0" y="0" width="1669" height="800"></rect>
+            <g id="Group-4" transform="translate(220, 64.5)">
+                <g id="Group" transform="translate(324, 94.5)" stroke="#000000" stroke-dasharray="5,10" stroke-linecap="square">
+                    <line x1="10.5" y1="0.5" x2="880.5" y2="0.5" id="Line"></line>
+                    <line x1="418.5" y1="569.5" x2="898.5" y2="569.5" id="Line-Copy"></line>
+                    <line x1="890.5" y1="0.5" x2="890.5" y2="569.5" id="Line-4"></line>
+                    <line x1="881.5" y1="162.5" x2="115.5" y2="162.5" id="Line-5"></line>
+                    <line x1="881.5" y1="431.5" x2="318.5" y2="430.5" id="Line-5-Copy"></line>
+                    <line x1="0.5" y1="0.5" x2="400.5" y2="569.5" id="Line-2"></line>
+                    <line x1="736.5" y1="0.5" x2="736.5" y2="569.5" id="Line-3"></line>
+                    <line x1="223.5" y1="13.5" x2="606.5" y2="569.5" id="Line-3-Copy"></line>
+                </g>
+                <text id="ɪ" font-family="SauceCodeProNF, SauceCodePro Nerd Font" font-size="40" font-weight="normal" fill="#000000">
+                    <tspan x="544" y="197.5">ɪ</tspan>
+                </text>
+                <text id="i" font-family="SauceCodeProNF, SauceCodePro Nerd Font" font-size="40" font-weight="normal" fill="#000000">
+                    <tspan x="438" y="152.5">i</tspan>
+                </text>
+                <text id="e" font-family="SauceCodeProNF, SauceCodePro Nerd Font" font-size="40" font-weight="normal" fill="#000000">
+                    <tspan x="531" y="301.5">e</tspan>
+                </text>
+                <text id="Central" font-family="SauceCodeProNF, SauceCodePro Nerd Font" font-size="40" font-weight="normal" fill="#000000">
+                    <tspan x="735" y="39.5">Central</tspan>
+                </text>
+                <text id="æ" font-family="SauceCodeProNF, SauceCodePro Nerd Font" font-size="40" font-weight="normal" fill="#000000">
+                    <tspan x="713" y="595.5">æ</tspan>
+                </text>
+                <text id="ə" font-family="SauceCodeProNF, SauceCodePro Nerd Font" font-size="40" font-weight="normal" fill="#000000">
+                    <tspan x="859" y="344.5">ə</tspan>
+                </text>
+                <text id="ɝ" font-family="Menlo-Regular, Menlo" font-size="40" font-weight="normal" fill="#000000">
+                    <tspan x="941" y="346.5">ɝ</tspan>
+                </text>
+                <text id="ʌ" font-family="SauceCodeProNF, SauceCodePro Nerd Font" font-size="40" font-weight="normal" fill="#000000">
+                    <tspan x="1004" y="491.5">ʌ</tspan>
+                </text>
+                <text id="ɔ" font-family="SauceCodeProNF, SauceCodePro Nerd Font" font-size="40" font-weight="normal" fill="#000000">
+                    <tspan x="1136" y="491.5">ɔ</tspan>
+                </text>
+                <text id="u" font-family="SauceCodeProNF, SauceCodePro Nerd Font" font-size="40" font-weight="normal" fill="#000000">
+                    <tspan x="1136" y="152.5">u</tspan>
+                </text>
+                <text id="ɚ" font-family="SauceCodeProNF, SauceCodePro Nerd Font" font-size="40" font-weight="normal" fill="#000000">
+                    <tspan x="941" y="417.5">ɚ</tspan>
+                </text>
+                <text id="ɛ" font-family="SauceCodeProNF, SauceCodePro Nerd Font" font-size="40" font-weight="normal" fill="#000000">
+                    <tspan x="641" y="491.5">ɛ</tspan>
+                </text>
+                <text id="Front" font-family="SauceCodeProNF, SauceCodePro Nerd Font" font-size="40" font-weight="normal" fill="#000000">
+                    <tspan x="402" y="39.5">Front</tspan>
+                </text>
+                <text id="Jaw-close" font-family="SauceCodeProNF, SauceCodePro Nerd Font" font-size="40" font-weight="normal" fill="#000000">
+                    <tspan x="5.68434189e-14" y="107.5">Jaw</tspan>
+                    <tspan x="5.68434189e-14" y="157.5">close</tspan>
+                </text>
+                <text id="Jaw-open" font-family="SauceCodeProNF, SauceCodePro Nerd Font" font-size="40" font-weight="normal" fill="#000000">
+                    <tspan x="5.68434189e-14" y="607.5">Jaw </tspan>
+                    <tspan x="5.68434189e-14" y="657.5">open</tspan>
+                </text>
+                <text id="Tongue-Position" transform="translate(217, 404) rotate(270) translate(-217, -404)" font-family="SauceCodeProNF, SauceCodePro Nerd Font" font-size="40" font-weight="normal" fill="#000000">
+                    <tspan x="37" y="418">Tongue Position</tspan>
+                </text>
+                <text id="Back" font-family="SauceCodeProNF, SauceCodePro Nerd Font" font-size="40" font-weight="normal" fill="#000000">
+                    <tspan x="1132.5" y="39">Back</tspan>
+                </text>
+                <text id="a" font-family="SauceCodeProNF, SauceCodePro Nerd Font" font-size="40" font-weight="normal" fill="#000000">
+                    <tspan x="941" y="625.5">a</tspan>
+                </text>
+                <text id="ɑ" font-family="SauceCodeProNF, SauceCodePro Nerd Font" font-size="40" font-weight="normal" fill="#000000">
+                    <tspan x="1136" y="625.5">ɑ</tspan>
+                </text>
+                <text id="ʊ" font-family="SauceCodeProNF, SauceCodePro Nerd Font" font-size="40" font-weight="normal" fill="#000000">
+                    <tspan x="1080" y="228.5">ʊ</tspan>
+                </text>
+                <text id="o" font-family="SauceCodeProNF, SauceCodePro Nerd Font" font-size="40" font-weight="normal" fill="#000000">
+                    <tspan x="1136" y="301.5">o</tspan>
+                </text>
+                <text id="High" font-family="SauceCodeProNF, SauceCodePro Nerd Font" font-size="40" font-weight="normal" fill="#000000">
+                    <tspan x="282" y="215.5">High</tspan>
+                </text>
+                <text id="Mid" font-family="SauceCodeProNF, SauceCodePro Nerd Font" font-size="40" font-weight="normal" fill="#000000">
+                    <tspan x="282" y="413.5">Mid</tspan>
+                </text>
+                <text id="Low" font-family="SauceCodeProNF, SauceCodePro Nerd Font" font-size="40" font-weight="normal" fill="#000000">
+                    <tspan x="282" y="611.5">Low</tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>

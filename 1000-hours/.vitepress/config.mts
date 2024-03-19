@@ -132,32 +132,36 @@ export default withMermaid(
                         link: "/sounds-of-american-english/2.1.1-lips",
                       },
                       {
-                        text: "2.1.2. ʌ/ɑ",
-                        link: "/sounds-of-american-english/2.1.2-ʌ",
+                        text: "2.1.2. 舌位",
+                        link: "/sounds-of-american-english/2.1.2-tongue",
                       },
                       {
-                        text: "2.1.3. e/æ",
-                        link: "/sounds-of-american-english/2.1.3-e",
+                        text: "2.1.3. ʌ/ɑ",
+                        link: "/sounds-of-american-english/2.1.3-ʌ",
                       },
                       {
-                        text: "2.1.4. ə/əː",
-                        link: "/sounds-of-american-english/2.1.4-ə",
+                        text: "2.1.4. e/æ",
+                        link: "/sounds-of-american-english/2.1.4-e",
                       },
                       {
-                        text: "2.1.5. ɪ/iː",
-                        link: "/sounds-of-american-english/2.1.5-i",
+                        text: "2.1.5. ə/əː",
+                        link: "/sounds-of-american-english/2.1.5-ə",
                       },
                       {
-                        text: "2.1.6. ʊ/uː",
-                        link: "/sounds-of-american-english/2.1.6-u",
+                        text: "2.1.6. ɪ/iː",
+                        link: "/sounds-of-american-english/2.1.6-i",
                       },
                       {
-                        text: "2.1.7. ɔ/ɔː",
-                        link: "/sounds-of-american-english/2.1.7-ɔ",
+                        text: "2.1.7. ʊ/uː",
+                        link: "/sounds-of-american-english/2.1.7-u",
                       },
                       {
-                        text: "2.1.8. aɪ... əʊ",
-                        link: "/sounds-of-american-english/2.1.8-aɪ",
+                        text: "2.1.8. ɔ/ɔː",
+                        link: "/sounds-of-american-english/2.1.8-ɔ",
+                      },
+                      {
+                        text: "2.1.9. aɪ... əʊ",
+                        link: "/sounds-of-american-english/2.1.9-aɪ",
                       },
                     ]
                   },
