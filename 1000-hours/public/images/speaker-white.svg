@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="13px" height="19px" viewBox="0 0 13 19" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>speaker-white</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round">
+        <g id="speaker-white" transform="translate(1.3333, 1.2018)" stroke="#ffffff" stroke-width="2">
+            <path d="M10,14.5337013 L10,1.43142985 C10,0.158715564 8.46128571,-0.47867015 7.56128571,0.421286993 L4.70414286,3.27842985 C4.43628571,3.54632985 4.07285714,3.69684414 3.694,3.69684414 L1.42857143,3.69684414 C0.6396,3.69684414 0,4.33644414 0,5.12541556 L0,10.8397013 C0,11.6287013 0.6396,12.2682727 1.42857143,12.2682727 L3.694,12.2682727 C4.07285714,12.2682727 4.43628571,12.4188441 4.70414286,12.6867013 L7.56128571,15.5438441 C8.46128571,16.4438441 10,15.8064156 10,14.5337013 Z" id="Path"></path>
+        </g>
+    </g>
+</svg>
