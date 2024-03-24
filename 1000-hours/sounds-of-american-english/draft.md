@@ -1,83 +1,100 @@
-# Sounds of American English
+# Drafts
 
-## Introduction
+辅音 `t` 在美式英语中有个弹舌音变体，`t̬`，例如，*cutting* `/ˈkʌt̬·ɪŋ/`。
 
-## 1. English Alphabet
+The consonant `t` has a flapping variant, `t̬`, as in the word *cutting*, pronounced `/ˈkʌt̬·ɪŋ/`.
 
-Modern English is composed of *26* letters, each with both *uppercase* and *lowercase* forms. English stands out among European languages for not using [diacritics](https://en.wikipedia.org/wiki/Diacritic), which are special marks added to letters to alter their pronunciation or meaning, such as *â*, *é* or *ç*, etc.
+辅音 `l` 是音节辅音（[2.2.14](2.2.14-lr)），有时会在之前自然附带一个 `ə` 音，可能被标注为 `əl`、`ᵊl`（上标式 `ə`） 或者 `l̩`（注意 `l` 下的那根小竖线）。
 
-[NATO](https://en.wikipedia.org/wiki/NATO) has a system that uses common words to identify each letter, which is particularly helpful for military and civil aviation, emergency serivces, radio or phone communication, and many others to avoid confusion when spelling out words.
+The consonant `l` is a syllabic consonant ([2.2.14](2.2.14-lr)), which sometimes naturally comes with an `ə` sound before it. This may be annotated as `əl`, `ᵊl` (with a superscript `ə`), or `l̩` (note the small vertical line underneath the `l`).
 
-| Letter    | Pronunciation                                                                                                                        | NATO Phonetic Alphabet                                                                                                                                          |
-| --------- | ------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **A** *a* | `/eɪ/` <span class="speak-word-inline" data-audio-us="/audios/us/a-us-guy.mp3" data-audio-uk="/audios/us/a-us-jen.mp3"></span>       | *Alpha*    `/ˈæl.fə/`<span class="speak-word-inline" data-audio-us="/audios/us/Alpha-us-guy.mp3" data-audio-uk="/audios/us/Alpha-us-jen.mp3"></span>            |
-| **B** *b* | `/biː/` <span class="speak-word-inline" data-audio-us="/audios/us/b-us-guy.mp3" data-audio-uk="/audios/us/b-us-jen.mp3"></span>      | *Bravo*    `/ˈbrɑː.voʊ/`<span class="speak-word-inline" data-audio-us="/audios/us/Bravo-us-guy.mp3" data-audio-uk="/audios/us/Bravo-us-jen.mp3"></span>         |
-| **C** *c* | `/siː/` <span class="speak-word-inline" data-audio-us="/audios/us/c-us-guy.mp3" data-audio-uk="/audios/us/c-us-jen.mp3"></span>      | *Charlie*  `/ˈtʃɑːr.liː/`<span class="speak-word-inline" data-audio-us="/audios/us/Charlie-us-guy.mp3" data-audio-uk="/audios/us/Charlie-us-jen.mp3"></span>    |
-| **D** *d* | `/diː/` <span class="speak-word-inline" data-audio-us="/audios/us/d-us-guy.mp3" data-audio-uk="/audios/us/d-us-jen.mp3"></span>      | *Delta*    `/ˈdɛl.tə/`<span class="speak-word-inline" data-audio-us="/audios/us/Delta-us-guy.mp3" data-audio-uk="/audios/us/Delta-us-jen.mp3"></span>           |
-| **E** *e* | `/iː/` <span class="speak-word-inline" data-audio-us="/audios/us/e-us-guy.mp3" data-audio-uk="/audios/us/e-us-jen.mp3"></span>       | *Echo*     `/ˈɛk.oʊ/`<span class="speak-word-inline" data-audio-us="/audios/us/Echo-us-guy.mp3" data-audio-uk="/audios/us/Echo-us-jen.mp3"></span>              |
-| **F** *f* | `/ɛf/` <span class="speak-word-inline" data-audio-us="/audios/us/f-us-guy.mp3" data-audio-uk="/audios/us/f-us-jen.mp3"></span>       | *Foxtrot*  `/ˈfɔːks.trɒt/`<span class="speak-word-inline" data-audio-us="/audios/us/Foxtrot-us-guy.mp3" data-audio-uk="/audios/us/Foxtrot-us-jen.mp3"></span>   |
-| **G** *g* | `/dʒiː/` <span class="speak-word-inline" data-audio-us="/audios/us/g-us-guy.mp3" data-audio-uk="/audios/us/g-us-jen.mp3"></span>     | *Golf*     `/ɡɑːf/`<span class="speak-word-inline" data-audio-us="/audios/us/Golf-us-guy.mp3" data-audio-uk="/audios/us/Golf-us-jen.mp3"></span>                |
-| **H** *h* | `/eɪtʃ/` <span class="speak-word-inline" data-audio-us="/audios/us/h-us-guy.mp3" data-audio-uk="/audios/us/h-us-jen.mp3"></span>     | *Hotel*    `/hoʊˈtɛl/`<span class="speak-word-inline" data-audio-us="/audios/us/Hotel-us-guy.mp3" data-audio-uk="/audios/us/Hotel-us-jen.mp3"></span>           |
-| **I** *i* | `/aɪ/` <span class="speak-word-inline" data-audio-us="/audios/us/i-us-guy.mp3" data-audio-uk="/audios/us/i-us-jen.mp3"></span>       | *India*    `/ˈɪn.di.ə/`<span class="speak-word-inline" data-audio-us="/audios/us/India-us-guy.mp3" data-audio-uk="/audios/us/India-us-jen.mp3"></span>          |
-| **J** *j* | `/dʒeɪ/` <span class="speak-word-inline" data-audio-us="/audios/us/j-us-guy.mp3" data-audio-uk="/audios/us/j-us-jen.mp3"></span>     | *Juliet*   `/ˈdʒuːliːˌɛt/`<span class="speak-word-inline" data-audio-us="/audios/us/Juliet-us-guy.mp3" data-audio-uk="/audios/us/Juliet-us-jen.mp3"></span>     |
-| **K** *k* | `/keɪ/` <span class="speak-word-inline" data-audio-us="/audios/us/k-us-guy.mp3" data-audio-uk="/audios/us/k-us-jen.mp3"></span>      | *Kilo*     `/ˈkiː.loʊ/`<span class="speak-word-inline" data-audio-us="/audios/us/Kilo-us-guy.mp3" data-audio-uk="/audios/us/Kilo-us-jen.mp3"></span>            |
-| **L** *l* | `/ɛl/` <span class="speak-word-inline" data-audio-us="/audios/us/l-us-guy.mp3" data-audio-uk="/audios/us/l-us-jen.mp3"></span>       | *Lima*     `/ˈliː.mə/`<span class="speak-word-inline" data-audio-us="/audios/us/Lima-us-guy.mp3" data-audio-uk="/audios/us/Lima-us-jen.mp3"></span>             |
-| **M** *m* | `/ɛm/` <span class="speak-word-inline" data-audio-us="/audios/us/m-us-guy.mp3" data-audio-uk="/audios/us/m-us-jen.mp3"></span>       | *Mike*     `/maɪk/`<span class="speak-word-inline" data-audio-us="/audios/us/Mike-us-guy.mp3" data-audio-uk="/audios/us/Mike-us-jen.mp3"></span>                |
-| **N** *n* | `/ɛn/` <span class="speak-word-inline" data-audio-us="/audios/us/n-us-guy.mp3" data-audio-uk="/audios/us/n-us-jen.mp3"></span>       | *November* `/noʊˈvɛm.bər/`<span class="speak-word-inline" data-audio-us="/audios/us/November-us-guy.mp3" data-audio-uk="/audios/us/November-us-jen.mp3"></span> |
-| **O** *o* | `/oʊ/` <span class="speak-word-inline" data-audio-us="/audios/us/o-us-guy.mp3" data-audio-uk="/audios/us/o-us-jen.mp3"></span>       | *Oscar*    `/ˈɑːs.kɑːr/`<span class="speak-word-inline" data-audio-us="/audios/us/Oscar-us-guy.mp3" data-audio-uk="/audios/us/Oscar-us-jen.mp3"></span>         |
-| **P** *p* | `/piː/` <span class="speak-word-inline" data-audio-us="/audios/us/p-us-guy.mp3" data-audio-uk="/audios/us/p-us-jen.mp3"></span>      | *Papa*     `/pəˈpɑː/`<span class="speak-word-inline" data-audio-us="/audios/us/Papa-us-guy.mp3" data-audio-uk="/audios/us/Papa-us-jen.mp3"></span>              |
-| **Q** *q* | `/kjuː/` <span class="speak-word-inline" data-audio-us="/audios/us/q-us-guy.mp3" data-audio-uk="/audios/us/q-us-jen.mp3"></span>     | *Quebec*   `/kəˈbɛk/`<span class="speak-word-inline" data-audio-us="/audios/us/Quebec-us-guy.mp3" data-audio-uk="/audios/us/Quebec-us-jen.mp3"></span>          |
-| **R** *r* | `/ɑːr/` <span class="speak-word-inline" data-audio-us="/audios/us/r-us-guy.mp3" data-audio-uk="/audios/us/r-us-jen.mp3"></span>      | *Romeo*    `/ˈroʊ.miːˌoʊ/`<span class="speak-word-inline" data-audio-us="/audios/us/Romeo-us-guy.mp3" data-audio-uk="/audios/us/Romeo-us-jen.mp3"></span>       |
-| **S** *s* | `/ɛs/` <span class="speak-word-inline" data-audio-us="/audios/us/s-us-guy.mp3" data-audio-uk="/audios/us/s-us-jen.mp3"></span>       | *Sierra*   `/siˈɛr.ə/`<span class="speak-word-inline" data-audio-us="/audios/us/Sierra-us-guy.mp3" data-audio-uk="/audios/us/Sierra-us-jen.mp3"></span>         |
-| **T** *t* | `/tiː/` <span class="speak-word-inline" data-audio-us="/audios/us/t-us-guy.mp3" data-audio-uk="/audios/us/t-us-jen.mp3"></span>      | *Tango*    `/ˈtæŋ.ɡoʊ/`<span class="speak-word-inline" data-audio-us="/audios/us/Tango-us-guy.mp3" data-audio-uk="/audios/us/Tango-us-jen.mp3"></span>          |
-| **U** *u* | `/juː/` <span class="speak-word-inline" data-audio-us="/audios/us/u-us-guy.mp3" data-audio-uk="/audios/us/u-us-jen.mp3"></span>      | *Uniform*  `/ˈjuː.nɪ.fɔːrm/`<span class="speak-word-inline" data-audio-us="/audios/us/Uniform-us-guy.mp3" data-audio-uk="/audios/us/Uniform-us-jen.mp3"></span> |
-| **V** *v* | `/viː/` <span class="speak-word-inline" data-audio-us="/audios/us/v-us-guy.mp3" data-audio-uk="/audios/us/v-us-jen.mp3"></span>      | *Victor*   `/ˈvɪk.tər/`<span class="speak-word-inline" data-audio-us="/audios/us/Victor-us-guy.mp3" data-audio-uk="/audios/us/Victor-us-jen.mp3"></span>        |
-| **W** *w* | `/ˈdʌbl̩juː/` <span class="speak-word-inline" data-audio-us="/audios/us/w-us-guy.mp3" data-audio-uk="/audios/us/w-us-jen.mp3"></span> | *Whiskey*  `/ˈwɪs.kiː/`<span class="speak-word-inline" data-audio-us="/audios/us/Whiskey-us-guy.mp3" data-audio-uk="/audios/us/Whiskey-us-jen.mp3"></span>      |
-| **X** *x* | `/ɛks/` <span class="speak-word-inline" data-audio-us="/audios/us/x-us-guy.mp3" data-audio-uk="/audios/us/x-us-jen.mp3"></span>      | *X-ray*    `/ˈɛks.reɪ/`<span class="speak-word-inline" data-audio-us="/audios/us/X-ray-us-guy.mp3" data-audio-uk="/audios/us/X-ray-us-jen.mp3"></span>          |
-| **Y** *y* | `/waɪ/` <span class="speak-word-inline" data-audio-us="/audios/us/y-us-guy.mp3" data-audio-uk="/audios/us/y-us-jen.mp3"></span>      | *Yankee*   `/ˈjæŋ.kiː/`<span class="speak-word-inline" data-audio-us="/audios/us/Yankee-us-guy.mp3" data-audio-uk="/audios/us/Yankee-us-jen.mp3"></span>        |
-| **Z** *z* | `/ziː/` <span class="speak-word-inline" data-audio-us="/audios/us/z-us-guy.mp3" data-audio-uk="/audios/us/z-us-jen.mp3"></span>      | *Zulu*     `/ˈzuː.luː/`<span class="speak-word-inline" data-audio-us="/audios/us/Zulu-us-guy.mp3" data-audio-uk="/audios/us/Zulu-us-jen.mp3"></span>            |
+6 个基础元音中，`ə` 和 `ɪ` 有相对更多的变体（*allophone*）：
+In the 6 basic vowels, `ə` and `ɪ` have relatively more variants, or *allophones*:
 
-In British, letter *z* is pronounced as `/zed/`。
+* `ɪ`：
+  * 除了长元音版本 `iː` 之外，还有一个半长版本 `i`，例如 *happy* `/ˈhæp·i/`[^1]；
+  * In addition to the long vowel version `i`ː, there's also a semi-long version `i`, as in *happy* `/ˈhæp·i/`.
+* `ə`：
+  * 长元音版本 `əː` 在 CEPD[^2] 中被标注为 `ɜː`，例如 *bird* `/bɜːd/` (UK)
+  * The long vowel version `əː` is annotated as `ɜː` in the CEPD[^2], like in *bird* `/bɜːd/` (UK).
+  * 儿化的短元音 `ə` 被标注为 `ɚ`，例如 *mother* `/ˈmʌð·ɚ/`；
+  * The rhotacized short vowel `ə` is annotated as `ɚ`, as in *mother* pronounced `/ˈmʌð·ɚ/`.
+  * 儿化的长元音 `əː` 被标注为 `ɝː` 例如 *bird* `/bɝːd/` (US)
+  * The rhotacized long vowel `əː` is annotated as `ɝː`, like in *bird* pronounced `/bɝːd/` (US).
 
-> [!Note]
->
-> 1. The synthesized audio files primarily utilizes OpenAI's TTS (Text-to-Speech) and Microsoft Edge's TTS. The blue speaker icon<span class="speak-word-inline" data-audio-us="/audios/us/Alpha-us-guy.mp3"></span>represents a male voice, whereas the brown speaker icon<span class="speak-word-inline" data-audio-uk="/audios/us/Alpha-us-jen.mp3"></span>signifies a female voice.
-> 2. The IPA ([International Phonetic Alphabet](https://en.wikipedia.org/wiki/International_Phonetic_Alphabet)) notation used for phonetic transcription is generated by OpenAI's ChatGPT, which may occasionally make mistakes that need to be corrected.
+英式英语中的 `eə`、`ɪə`、`ʊə`，在美式英语中的发音末尾都有儿化音，因此被标注为：`er`、`ɪr`、`ʊr`。
 
-## 2. Phonemes
+The sounds represented by `eə`, `ɪə`, and `ʊə` in British English are rhotacized in American English, which is why they are notated as: `er`, `ɪr`, `ʊr`.
 
-In natural speech, indivisible sound segments are referred to as *phonemes*. English language categorizes these phonemes into two main types: *vowels* and *consonants*.
+另外，英式英语中还有两个三元音: `aɪə` 比如，*fire* `/faɪə/`；*hour* `/aʊə/`。在美式英语中，这两个三元音被简化为两个双元音的更为明显的儿化音，`aɪə` → `aɪr`，比如，*fire* `/faɪr/`, *hour* `/aʊr/`。
 
-> [!Note]
->
-> The phonetic notation system employed in this tutorial is the D.J. Phonetic transcription, introduced by [Daniel Jones](https://en.wikipedia.org/wiki/Daniel_Jones_(phonetician)) who published his *English Pronouncing Dictionary* (EPD) back in 1917 and continually revised it over many years. Eventually handed over to Cambridge University Press, its name was revamped as the [*Cambridge English Pronouncing Dictionary*](https://dictionary.cambridge.org/pronunciation/english/dictionary) (CEPD). The CEPD rolled out its 15^th^ edition sometime around 1997 with an additional set of symbols for American pronunciations tallied along. Now on par with their [18^th^](https://www.cambridge.org/gb/cambridgeenglish/catalog/dictionaries/cambridge-english-pronouncing-dictionary-18th-edition) outing, this sitely respin of Jone's original framework has been widely adopted amongst major authoritative dictionaries - including but not limited to [Oxford](https://dictionary.cambridge.org/pronunciation/english/dictionary)'s upstanding series or [*Longman Dictionary of Contemporary English*](https://www.ldoceonline.com/) down till [*Collins COBUILD*](https://www.collinsdictionary.com/dictionary/english).
+Furthermore, in British English, there are two triphthongs: `aɪə` as in *fire* pronounced `/faɪə/` and `aʊə` as in *hour* pronounced `/aʊə/`. In American English, these two triphthongs simplify into more apparent rhotacized diphthongs, `aɪə` → `aɪr`, for example, *fire* pronounced `/faɪr/`, and *hour* pronounced `/aʊr/`.
 
-### 2.1 Vowels
+[^1]: The middle dot `·` in `/ˈhæp·i/` is an annotation of syllable division. A dot `.` is used in CEPD, but for clearer html rendering, we use a raised one here.
+[^2]: CEPD, Cambridge English Pronunciation Dictionary, https://dictionary.cambridge.org/help/phonetics.html.
 
-English approximately has *20* vowels. 
 
-Vowels can be classified into *long* and *short* vowels, or alternatively, they can also be grouped as *monophthongs* and *diphthongs*.
 
-| Monophthongs |                                   | Diphthongs                                |
-| ----- | --------------------------------- | ---------------------------------------------- |
-| Short vowels | `ʌ`, `e`, `ə`, `ɪ`, `ʊ`, `ɒ`     |                                                |
-| Long vowels | `ɑː`, `æ`, `əː`, `iː`, `uː`, `ɔː` | `aɪ`, `eɪ`, `ɔɪ`, `aʊ`, `oʊ`, `eə`, `ɪə`, `ʊə` |
+比较幸运的是，大多数的音标标注差异集中在**元音**标记上，尤其是美式英语的元音 —— 所以也不算是太难掌握。
 
-English may well be the language with the most regional accents on Earth, leading to frequent debate over the actual number of vowel sounds. Take American English for instance, `ʌ` is pronounced as `ə`, effectively reducing one vowel sound compared to British English. Additionally, some linguists argue that `eə`, `ɪə`, and `ʊə` shouldn't count as independent diphthongs but *rhotic* versions of existing vowels:  `e`,  `ɪ` and `ʊ`, thus stripping off three more distinct vowels...
+Luckily, the majority of phonetic notation differences are concentrated in *vowel* markings, especially American vowels, which makes it somewhat easier to master.
 
-A prominent feature of American English is the rhotacized `ə`. The IPA developed two specific marks to note this, with `ɚ` corresponding to `əʳ`, and `ɝ`  to `əːʳ`. Bear in mind not all instances of `ə` will be subjected to rhotacization; certain words like *focus* retain their original pronunciations as `/ˈfoʊkǝs/` rather than veering towards a rendition such as `/ˈfoʊkɚs/`.
+关于美式发音的音标标注，可以大致总结为以下几点：
 
-## 2.2 辅音
+Here are some key points to take note of when it comes to phonetic representation of American English:
 
-英文大约 28 个辅音。
+> - 短元音 `ʌ` 变得与 `ə` 非常接近，甚至常常直接被 `ə` 替代。比如，*but* `/bʌt/` 可能直接被标注为 `/bət/`。
+> - The short vowel `ʌ` often sounds very similar to `ə` and is frequently replaced by it in transcription. For example, *but* `/bʌt/` would be transcribed as `/bət/`.
+> - 长短元音不统一使用 `ː` 区分，而是`ə/ɑ`、`ə/ɜ`、`ɚ/ɝ`、 `e/æ`、`ɪ/i`、`ʊ/u`、`ɒ/ɔ`。
+> - Long and short vowels are differentiated not by using `ː`, but by pairs such as `ə/ɑ`, `ə/ɜ`, `ɚ/ɝ`, `e/æ`, `ɪ/i`, `ʊ/u`, `ɒ/ɔ`.
+> - 短元音 `e` 有时用 `ɛ` 标注。
+> - The short vowel `e` is sometimes transcribed as `ɛ`.
+> - 短元音 `ə` ，由于经常附带着 `ʳ` 音，常常被标注为 `ɚ`；不带有 `ʳ` 音的时候，常常被标注为 `ɜ`。
+> - The short vowel `ə`, often accompanied by the rhotic `ʳ`, is commonly transcribed as `ɚ`. When the rhotic sound is absent, `ə` is often transcribed as `ɜ`.
+> - 长元音 `əː`，同样由于经常附带着 `ʳ` 音，常常被标注为 `ɝ`。
+> - The long vowel `əː`, due to its frequent association with `ʳ`, is generally transcribed as `ɝ`.
+> - `ə` 结尾的双元音，都用 `r`：`ɪə` ⭢ `ɪr`，`eə` ⭢ `er`，`ʊə` ⭢ `ʊr`。
+> - Diphthongs ending in `ə` are represented with `r`: `ɪə` becomes `ɪr`, `eə` becomes `er`, `ʊə` becomes `ʊr`.
+> - 非重音音节中的 `ɪ` 可能会被标注为 `ə`。
+> - The `ɪ` in unstressed syllables may be transcribed as `ə`.
+> - 短元音 `ɒ` 在美式发音中读作 `ɑ`，也如此标注，比如，*hot* `/hɑt/` —— `ɑ` 比 `ʌ/ə` 略长一些，比 `ɑr` 短。
+> - The short vowel `ɒ` is pronounced as `ɑ` in American English and is transcribed as such. For example, *hot* is transcribed as `/hɑt/`. `ɑ` is slightly longer than `ʌ/ə` but shorter than `ɑr`.
+> - `t` 的弹舌音用 `t̬` 标注。
+> - The flapping `t` sound in American English is represented by `t̬`.
 
-| 爆破音 | 清辅音 | `p`, `t`, `k`           |
-| ------ | ------ | ----------------------- |
-|        | 浊辅音 | `b`, `d`, `g`           |
-| 摩擦音 | 清辅音 | `f`, `s`, `θ`, `ʃ`, `h` |
-|        | 浊辅音 | `v`, `z`, `ð`, `ʒ`, `r` |
-| 破擦音 | 清辅音 | `tʃ`, `tr`, `ts`        |
-|        | 浊辅音 | `dʒ`, `dr`, `dz`        |
-| 鼻音   | 浊辅音 | `m`, `n`, `ŋ`           |
-| 边辅音 | 浊辅音 | `l`                     |
-| 半元音 | 浊辅音 | `j`, `w`                |
+
+
+
+
+### `ʌ`
+
+*but* `/bʌt/`, *chum* `/tʃʌm/`, *cut* `/kʌt/`, *drum* `/drʌm/`, *duck* `/dʌk/`, *fun* `/fʌn/`, *gun* `/ɡʌn/`, *hut* `/hʌt/`, *jump* `/dʒʌmp/`, *luck* `/lʌk/`, *mud* `/mʌd/`, *nut* `/nʌt/`, *pup* `/pʌp/`, *run* `/rʌn/`, *shut* `/ʃʌt/`, *sun* `/sʌn/`, *thug* `/θʌɡ/`, *thus* `/ðʌs/`, *truck* `/trʌk/`, *tut* `/tʌt/`, *vulgar* `/ˈvʌl·ɡɚ/`, *won* `/wʌn/`, *yum*  `/jʌm/`
+
+
+### `e`
+
+*bet* `/bet/`, *check* `/tʃek/`, *desk* `/desk/`, *dress* `/dres/`, *fed* `/fed/`, *get* `/ɡet/`, *hen* `/hen/`, *jet* `/dʒet/`, *kept* `/kept/`, *let* `/let/`, *met* `/met/`, *net* `/net/`, *pet* `/pet/`, *red* `/red/`, *set* `/set/`, *shed* `/ʃed/`, *test* `/test/`, *theft* `/θeft/`, *trek* `/trek/`, *vet* `/vet/`, *wet* `/wet/`, *yet* `/jet/`, *zed* `/zed/`
+
+### `ə`
+
+*ago* `/əˈɡoʊ/`, *button* `/ˈbʌt̬·ən/`, *develop* `/dɪˈvel·əp/`, *dramatic* `/drəˈmæt̬·ɪk/`, *expression* `/ɪkˈspreʃ·ən/`, *onion* `/ˈʌn·jən/`, *realize* `/ˈriː·ə·laɪz/`, *standard* `/ˈstæn·dɚd/`, *system* `/ˈsɪs·təm/`, *telegram* `/ˈtel·ə·ɡræm/`
+
+注意：没有儿化的 `ə` 在美式英语中，被称作 *schwa*，非重读央元音 —— 即，只出现在非重读音节中。
+
+### `ɚ`
+
+*danger* `/ˈdeɪn·dʒɚ/`, *freezer* `/ˈfriː·zɚ/`, *harder* `/hɑːrdɚ/`, *larger* `/lɑːrdʒɚ/`, *paper* `/ˈpeɪ·pɚ/`, *server* `/ˈsɝː·vɚ/`, *teacher* `/ˈtiː·tʃɚ/`, *water* `/ˈwɑː·t̬ɚ/`, *worker* `/ˈwɝː·kɚ/`
+
+注意：儿化的短元音 `ɚ` 只出现在非重读音节中。
+
+### `ɪ`
+
+*bit* `/bɪt/`, *chip* `/tʃɪp/`, *did* `/dɪd/`, *drill* `/drɪl/`, *gig* `/ɡɪɡ/`, *gin* `/dʒɪn/`, *his* `/hɪz/`, *if* `/ɪf/`, *kick* `/kɪk/`, *lip* `/lɪp/`, *milk* `/mɪlk/`, *nil* `/nɪl/`, *pick* `/pɪk/`, *rip* `/rɪp/`, *ship* `/ʃɪp/`, *sit* `/sɪt/`, *thick* `/θɪk/`, *this* `/ðɪs/`, *tip* `/tɪp/`, *trick* `/trɪk/`, *vivid* `/ˈvɪv·ɪd/`, *wit* `/wɪ/`, *zip* `/zɪp/`
+
+### `ʊ`
+
+*book* `/bʊk/`, *cook* `/kʊk/`, *foot* `/fʊt/`, *good* `/ɡʊd/`, *put* `/pʊt/`, *should* `/ʃʊd/`, *wood* `/wʊd/`
+
+### `æ`
+
+*add* `/æd/`, *bad* `/bæd/`, *cat* `/kæt/`, *chat* `/tʃæt/`, *dad* `/dæd/`, *dad* `/dæd/`, *drag* `/dræɡ/`, *jack* `/dʒæk/`, *fat* `/fæt/`, *gag* `/ɡæɡ/`, *has* `/hæz/`, *lab* `/læb/`, *mad* `/mæd/`, *nap* `/næp/`, *pad* `/pæd/`, *rat* `/ræt/`, *shall* `/ʃæl/`, *task* `/tæsk/`, *thank* `/θæŋk/`, *that* `/ðæt/`, *trash* `/træʃ/`, *vast* `/væst/`, *wag* `/wæɡ/`, *zag* `/zæɡ/`
