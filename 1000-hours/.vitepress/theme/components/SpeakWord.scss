@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  border-top: 1px solid #d87676;
+  // border-bottom: 1px solid #d87676;
   padding: 8px 0;
   .ctrl {
     display: flex;
@@ -42,25 +42,63 @@
 
   .play-button {
     border: none;
-    border-radius: 4rem;
-    padding: 0;
+    border-radius: 2px;
+    padding: 0 4px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 28px;
     cursor: pointer;
     height: 28px;
-    width: 48px;
+    max-width: 48px;
     display: flex;
     align-items: center;
+    position: relative;
+    transition: transform 0.3s ease;
+    .emoji {
+      width: 20px;
+      font-size: 1rem;
+    }
     .icon {
+      position: absolute;
       cursor: pointer;
       opacity: 0.7;
-      height: 14px;
-      width: 14px;
+      width: 12px;
+      height: 12px;
+      padding: 2px;
+      border-radius: 10px;
+      bottom: 0;
+      opacity: 1;
+      right: 0;
+      transform: translateY(-3px);
+    }
+    &.female {
+      .icon {
+        background-color: #d87272;
+      }
+    }
+    &.male {
+      .icon {
+        background-color: #7575d3;
+      }
+    }
+    &:active {
+      animation: pulse 0.3s ease;
+    }
+    &:hover {
+      transform: scale(1.1);
     }
   }
 }
-.speak-word:last-child {
-  border-bottom: 1px solid #d87676;
+// add an active animation to the play button
+@keyframes pulse {
+  0% {
+    transform: scale(1.1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1.1);
+  }
 }
