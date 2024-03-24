@@ -131,3 +131,5 @@ ffmpeg-core.worker.js
 
 .vitepress/cache/
 /public/jupyter-notebooks/*.mp3
+
+*.sqlite
