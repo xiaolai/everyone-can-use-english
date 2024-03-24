@@ -227,8 +227,8 @@ export default withMermaid(
                         link: "/sounds-of-american-english/2.2.14-lr",
                       },
                       {
-                        text: "2.2.15. j, w",
-                        link: "/sounds-of-american-english/2.2.15-jw",
+                        text: "2.2.15. w, j",
+                        link: "/sounds-of-american-english/2.2.15-wj",
                       },
                     ]
                   },
