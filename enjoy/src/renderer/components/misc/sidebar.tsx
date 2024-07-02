@@ -31,6 +31,7 @@ import {
   ExternalLinkIcon,
   NotebookPenIcon,
   SpeechIcon,
+  GraduationCapIcon,
 } from "lucide-react";
 import { useLocation, Link } from "react-router-dom";
 import { t } from "i18next";
@@ -69,6 +70,14 @@ export const Sidebar = () => {
               tooltip={t("sidebar.home")}
               active={activeTab === "/"}
               Icon={HomeIcon}
+            />
+
+            <SidebarItem
+              href="/courses"
+              label={t("sidebar.courses")}
+              tooltip={t("sidebar.courses")}
+              active={activeTab === "/courses"}
+              Icon={GraduationCapIcon}
             />
 
             <Separator className="hidden xl:block" />
