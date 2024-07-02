@@ -39,14 +39,12 @@ export const TranscriptionEditButton = (props: {
 
   const handleSave = async () => {
     setSubmiting(true);
-    try {
-      await generateTranscription({ originalText: content });
-      setOpen(false);
-    } catch (e) {
-      toast.error(e.message);
-    }
-
-    setSubmiting(false);
+    generateTranscription({ originalText: content })
+      .then(() => setOpen(false))
+      .catch((e) => {
+        toast.error(e.message);
+      })
+      .finally(() => setSubmiting(false));
   };
 
   return (

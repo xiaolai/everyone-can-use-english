@@ -64,7 +64,7 @@ export const MediaCurrentRecording = () => {
     currentTime: mediaCurrentTime,
   } = useContext(MediaPlayerProviderContext);
   const { webApi, EnjoyApp } = useContext(AppSettingsProviderContext);
-  const { enabled, currentHotkeys } = useContext(
+  const { currentHotkeys } = useContext(
     HotKeysSettingsProviderContext
   );
   const [player, setPlayer] = useState(null);

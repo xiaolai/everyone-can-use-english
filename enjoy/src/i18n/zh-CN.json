@@ -611,8 +611,11 @@
   "assessing": "正在评估",
   "assessedSuccessfully": "评估成功",
   "optinal": "可选",
-  "uploadTranscriptFile": "上传字幕文件(.txt/.srt/.vtt)",
+  "uploadTranscriptFile": "上传字幕文件",
+  "uploadTranscriptFileDescription": "可选。支持字幕文件格式: txt/srt/vtt。",
   "onlyTextFileIsSupported": "仅支持文本文件",
+  "isolateVoice": "提取人声",
+  "isolateVoiceDescription": "将人声从音乐、背景音中隔离，字幕对齐会更准确，但耗时较久。",
   "sortBy": "排序",
   "createdAtDesc": "创建时间降序",
   "createdAtAsc": "创建时间升序",
@@ -627,5 +630,6 @@
   "search": "搜索",
   "noData": "没有数据",
   "selectedFiles": "已选中文件",
-  "moreOptions": "更多选项"
+  "moreOptions": "更多选项",
+  "lessOptions": "更少选项"
 }

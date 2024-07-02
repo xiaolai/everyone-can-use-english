@@ -611,8 +611,11 @@
   "assessing": "Assessing",
   "assessedSuccessfully": "Assessed successfully",
   "optinal": "Optional",
-  "uploadTranscriptFile": "Upload transcript file(.txt/.srt/.vtt)",
+  "uploadTranscriptFile": "Upload transcript file",
+  "uploadTranscriptFileDescription": "Optional. Support formats: txt/srt/vtt.",
   "onlyTextFileIsSupported": "Only text file is supported",
+  "isolateVoice": "Isolate voice",
+  "isolateVoiceDescription": "Isolates voice from any music or background ambience. More accurate but slower",
   "sortBy": "Sort by",
   "createdAtDesc": "Created at desc",
   "createdAtAsc": "Created at asc",
@@ -627,5 +630,6 @@
   "search": "Search",
   "noData": "No data",
   "selectedFiles": "Selected files",
-  "moreOptions": "More options"
+  "moreOptions": "More options",
+  "lessOptions": "Less options"
 }

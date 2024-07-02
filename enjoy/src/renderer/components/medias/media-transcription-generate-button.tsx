@@ -9,6 +9,7 @@ import {
   AlertDialogContent,
   AlertDialogTitle,
   AlertDialogDescription,
+  toast,
 } from "@renderer/components/ui";
 import { LoaderIcon } from "lucide-react";
 import { TranscriptionCreateForm } from "../transcriptions";
@@ -22,6 +23,7 @@ export const MediaTranscriptionGenerateButton = (props: {
     transcribing,
     transcription,
     transcribingProgress,
+    transcribingOutput,
   } = useContext(MediaPlayerProviderContext);
   const [open, setOpen] = useState(false);
 
@@ -62,11 +64,17 @@ export const MediaTranscriptionGenerateButton = (props: {
               originalText: data.text,
               language: data.language,
               service: data.service as WhisperConfigType["service"],
-            });
-            setOpen(false);
+            })
+              .then(() => {
+                setOpen(false);
+              })
+              .catch((e) => {
+                toast.error(e.message);
+              });
           }}
           transcribing={transcribing}
           transcribingProgress={transcribingProgress}
+          transcribingOutput={transcribingOutput}
         />
       </AlertDialogContent>
     </AlertDialog>
