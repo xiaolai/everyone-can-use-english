@@ -13,9 +13,19 @@ type ChatType = {
 
 type ChatMemberType = {
   id: string;
+  chatId: string;
+  userId: string;
   state: "active" | "passive";
-  type: "User" | "Agent";
-};
+} & (
+  | ({
+      userType: "User";
+      user: ChatUserType;
+    } & UserType)
+  | ({
+      userType: "Agent";
+      agent: ChatAgentType;
+    } & ChatAgentType)
+);
 
 type ChatAgentType = {
   id: string;
