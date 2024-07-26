@@ -4,7 +4,7 @@ type ChatType = {
   topic: string;
   prompt: string;
   language: string;
-  digest: string;
+  digest?: string;
   createdAt: string;
   updatedAt: string;
   sessions: ChatSessionType[];

@@ -86,7 +86,7 @@ export const ChatSidebar = () => {
         </DialogContent>
       </Dialog>
       <Dialog open={displayAgentForm} onOpenChange={setDisplayAgentForm}>
-        <DialogContent className="max-w-screen-md h-5/6">
+        <DialogContent className="max-w-screen-md h-5/6 p-0">
           <DialogTitle className="sr-only"></DialogTitle>
           <ChatAgents />
         </DialogContent>
