@@ -3,28 +3,52 @@ import {
   Avatar,
   AvatarFallback,
   Button,
+  Dialog,
+  DialogContent,
+  DialogTitle,
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
   Input,
   ScrollArea,
 } from "@renderer/components/ui";
 import { t } from "i18next";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import {
   AppSettingsProviderContext,
   ChatProviderContext,
 } from "@renderer/context";
+import { DropdownMenuTrigger } from "@radix-ui/react-dropdown-menu";
+import { ChatForm } from "./chat-form";
+import { ChatAgents } from "./chat-agents";
 
 export const ChatSidebar = () => {
   const { user } = useContext(AppSettingsProviderContext);
   const { chats, currentChat, setCurrentChat } =
     useContext(ChatProviderContext);
 
+  const [displayChatForm, setDisplayChatForm] = useState(false);
+  const [displayAgentForm, setDisplayAgentForm] = useState(false);
+
   return (
     <ScrollArea className="h-screen w-64 bg-muted border-r">
       <div className="flex items-center justify-around px-2 py-4">
         <Input className="rounded-full" placeholder={t("search")} />
-        <Button variant="ghost" size="icon" className="">
-          <PlusIcon className="w-4 h-4" />
-        </Button>
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button variant="ghost" size="icon" className="">
+              <PlusIcon className="w-4 h-4" />
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent>
+            <DropdownMenuItem onClick={() => setDisplayChatForm(true)}>
+              {t("addChat")}
+            </DropdownMenuItem>
+            <DropdownMenuItem onClick={() => setDisplayAgentForm(true)}>
+              {t("addAgent")}
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
       </div>
 
       {chats.length === 0 && (
@@ -55,6 +79,18 @@ export const ChatSidebar = () => {
           </div>
         ))}
       </div>
+      <Dialog open={displayChatForm} onOpenChange={setDisplayChatForm}>
+        <DialogContent className="max-w-screen-md h-5/6">
+          <DialogTitle className="sr-only"></DialogTitle>
+          <ChatForm />
+        </DialogContent>
+      </Dialog>
+      <Dialog open={displayAgentForm} onOpenChange={setDisplayAgentForm}>
+        <DialogContent className="max-w-screen-md h-5/6">
+          <DialogTitle className="sr-only"></DialogTitle>
+          <ChatAgents />
+        </DialogContent>
+      </Dialog>
     </ScrollArea>
   );
 };
