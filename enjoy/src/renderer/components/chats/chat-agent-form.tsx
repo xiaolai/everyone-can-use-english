@@ -2,6 +2,15 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
   Avatar,
   Button,
   Form,
@@ -93,6 +102,8 @@ export const ChatAgentForm = (props: { agent?: ChatAgentType }) => {
 
     setGptProviders({ ...providers });
   };
+
+  const destroyChatAgent = async () => {};
 
   const refreshTtsProviders = async () => {
     let providers = TTS_PROVIDERS;
@@ -355,6 +366,37 @@ export const ChatAgentForm = (props: { agent?: ChatAgentType }) => {
           />
         </div>
         <div className="flex items-center space-x-4">
+          {agent?.id && (
+            <AlertDialog>
+              <AlertDialogTrigger asChild>
+                <Button
+                  className="w-full h-12 text-destructive"
+                  size="lg"
+                  variant="secondary"
+                >
+                  {t("delete")}
+                </Button>
+              </AlertDialogTrigger>
+
+              <AlertDialogContent>
+                <AlertDialogHeader>
+                  <AlertDialogTitle>{t("deleteChatAgent")}</AlertDialogTitle>
+                </AlertDialogHeader>
+                <AlertDialogDescription>
+                  {t("deleteChatAgentConfirmation")}
+                </AlertDialogDescription>
+                <AlertDialogFooter>
+                  <AlertDialogCancel>{t("cancel")}</AlertDialogCancel>
+                  <AlertDialogAction
+                    className="bg-destructive hover:bg-destructive-hover"
+                    onClick={destroyChatAgent}
+                  >
+                    {t("delete")}
+                  </AlertDialogAction>
+                </AlertDialogFooter>
+              </AlertDialogContent>
+            </AlertDialog>
+          )}
           <Button>{t("save")}</Button>
         </div>
       </form>
