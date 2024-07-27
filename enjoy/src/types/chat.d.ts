@@ -48,6 +48,7 @@ type ChatAgentType = {
 type ChatSessionType = {
   id: string;
   chatId: string;
+  state: "pending" | "completed";
   createdAt: string;
   updatedAt: string;
   chat: ChatType;

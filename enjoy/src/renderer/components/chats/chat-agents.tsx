@@ -20,9 +20,7 @@ export const ChatAgents = () => {
   const fetchAgents = async (q: string) => {};
 
   useEffect(() => {
-    if (debouncedQuery) {
-      fetchAgents(debouncedQuery);
-    }
+    fetchAgents(debouncedQuery);
   }, [debouncedQuery]);
 
   return (

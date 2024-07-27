@@ -13,7 +13,7 @@ import {
   ScrollArea,
 } from "@renderer/components/ui";
 import { t } from "i18next";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import {
   AppSettingsProviderContext,
   ChatProviderContext,
@@ -21,6 +21,7 @@ import {
 import { DropdownMenuTrigger } from "@radix-ui/react-dropdown-menu";
 import { ChatForm } from "./chat-form";
 import { ChatAgents } from "./chat-agents";
+import { useDebounce } from "@uidotdev/usehooks";
 
 export const ChatSidebar = () => {
   const { user } = useContext(AppSettingsProviderContext);
@@ -29,6 +30,15 @@ export const ChatSidebar = () => {
 
   const [displayChatForm, setDisplayChatForm] = useState(false);
   const [displayAgentForm, setDisplayAgentForm] = useState(false);
+  const [query, setQuery] = useState("");
+
+  const debouncedQuery = useDebounce(query, 500);
+
+  const fetchChats = async (q: string) => {};
+
+  useEffect(() => {
+    fetchChats(debouncedQuery);
+  }, [debouncedQuery]);
 
   return (
     <ScrollArea className="h-screen w-64 bg-muted border-r">

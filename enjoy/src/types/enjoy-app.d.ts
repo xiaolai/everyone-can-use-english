@@ -351,4 +351,25 @@ type EnjoyAppType = {
     }) => Promise<NoteType>;
     sync: (id: string) => Promise<NoteType>;
   };
+  chats: {
+    findAll: (params: any) => Promise<ChatType[]>;
+    findOne: (params: any) => Promise<ChatType>;
+    create: (params: any) => Promise<ChatType>;
+    update: (id: string, params: any) => Promise<ChatType>;
+    destroy: (id: string) => Promise<void>;
+  };
+  chatSessions: {
+    findAll: (params: any) => Promise<ChatSessionType[]>;
+    findOne: (params: any) => Promise<ChatSessionType>;
+    create: (params: any) => Promise<ChatSessionType>;
+    invoke: (id: string, params: any) => Promise<ChatSessionType>;
+    destroy: (id: string) => Promise<void>;
+  };
+  chatMessages: {
+    findAll: (params: any) => Promise<ChatMessageType[]>;
+    findOne: (params: any) => Promise<ChatMessageType>;
+    create: (params: any) => Promise<ChatMessageType>;
+    update: (id: string, params: any) => Promise<ChatMessageType>;
+    destroy: (id: string) => Promise<void>;
+  };
 };
