@@ -1,0 +1,46 @@
+import {
+  AfterUpdate,
+  AfterDestroy,
+  BelongsTo,
+  Table,
+  Column,
+  Default,
+  IsUUID,
+  Model,
+  DataType,
+  AfterCreate,
+  AllowNull,
+  AfterFind,
+} from "sequelize-typescript";
+import mainWindow from "@main/window";
+import log from "@main/logger";
+import settings from "@main/settings";
+
+const logger = log.scope("db/models/note");
+@Table({
+  modelName: "ChatMember",
+  tableName: "chat_members",
+  underscored: true,
+  timestamps: true,
+})
+export class ChatMember extends Model<ChatMember> {
+  @IsUUID("all")
+  @Default(DataType.UUIDV4)
+  @Column({ primaryKey: true, type: DataType.UUID })
+  id: string;
+
+  @AllowNull(false)
+  @Column(DataType.UUID)
+  chatId: string;
+
+  @AllowNull(false)
+  @Column(DataType.STRING)
+  userId: string;
+
+  @AllowNull(false)
+  @Column(DataType.STRING)
+  userType: string;
+
+  @Column(DataType.STRING)
+  state: string;
+}

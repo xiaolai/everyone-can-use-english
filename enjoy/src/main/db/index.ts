@@ -14,6 +14,11 @@ import {
   Speech,
   Transcription,
   Video,
+  Chat,
+  ChatAgent,
+  ChatMember,
+  ChatMessage,
+  ChatSession,
 } from "./models";
 import {
   audiosHandler,
@@ -27,6 +32,10 @@ import {
   speechesHandler,
   transcriptionsHandler,
   videosHandler,
+  chatMembersHandler,
+  chatMessagesHandler,
+  chatSessionsHandler,
+  chatsHandler,
 } from "./handlers";
 import os from "os";
 import path from "path";
@@ -60,6 +69,11 @@ db.connect = async () => {
       Speech,
       Transcription,
       Video,
+      Chat,
+      ChatAgent,
+      ChatMember,
+      ChatMessage,
+      ChatSession,
     ],
   });
 
@@ -146,6 +160,10 @@ db.connect = async () => {
   speechesHandler.register();
   transcriptionsHandler.register();
   videosHandler.register();
+  chatMembersHandler.register();
+  chatMessagesHandler.register();
+  chatSessionsHandler.register();
+  chatsHandler.register();
 };
 
 db.registerIpcHandlers = () => {

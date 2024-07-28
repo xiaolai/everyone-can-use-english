@@ -2,7 +2,6 @@ type ChatType = {
   id: string;
   name: string;
   topic: string;
-  prompt: string;
   language: string;
   digest?: string;
   createdAt: string;
@@ -10,22 +9,6 @@ type ChatType = {
   sessions: ChatSessionType[];
   members: ChatMemberType[];
 };
-
-type ChatMemberType = {
-  id: string;
-  chatId: string;
-  userId: string;
-  state: "active" | "passive";
-} & (
-  | ({
-      userType: "User";
-      user: ChatUserType;
-    } & UserType)
-  | ({
-      userType: "Agent";
-      agent: ChatAgentType;
-    } & ChatAgentType)
-);
 
 type ChatAgentType = {
   id: string;
@@ -44,6 +27,22 @@ type ChatAgentType = {
     [key: string]: any;
   };
 };
+
+type ChatMemberType = {
+  id: string;
+  chatId: string;
+  userId: string;
+  state: "active" | "passive";
+} & (
+  | ({
+      userType: "User";
+      user: ChatUserType;
+    } & UserType)
+  | ({
+      userType: "Agent";
+      agent: ChatAgentType;
+    } & ChatAgentType)
+);
 
 type ChatSessionType = {
   id: string;
