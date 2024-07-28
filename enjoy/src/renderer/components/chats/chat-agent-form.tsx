@@ -39,7 +39,7 @@ import { GPT_PROVIDERS, TTS_PROVIDERS } from "@renderer/components";
 
 export const ChatAgentForm = (props: { agent?: ChatAgentType }) => {
   const { agent } = props;
-  const { learningLanguage, webApi } = useContext(AppSettingsProviderContext);
+  const { learningLanguage, webApi, EnjoyApp } = useContext(AppSettingsProviderContext);
   const { openai } = useContext(AISettingsProviderContext);
   const [gptProviders, setGptProviders] = useState<any>(GPT_PROVIDERS);
   const [ttsProviders, setTtsProviders] = useState<any>(TTS_PROVIDERS);
@@ -141,7 +141,7 @@ export const ChatAgentForm = (props: { agent?: ChatAgentType }) => {
             name="name"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>{t("name")}</FormLabel>
+                <FormLabel>{t("models.chatAgent.name")}</FormLabel>
                 <Input {...field} />
                 <FormMessage />
               </FormItem>
@@ -153,7 +153,7 @@ export const ChatAgentForm = (props: { agent?: ChatAgentType }) => {
             name="introduction"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>{t("introduction")}</FormLabel>
+                <FormLabel>{t("models.chatAgent.introduction")}</FormLabel>
                 <Textarea className="max-h-36" {...field} />
                 <FormMessage />
               </FormItem>
@@ -165,7 +165,7 @@ export const ChatAgentForm = (props: { agent?: ChatAgentType }) => {
             name="prompt"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>{t("prompt")}</FormLabel>
+                <FormLabel>{t("models.chatAgent.prompt")}</FormLabel>
                 <Textarea className="max-h-48" {...field} />
                 <FormMessage />
               </FormItem>
@@ -177,7 +177,7 @@ export const ChatAgentForm = (props: { agent?: ChatAgentType }) => {
             name="engine"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>{t("models.conversation.engine")}</FormLabel>
+                <FormLabel>{t("models.chatAgent.engine")}</FormLabel>
                 <Select
                   disabled={Boolean(agent?.id)}
                   onValueChange={field.onChange}
@@ -209,7 +209,7 @@ export const ChatAgentForm = (props: { agent?: ChatAgentType }) => {
             name="model"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>{t("models.conversation.model")}</FormLabel>
+                <FormLabel>{t("models.chatAgent.model")}</FormLabel>
                 <Select onValueChange={field.onChange} value={field.value}>
                   <FormControl>
                     <SelectTrigger>
@@ -236,7 +236,7 @@ export const ChatAgentForm = (props: { agent?: ChatAgentType }) => {
             name="language"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>{t("language")}</FormLabel>
+                <FormLabel>{t("models.chatAgent.language")}</FormLabel>
                 <Select {...field}>
                   <SelectTrigger className="text-xs">
                     <SelectValue>
@@ -267,7 +267,7 @@ export const ChatAgentForm = (props: { agent?: ChatAgentType }) => {
             name="ttsEngine"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>{t("models.conversation.ttsEngine")}</FormLabel>
+                <FormLabel>{t("models.chatAgent.ttsEngine")}</FormLabel>
                 <Select
                   onValueChange={field.onChange}
                   defaultValue={field.value}
@@ -295,7 +295,7 @@ export const ChatAgentForm = (props: { agent?: ChatAgentType }) => {
             name="ttsModel"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>{t("models.conversation.ttsModel")}</FormLabel>
+                <FormLabel>{t("models.chatAgent.ttsModel")}</FormLabel>
                 <Select
                   onValueChange={field.onChange}
                   defaultValue={field.value}
@@ -325,7 +325,7 @@ export const ChatAgentForm = (props: { agent?: ChatAgentType }) => {
             name="ttsVoice"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>{t("models.conversation.ttsVoice")}</FormLabel>
+                <FormLabel>{t("models.chatAgent.ttsVoice")}</FormLabel>
                 <Select
                   onValueChange={field.onChange}
                   defaultValue={field.value}

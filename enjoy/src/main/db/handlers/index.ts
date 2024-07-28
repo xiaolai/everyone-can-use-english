@@ -1,5 +1,6 @@
 export * from "./audios-handler";
 export * from "./cache-objects-handler";
+export * from "./chat-agents-handler";
 export * from "./chat-members-handler";
 export * from "./chat-messages-handler";
 export * from "./chat-sessions-handler";

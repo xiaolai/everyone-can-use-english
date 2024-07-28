@@ -32,6 +32,7 @@ import {
   speechesHandler,
   transcriptionsHandler,
   videosHandler,
+  chatAgentsHandler,
   chatMembersHandler,
   chatMessagesHandler,
   chatSessionsHandler,
@@ -160,6 +161,7 @@ db.connect = async () => {
   speechesHandler.register();
   transcriptionsHandler.register();
   videosHandler.register();
+  chatAgentsHandler.register();
   chatMembersHandler.register();
   chatMessagesHandler.register();
   chatSessionsHandler.register();
