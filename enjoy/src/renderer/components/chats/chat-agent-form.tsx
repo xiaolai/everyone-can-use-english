@@ -26,7 +26,9 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
+  Slider,
   Textarea,
+  toast,
 } from "@renderer/components/ui";
 import { t } from "i18next";
 import { LANGUAGES } from "@/constants";
@@ -37,9 +39,14 @@ import {
 import { useContext, useEffect, useState } from "react";
 import { GPT_PROVIDERS, TTS_PROVIDERS } from "@renderer/components";
 
-export const ChatAgentForm = (props: { agent?: ChatAgentType }) => {
-  const { agent } = props;
-  const { learningLanguage, webApi, EnjoyApp } = useContext(AppSettingsProviderContext);
+export const ChatAgentForm = (props: {
+  agent?: ChatAgentType;
+  onSave?: (agent: ChatAgentType) => void;
+}) => {
+  const { agent, onSave } = props;
+  const { learningLanguage, webApi, EnjoyApp } = useContext(
+    AppSettingsProviderContext
+  );
   const { openai } = useContext(AISettingsProviderContext);
   const [gptProviders, setGptProviders] = useState<any>(GPT_PROVIDERS);
   const [ttsProviders, setTtsProviders] = useState<any>(TTS_PROVIDERS);
@@ -60,8 +67,9 @@ export const ChatAgentForm = (props: { agent?: ChatAgentType }) => {
   const form = useForm<z.infer<typeof agentFormSchema>>({
     resolver: zodResolver(agentFormSchema),
     values: agent || {
-      name: "Edgar",
+      name: "",
       language: learningLanguage,
+      introduction: "",
       engine: "enjoyai",
       model: "gpt-4o",
       temperature: 0.7,
@@ -74,7 +82,38 @@ export const ChatAgentForm = (props: { agent?: ChatAgentType }) => {
   });
 
   const onSubmit = form.handleSubmit((data) => {
-    console.log(data);
+    const { name, language, introduction, ...config } = data;
+    if (agent?.id) {
+      EnjoyApp.chatAgents
+        .update(agent.id, {
+          name,
+          language,
+          introduction,
+          config,
+        })
+        .then((agent) => {
+          toast.success(t("chatAgentSaved"));
+          onSave?.(agent);
+        })
+        .catch((e) => {
+          toast.error(t(e.message));
+        });
+    } else {
+      EnjoyApp.chatAgents
+        .create({
+          name,
+          language,
+          introduction,
+          config,
+        })
+        .then((agent) => {
+          toast.success(t("chatAgentSaved"));
+          onSave?.(agent);
+        })
+        .catch((e) => {
+          toast.error(t(e.message));
+        });
+    }
   });
 
   const refreshGptProviders = async () => {
@@ -103,7 +142,16 @@ export const ChatAgentForm = (props: { agent?: ChatAgentType }) => {
     setGptProviders({ ...providers });
   };
 
-  const destroyChatAgent = async () => {};
+  const destroyChatAgent = async () => {
+    EnjoyApp.chatAgents
+      .destroy(agent.id)
+      .then(() => {
+        onSave?.(null);
+      })
+      .catch((e) => {
+        toast.error(t(e.message));
+      });
+  };
 
   const refreshTtsProviders = async () => {
     let providers = TTS_PROVIDERS;
@@ -128,14 +176,16 @@ export const ChatAgentForm = (props: { agent?: ChatAgentType }) => {
       <form onSubmit={onSubmit}>
         <div className="mb-4">{agent?.id ? t("editAgent") : t("newAgent")}</div>
         <div className="space-y-4 px-2 mb-6">
-          <Avatar className="w-16 h-16 border">
-            <img
-              src={`https://api.dicebear.com/9.x/croodles/svg?seed=${form.watch(
-                "name"
-              )}`}
-              alt={form.watch("name")}
-            />
-          </Avatar>
+          {form.watch("name") && (
+            <Avatar className="w-16 h-16 border">
+              <img
+                src={`https://api.dicebear.com/9.x/croodles/svg?seed=${form.watch(
+                  "name"
+                )}`}
+                alt={form.watch("name")}
+              />
+            </Avatar>
+          )}
           <FormField
             control={form.control}
             name="name"
@@ -178,11 +228,7 @@ export const ChatAgentForm = (props: { agent?: ChatAgentType }) => {
             render={({ field }) => (
               <FormItem>
                 <FormLabel>{t("models.chatAgent.engine")}</FormLabel>
-                <Select
-                  disabled={Boolean(agent?.id)}
-                  onValueChange={field.onChange}
-                  value={field.value}
-                >
+                <Select onValueChange={field.onChange} value={field.value}>
                   <FormControl>
                     <SelectTrigger>
                       <SelectValue placeholder={t("selectAiEngine")} />
@@ -226,6 +272,31 @@ export const ChatAgentForm = (props: { agent?: ChatAgentType }) => {
                     )}
                   </SelectContent>
                 </Select>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
+            name="temperature"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>{t("models.chatAgent.temperature")}</FormLabel>
+                <div className="flex items-center space-x-1">
+                  <Slider
+                    className="flex-1"
+                    onValueChange={(value) => field.onChange(value[0])}
+                    defaultValue={[field.value]}
+                    min={0}
+                    max={1}
+                    step={0.1}
+                  />
+                  <span>{field.value}</span>
+                </div>
+                <FormDescription>
+                  {t("models.chatAgent.temperatureDescription")}
+                </FormDescription>
                 <FormMessage />
               </FormItem>
             )}
@@ -370,8 +441,7 @@ export const ChatAgentForm = (props: { agent?: ChatAgentType }) => {
             <AlertDialog>
               <AlertDialogTrigger asChild>
                 <Button
-                  className="w-full h-12 text-destructive"
-                  size="lg"
+                  className="text-destructive"
                   variant="secondary"
                 >
                   {t("delete")}

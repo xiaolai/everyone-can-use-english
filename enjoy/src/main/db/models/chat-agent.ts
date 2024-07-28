@@ -11,6 +11,7 @@ import {
   AfterCreate,
   AllowNull,
   AfterFind,
+  BeforeDestroy,
 } from "sequelize-typescript";
 import mainWindow from "@main/window";
 import log from "@main/logger";
@@ -42,4 +43,70 @@ export class ChatAgent extends Model<ChatAgent> {
 
   @Column(DataType.JSON)
   config: any;
+
+  @Column(DataType.VIRTUAL)
+  get avatarUrl(): string {
+    return `https://api.dicebear.com/9.x/croodles/svg?seed=${this.getDataValue(
+      "name"
+    )}`;
+  }
+
+  @Column(DataType.VIRTUAL)
+  get engine(): string {
+    return this.getDataValue("config")?.engine;
+  }
+
+  @Column(DataType.VIRTUAL)
+  get model(): string {
+    return this.getDataValue("config")?.model;
+  }
+
+  @Column(DataType.VIRTUAL)
+  get prompt(): string {
+    return this.getDataValue("config")?.prompt;
+  }
+
+  @Column(DataType.VIRTUAL)
+  get temperature(): number {
+    return this.getDataValue("config")?.temperature;
+  }
+
+  @Column(DataType.VIRTUAL)
+  get ttsEngine(): string {
+    return this.getDataValue("config")?.ttsEngine;
+  }
+
+  @Column(DataType.VIRTUAL)
+  get ttsModel(): string {
+    return this.getDataValue("config")?.ttsModel;
+  }
+
+  @Column(DataType.VIRTUAL)
+  get ttsVoice(): string {
+    return this.getDataValue("config")?.ttsVoice;
+  }
+
+  @AfterCreate
+  static notifyForCreate(chatAgent: ChatAgent) {
+    this.notify(chatAgent, "create");
+  }
+
+  @BeforeDestroy
+  static destroyAllMessages(chatAgent: ChatAgent) {}
+
+  @AfterDestroy
+  static notifyForDestroy(chatAgent: ChatAgent) {
+    this.notify(chatAgent, "destroy");
+  }
+
+  static notify(chatAgent: ChatAgent, action: "create" | "update" | "destroy") {
+    if (!mainWindow.win) return;
+
+    mainWindow.win.webContents.send("db-on-transaction", {
+      model: "ChatAgent",
+      id: chatAgent.id,
+      action: action,
+      record: chatAgent.toJSON(),
+    });
+  }
 }

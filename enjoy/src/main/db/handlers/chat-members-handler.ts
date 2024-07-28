@@ -17,7 +17,7 @@ class ChatMembersHandler {
   }
 
   register() {
-    ipcMain.handle("chat-messages-find-all", this.findAll);
+    ipcMain.handle("chat-members-find-all", this.findAll);
   }
 }
 

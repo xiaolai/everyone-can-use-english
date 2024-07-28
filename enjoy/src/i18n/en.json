@@ -138,6 +138,8 @@
       "prompt": "Prompt",
       "engine": "AI Engine",
       "model": "AI Model",
+      "temperature": "Temperature",
+      "temperatureDescription": "The higher the temperature, the more creative the result",
       "ttsEngine": "TTS Engine",
       "ttsModel": "TTS Model",
       "ttsVoice": "TTS Voice"
