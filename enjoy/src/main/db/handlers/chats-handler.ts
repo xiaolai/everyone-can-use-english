@@ -1,5 +1,5 @@
 import { ipcMain, IpcMainEvent } from "electron";
-import { Chat, ChatMember, ChatSession } from "@main/db/models";
+import { Chat, ChatAgent, ChatMember, ChatSession } from "@main/db/models";
 import { FindOptions, WhereOptions, Attributes, Op } from "sequelize";
 import log from "@main/logger";
 import { t } from "i18next";
@@ -27,6 +27,12 @@ class ChatsHandler {
         {
           association: "members",
           model: ChatMember,
+          include: [
+            {
+              association: "agent",
+              model: ChatAgent,
+            },
+          ],
         },
         {
           association: "sessions",
@@ -35,7 +41,6 @@ class ChatsHandler {
       ],
       where,
       ...options,
-      group: ["Chat.id"],
     });
 
     if (!chats) {

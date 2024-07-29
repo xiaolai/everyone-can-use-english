@@ -25,8 +25,14 @@ import { useDebounce } from "@uidotdev/usehooks";
 
 export const ChatSidebar = () => {
   const { user } = useContext(AppSettingsProviderContext);
-  const { chats, fetchChats, currentChat, setCurrentChat, chatAgents } =
-    useContext(ChatProviderContext);
+  const {
+    chats,
+    fetchChats,
+    currentChat,
+    setCurrentChat,
+    chatAgents,
+    createChat,
+  } = useContext(ChatProviderContext);
 
   const [displayChatForm, setDisplayChatForm] = useState(false);
   const [displayAgentForm, setDisplayAgentForm] = useState(false);
@@ -73,30 +79,40 @@ export const ChatSidebar = () => {
       <div className="flex flex-col space-y-2 px-2">
         {chats.map((chat) => (
           <div
-            id={chat.id}
+            key={chat.id}
             className={`rounded-lg border py-2 px-4 hover:bg-background cursor-pointer ${
               currentChat?.id === chat.id ? "bg-background" : ""
             }`}
             onClick={() => setCurrentChat(chat)}
           >
             <div className="text-sm line-clamp-1 mb-2">
-              {chat.name}({chat.members.length})
+              {chat.name}({chat.members.length + 1})
             </div>
-            <div className="flex items-center -space-x-1 justify-end">
+            <div className="flex items-center -space-x-2 justify-end">
+              <Avatar className="w-6 h-6">
+                <img src={user.avatarUrl} />
+                <AvatarFallback>{user.name[0]}</AvatarFallback>
+              </Avatar>
               {chat.members.map((member) => (
-                <Avatar key={member.id} className="w-5 h-5">
-                  <img src={member.avatarUrl} />
-                  <AvatarFallback>{member.name[0]}</AvatarFallback>
+                <Avatar key={member.id} className="w-6 h-6 border bg-background">
+                  <img src={member.agent.avatarUrl} />
+                  <AvatarFallback>{member.agent.name[0]}</AvatarFallback>
                 </Avatar>
               ))}
             </div>
           </div>
         ))}
       </div>
+
       <Dialog open={displayChatForm} onOpenChange={setDisplayChatForm}>
         <DialogContent className="max-w-screen-md h-5/6">
           <DialogTitle className="sr-only"></DialogTitle>
-          <ChatForm chatAgents={chatAgents} />
+          <ChatForm
+            chatAgents={chatAgents}
+            onSave={(data) =>
+              createChat(data).then(() => setDisplayChatForm(false))
+            }
+          />
         </DialogContent>
       </Dialog>
       <Dialog open={displayAgentForm} onOpenChange={setDisplayAgentForm}>

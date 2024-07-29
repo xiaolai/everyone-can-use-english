@@ -1,7 +1,6 @@
 import {
   AfterUpdate,
   AfterDestroy,
-  BelongsTo,
   Table,
   Column,
   Default,
@@ -10,11 +9,10 @@ import {
   DataType,
   AfterCreate,
   AllowNull,
-  AfterFind,
   HasMany,
 } from "sequelize-typescript";
 import log from "@main/logger";
-import { ChatAgent, ChatMember, ChatSession } from "@main/db/models";
+import { ChatMember, ChatSession } from "@main/db/models";
 import mainWindow from "@main/window";
 
 const logger = log.scope("db/models/note");
@@ -75,14 +73,23 @@ export class Chat extends Model<Chat> {
     Chat.notify(chat, "destroy");
   }
 
-  static notify(chat: Chat, action: "create" | "update" | "destroy") {
+  static async notify(chat: Chat, action: "create" | "update" | "destroy") {
     if (!mainWindow.win) return;
+
+    // query chat members and include agent
+    const members = await ChatMember.findAll({
+      where: { chatId: chat.id },
+      include: ["agent"],
+    });
+
+    const record = chat.toJSON();
+    record.members = members.map((member) => member.toJSON());
 
     mainWindow.win.webContents.send("db-on-transaction", {
       model: "Chat",
       id: chat.id,
       action: action,
-      record: chat.toJSON(),
+      record,
     });
   }
 }

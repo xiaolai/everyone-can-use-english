@@ -204,6 +204,38 @@ export const ChatAgentForm = (props: {
 
           <FormField
             control={form.control}
+            name="language"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>{t("models.chatAgent.language")}</FormLabel>
+                <Select value={field.value} onValueChange={field.onChange}>
+                  <SelectTrigger className="text-xs">
+                    <SelectValue>
+                      {
+                        LANGUAGES.find((lang) => lang.code === field.value)
+                          ?.name
+                      }
+                    </SelectValue>
+                  </SelectTrigger>
+                  <SelectContent>
+                    {LANGUAGES.map((lang) => (
+                      <SelectItem
+                        className="text-xs"
+                        value={lang.code}
+                        key={lang.code}
+                      >
+                        {lang.name}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
             name="engine"
             render={({ field }) => (
               <FormItem>
@@ -282,37 +314,6 @@ export const ChatAgentForm = (props: {
             )}
           />
 
-          <FormField
-            control={form.control}
-            name="language"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>{t("models.chatAgent.language")}</FormLabel>
-                <Select {...field}>
-                  <SelectTrigger className="text-xs">
-                    <SelectValue>
-                      {
-                        LANGUAGES.find((lang) => lang.code === field.value)
-                          ?.name
-                      }
-                    </SelectValue>
-                  </SelectTrigger>
-                  <SelectContent>
-                    {LANGUAGES.map((lang) => (
-                      <SelectItem
-                        className="text-xs"
-                        value={lang.code}
-                        key={lang.code}
-                      >
-                        {lang.name}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
           <FormField
             control={form.control}
             name="ttsEngine"

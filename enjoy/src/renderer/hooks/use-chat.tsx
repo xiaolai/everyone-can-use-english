@@ -16,6 +16,7 @@ export const useChat = () => {
     EnjoyApp.chats
       .findAll({ query })
       .then((data) => {
+        console.log(data);
         dispatchChats({ type: "set", records: data });
       })
       .catch((error) => {
@@ -75,9 +76,9 @@ export const useChat = () => {
       });
   };
 
-  const onChatAgentUpdate = (event: CustomEvent) => {
+  const onChatUpdate = (event: CustomEvent) => {
     const { model, action, record } = event.detail || {};
-    if (model !== "ChatAgent") return;
+    if (model !== "Chat") return;
     switch (action) {
       case "create": {
         dispatchChats({ type: "prepend", record });
@@ -96,10 +97,10 @@ export const useChat = () => {
 
   useEffect(() => {
     fetchChats();
-    addDblistener(onChatAgentUpdate);
+    addDblistener(onChatUpdate);
 
     () => {
-      removeDbListener(onChatAgentUpdate);
+      removeDbListener(onChatUpdate);
     };
   }, []);
 
