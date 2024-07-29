@@ -40,8 +40,6 @@ export const ChatSidebar = () => {
   const debouncedQuery = useDebounce(query, 500);
 
   useEffect(() => {
-    if (!debouncedQuery) return;
-
     fetchChats(debouncedQuery);
   }, [debouncedQuery]);
 
@@ -94,7 +92,10 @@ export const ChatSidebar = () => {
                 <AvatarFallback>{user.name[0]}</AvatarFallback>
               </Avatar>
               {chat.members.map((member) => (
-                <Avatar key={member.id} className="w-6 h-6 border bg-background">
+                <Avatar
+                  key={member.id}
+                  className="w-6 h-6 border bg-background"
+                >
                   <img src={member.agent.avatarUrl} />
                   <AvatarFallback>{member.agent.name[0]}</AvatarFallback>
                 </Avatar>

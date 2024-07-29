@@ -29,8 +29,6 @@ export const ChatAgents = () => {
   const debouncedQuery = useDebounce(query, 500);
 
   useEffect(() => {
-    if (!debouncedQuery) return;
-
     fetchChatAgents(debouncedQuery);
   }, [debouncedQuery]);
 
