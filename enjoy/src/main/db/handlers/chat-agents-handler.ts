@@ -3,7 +3,6 @@ import { ChatAgent } from "@main/db/models";
 import { FindOptions, WhereOptions, Attributes, Op } from "sequelize";
 import log from "@main/logger";
 import { t } from "i18next";
-import { pathToEnjoyUrl } from "@/main/utils";
 
 const logger = log.scope("db/handlers/chat-agents-handler");
 

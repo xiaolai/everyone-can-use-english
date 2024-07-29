@@ -1,7 +1,6 @@
 import {
   AfterUpdate,
   AfterDestroy,
-  BelongsTo,
   Table,
   Column,
   Default,
@@ -10,7 +9,6 @@ import {
   DataType,
   AfterCreate,
   AllowNull,
-  AfterFind,
   BeforeDestroy,
 } from "sequelize-typescript";
 import mainWindow from "@main/window";
@@ -89,6 +87,11 @@ export class ChatAgent extends Model<ChatAgent> {
   @AfterCreate
   static notifyForCreate(chatAgent: ChatAgent) {
     this.notify(chatAgent, "create");
+  }
+
+  @AfterUpdate
+  static notifyForUpdate(chatAgent: ChatAgent) {
+    this.notify(chatAgent, "update");
   }
 
   @BeforeDestroy

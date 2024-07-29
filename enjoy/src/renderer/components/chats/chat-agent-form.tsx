@@ -41,9 +41,15 @@ import { GPT_PROVIDERS, TTS_PROVIDERS } from "@renderer/components";
 
 export const ChatAgentForm = (props: {
   agent?: ChatAgentType;
-  onSave?: (agent: ChatAgentType) => void;
+  onSave: (data: {
+    name: string;
+    language: string;
+    introduction: string;
+    config: any;
+  }) => void;
+  onDestroy: () => void;
 }) => {
-  const { agent, onSave } = props;
+  const { agent, onSave, onDestroy } = props;
   const { learningLanguage, webApi, EnjoyApp } = useContext(
     AppSettingsProviderContext
   );
@@ -83,37 +89,12 @@ export const ChatAgentForm = (props: {
 
   const onSubmit = form.handleSubmit((data) => {
     const { name, language, introduction, ...config } = data;
-    if (agent?.id) {
-      EnjoyApp.chatAgents
-        .update(agent.id, {
-          name,
-          language,
-          introduction,
-          config,
-        })
-        .then((agent) => {
-          toast.success(t("chatAgentSaved"));
-          onSave?.(agent);
-        })
-        .catch((e) => {
-          toast.error(t(e.message));
-        });
-    } else {
-      EnjoyApp.chatAgents
-        .create({
-          name,
-          language,
-          introduction,
-          config,
-        })
-        .then((agent) => {
-          toast.success(t("chatAgentSaved"));
-          onSave?.(agent);
-        })
-        .catch((e) => {
-          toast.error(t(e.message));
-        });
-    }
+    onSave({
+      name,
+      language,
+      introduction,
+      config,
+    });
   });
 
   const refreshGptProviders = async () => {
@@ -145,9 +126,7 @@ export const ChatAgentForm = (props: {
   const destroyChatAgent = async () => {
     EnjoyApp.chatAgents
       .destroy(agent.id)
-      .then(() => {
-        onSave?.(null);
-      })
+      .then(() => onDestroy())
       .catch((e) => {
         toast.error(t(e.message));
       });
@@ -440,10 +419,7 @@ export const ChatAgentForm = (props: {
           {agent?.id && (
             <AlertDialog>
               <AlertDialogTrigger asChild>
-                <Button
-                  className="text-destructive"
-                  variant="secondary"
-                >
+                <Button className="text-destructive" variant="secondary">
                   {t("delete")}
                 </Button>
               </AlertDialogTrigger>
