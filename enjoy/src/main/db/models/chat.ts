@@ -13,10 +13,9 @@ import {
   AfterFind,
   HasMany,
 } from "sequelize-typescript";
-import mainWindow from "@main/window";
 import log from "@main/logger";
-import settings from "@main/settings";
 import { ChatAgent, ChatMember, ChatSession } from "@main/db/models";
+import mainWindow from "@main/window";
 
 const logger = log.scope("db/models/note");
 @Table({
@@ -60,4 +59,30 @@ export class Chat extends Model<Chat> {
     hooks: true,
   })
   members: ChatMember[];
+
+  @AfterCreate
+  static async notifyForCreate(chat: Chat) {
+    Chat.notify(chat, "create");
+  }
+
+  @AfterUpdate
+  static async notifyForUpdate(chat: Chat) {
+    Chat.notify(chat, "update");
+  }
+
+  @AfterDestroy
+  static async notifyForDestroy(chat: Chat) {
+    Chat.notify(chat, "destroy");
+  }
+
+  static notify(chat: Chat, action: "create" | "update" | "destroy") {
+    if (!mainWindow.win) return;
+
+    mainWindow.win.webContents.send("db-on-transaction", {
+      model: "Chat",
+      id: chat.id,
+      action: action,
+      record: chat.toJSON(),
+    });
+  }
 }

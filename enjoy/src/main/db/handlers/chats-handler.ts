@@ -1,5 +1,5 @@
 import { ipcMain, IpcMainEvent } from "electron";
-import { Chat, ChatMember } from "@main/db/models";
+import { Chat, ChatMember, ChatSession } from "@main/db/models";
 import { FindOptions, WhereOptions, Attributes, Op } from "sequelize";
 import log from "@main/logger";
 import { t } from "i18next";
@@ -23,9 +23,19 @@ class ChatsHandler {
     }
     const chats = await Chat.findAll({
       order: [["updatedAt", "DESC"]],
-      include: [{}],
+      include: [
+        {
+          association: "members",
+          model: ChatMember,
+        },
+        {
+          association: "sessions",
+          model: ChatSession,
+        },
+      ],
       where,
       ...options,
+      group: ["Chat.id"],
     });
 
     if (!chats) {
