@@ -12,7 +12,7 @@ export const useChatAgent = () => {
   const { addDblistener, removeDbListener } = useContext(DbProviderContext);
   const [chatAgents, dispatchChatAgents] = useReducer(chatAgentsReducer, []);
 
-  const fetchAgents = async (query?: string) => {
+  const fetchChatAgents = async (query?: string) => {
     EnjoyApp.chatAgents
       .findAll({ query })
       .then((data) => {
@@ -89,7 +89,7 @@ export const useChatAgent = () => {
   };
 
   useEffect(() => {
-    fetchAgents();
+    fetchChatAgents();
     addDblistener(onChatAgentUpdate);
 
     () => {
@@ -99,7 +99,7 @@ export const useChatAgent = () => {
 
   return {
     chatAgents,
-    fetchAgents,
+    fetchChatAgents,
     createChatAgent,
     updateChatAgent,
     destroyChatAgent,

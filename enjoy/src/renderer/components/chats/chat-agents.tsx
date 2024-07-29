@@ -10,26 +10,28 @@ import { PlusCircleIcon } from "lucide-react";
 import { useContext, useEffect, useState } from "react";
 import { t } from "i18next";
 import { useDebounce } from "@uidotdev/usehooks";
-import { AppSettingsProviderContext } from "@renderer/context";
-import { useChatAgent } from "@renderer/hooks";
+import {
+  AppSettingsProviderContext,
+  ChatProviderContext,
+} from "@renderer/context";
 
 export const ChatAgents = () => {
   const { EnjoyApp } = useContext(AppSettingsProviderContext);
-  const [selected, setSelected] = useState<ChatAgentType>();
-  const [query, setQuery] = useState("");
-  const debouncedQuery = useDebounce(query, 500);
   const {
     chatAgents,
-    fetchAgents,
+    fetchChatAgents,
     updateChatAgent,
     createChatAgent,
     destroyChatAgent,
-  } = useChatAgent();
+  } = useContext(ChatProviderContext);
+  const [selected, setSelected] = useState<ChatAgentType>();
+  const [query, setQuery] = useState("");
+  const debouncedQuery = useDebounce(query, 500);
 
   useEffect(() => {
     if (!debouncedQuery) return;
 
-    fetchAgents(debouncedQuery);
+    fetchChatAgents(debouncedQuery);
   }, [debouncedQuery]);
 
   return (

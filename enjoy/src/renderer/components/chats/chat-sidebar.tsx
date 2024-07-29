@@ -25,25 +25,29 @@ import { useDebounce } from "@uidotdev/usehooks";
 
 export const ChatSidebar = () => {
   const { user } = useContext(AppSettingsProviderContext);
-  const { chats, currentChat, setCurrentChat } =
+  const { chats, fetchChats, currentChat, setCurrentChat, chatAgents } =
     useContext(ChatProviderContext);
 
   const [displayChatForm, setDisplayChatForm] = useState(false);
   const [displayAgentForm, setDisplayAgentForm] = useState(false);
   const [query, setQuery] = useState("");
-
   const debouncedQuery = useDebounce(query, 500);
 
-  const fetchChats = async (q: string) => {};
-
   useEffect(() => {
+    if (!debouncedQuery) return;
+
     fetchChats(debouncedQuery);
   }, [debouncedQuery]);
 
   return (
     <ScrollArea className="h-screen w-64 bg-muted border-r">
       <div className="flex items-center justify-around px-2 py-4">
-        <Input className="rounded-full" placeholder={t("search")} />
+        <Input
+          value={query}
+          onChange={(event) => setQuery(event.target.value)}
+          className="rounded-full"
+          placeholder={t("search")}
+        />
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="ghost" size="icon" className="">
@@ -92,7 +96,7 @@ export const ChatSidebar = () => {
       <Dialog open={displayChatForm} onOpenChange={setDisplayChatForm}>
         <DialogContent className="max-w-screen-md h-5/6">
           <DialogTitle className="sr-only"></DialogTitle>
-          <ChatForm />
+          <ChatForm chatAgents={chatAgents} />
         </DialogContent>
       </Dialog>
       <Dialog open={displayAgentForm} onOpenChange={setDisplayAgentForm}>

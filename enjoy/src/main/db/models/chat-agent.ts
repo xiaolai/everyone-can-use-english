@@ -14,7 +14,6 @@ import {
 } from "sequelize-typescript";
 import mainWindow from "@main/window";
 import log from "@main/logger";
-import settings from "@main/settings";
 import { ChatMember } from "@main/db/models";
 
 const logger = log.scope("db/models/note");

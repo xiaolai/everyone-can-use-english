@@ -2,6 +2,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import {
+  Avatar,
+  AvatarFallback,
   Form,
   FormField,
   FormItem,
@@ -13,8 +15,11 @@ import {
 } from "@renderer/components/ui";
 import { t } from "i18next";
 
-export const ChatForm = (props: { chat?: ChatType }) => {
-  const { chat } = props;
+export const ChatForm = (props: {
+  chat?: ChatType;
+  chatAgents: ChatAgentType[];
+}) => {
+  const { chat, chatAgents } = props;
 
   const chatFormSchema = z.object({
     name: z.string(),
@@ -73,6 +78,14 @@ export const ChatForm = (props: { chat?: ChatType }) => {
               <FormItem>
                 <FormLabel>{t("members")}</FormLabel>
                 <ScrollArea className="w-full h-48">
+                  {chatAgents.map((chatAgent) => (
+                    <div key={chatAgent.id} className="grid grid-cols-5 gap-2">
+                      <Avatar className="w-8 h-8">
+                        <img src={chatAgent.avatarUrl} />
+                        <AvatarFallback>{chatAgent.name[0]}</AvatarFallback>
+                      </Avatar>
+                    </div>
+                  ))}
                 </ScrollArea>
                 <FormMessage />
               </FormItem>
