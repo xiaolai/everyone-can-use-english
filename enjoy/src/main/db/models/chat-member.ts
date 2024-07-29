@@ -15,6 +15,7 @@ import {
 import mainWindow from "@main/window";
 import log from "@main/logger";
 import settings from "@main/settings";
+import { Chat, ChatAgent } from "@main/db/models";
 
 const logger = log.scope("db/models/note");
 @Table({
@@ -43,4 +44,14 @@ export class ChatMember extends Model<ChatMember> {
 
   @Column(DataType.STRING)
   state: string;
+
+  @BelongsTo(() => Chat, {
+    foreignKey: "chatId",
+  })
+  chat: Chat;
+
+  @BelongsTo(() => ChatAgent, {
+    foreignKey: "userId",
+  })
+  agent: ChatAgent;
 }

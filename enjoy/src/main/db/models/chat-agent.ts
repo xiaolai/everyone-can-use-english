@@ -10,10 +10,12 @@ import {
   AfterCreate,
   AllowNull,
   BeforeDestroy,
+  HasMany,
 } from "sequelize-typescript";
 import mainWindow from "@main/window";
 import log from "@main/logger";
 import settings from "@main/settings";
+import { ChatMember } from "@main/db/models";
 
 const logger = log.scope("db/models/note");
 @Table({
@@ -41,6 +43,14 @@ export class ChatAgent extends Model<ChatAgent> {
 
   @Column(DataType.JSON)
   config: any;
+
+  @HasMany(() => ChatMember, {
+    foreignKey: "userId",
+    constraints: false,
+    onDelete: "CASCADE",
+    hooks: true,
+  })
+  members: ChatMember[];
 
   @Column(DataType.VIRTUAL)
   get avatarUrl(): string {
