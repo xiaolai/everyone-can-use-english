@@ -76,6 +76,7 @@ export const ChatAgentForm = (props: {
       name: "",
       language: learningLanguage,
       introduction: "",
+      prompt: "",
       engine: "enjoyai",
       model: "gpt-4o",
       temperature: 0.7,
@@ -266,7 +267,7 @@ export const ChatAgentForm = (props: {
                   <Slider
                     className="flex-1"
                     onValueChange={(value) => field.onChange(value[0])}
-                    defaultValue={[field.value]}
+                    value={[field.value]}
                     min={0}
                     max={1}
                     step={0.1}

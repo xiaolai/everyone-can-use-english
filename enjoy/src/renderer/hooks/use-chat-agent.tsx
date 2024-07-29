@@ -29,7 +29,7 @@ export const useChatAgent = () => {
     introduction: string;
     config: any;
   }) => {
-    EnjoyApp.chatAgents
+    return EnjoyApp.chatAgents
       .create(data)
       .then(() => {
         toast.success(t("models.chatAgents.created"));
@@ -48,7 +48,7 @@ export const useChatAgent = () => {
       config: any;
     }
   ) => {
-    EnjoyApp.chatAgents
+    return EnjoyApp.chatAgents
       .update(id, data)
       .then(() => {
         toast.success(t("models.chatAgents.updated"));
@@ -59,7 +59,7 @@ export const useChatAgent = () => {
   };
 
   const destroyChatAgent = (id: string) => {
-    EnjoyApp.chatAgents
+    return EnjoyApp.chatAgents
       .destroy(id)
       .then(() => {
         toast.success(t("models.chatAgents.deleted"));
@@ -74,7 +74,7 @@ export const useChatAgent = () => {
     if (model !== "ChatAgent") return;
     switch (action) {
       case "create": {
-        dispatchChatAgents({ type: "append", record });
+        dispatchChatAgents({ type: "prepend", record });
         break;
       }
       case "update": {

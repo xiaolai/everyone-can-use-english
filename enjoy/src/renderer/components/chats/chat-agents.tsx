@@ -86,7 +86,7 @@ export const ChatAgents = () => {
             if (selected) {
               updateChatAgent(selected.id, data);
             } else {
-              createChatAgent(data);
+              createChatAgent(data).then(() => setSelected(null));
             }
           }}
           onDestroy={() => {
