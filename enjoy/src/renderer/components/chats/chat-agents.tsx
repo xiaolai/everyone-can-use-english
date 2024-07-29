@@ -11,12 +11,10 @@ import { useContext, useEffect, useState } from "react";
 import { t } from "i18next";
 import { useDebounce } from "@uidotdev/usehooks";
 import {
-  AppSettingsProviderContext,
   ChatProviderContext,
 } from "@renderer/context";
 
 export const ChatAgents = () => {
-  const { EnjoyApp } = useContext(AppSettingsProviderContext);
   const {
     chatAgents,
     fetchChatAgents,
