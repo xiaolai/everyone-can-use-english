@@ -39,6 +39,13 @@ export const Chat = () => {
     });
   };
 
+  const createChatSession = async (blob: Blob) => {
+    const buffer = await blob.arrayBuffer();
+    EnjoyApp.chatSessions.create(buffer).then(() => {
+      toast.success(t("chatSessionCreated"));
+    });
+  };
+
   const {
     startRecording,
     stopRecording,
@@ -53,7 +60,7 @@ export const Chat = () => {
   useEffect(() => {
     if (!recordingBlob) return;
 
-    console.log(recordingBlob);
+    createChatSession(recordingBlob);
   }, [recordingBlob]);
 
   useEffect(() => {

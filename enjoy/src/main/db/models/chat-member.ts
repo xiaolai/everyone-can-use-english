@@ -54,4 +54,23 @@ export class ChatMember extends Model<ChatMember> {
     foreignKey: "userId",
   })
   agent: ChatAgent;
+
+  @Column(DataType.VIRTUAL)
+  get user(): {
+    name: string;
+    avatarUrl: string;
+  } {
+    if (this.userType === "User") {
+      const user = settings.getSync("user") as {
+        name: string;
+        avatarUrl: string;
+      };
+
+      if (!user.avatarUrl) {
+        user.avatarUrl = `https://api.dicebear.com/9.x/croodles/svg?seed=${user.name}`;
+      }
+
+      return user;
+    }
+  }
 }

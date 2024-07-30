@@ -32,8 +32,10 @@ type ChatMemberType = {
   id: string;
   chatId: string;
   userId: string;
+  userType: "Agent" | "User";
   state: "active" | "passive";
   agent?: ChatAgentType;
+  user?: UserType;
 };
 
 type ChatSessionType = {

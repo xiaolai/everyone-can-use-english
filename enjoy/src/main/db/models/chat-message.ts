@@ -14,7 +14,6 @@ import {
 } from "sequelize-typescript";
 import mainWindow from "@main/window";
 import log from "@main/logger";
-import settings from "@main/settings";
 
 const logger = log.scope("db/models/note");
 @Table({
@@ -38,7 +37,7 @@ export class ChatMessage extends Model<ChatMessage> {
   sessionId: string;
 
   @Column(DataType.TEXT)
-  context: string;
+  content: string;
 
   @Column(DataType.STRING)
   state: string;
