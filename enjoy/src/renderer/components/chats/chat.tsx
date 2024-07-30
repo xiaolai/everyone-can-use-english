@@ -1,4 +1,11 @@
-import { MicIcon, SettingsIcon, SquareIcon } from "lucide-react";
+import {
+  MicIcon,
+  PauseIcon,
+  PlayCircleIcon,
+  PlayIcon,
+  SettingsIcon,
+  SquareIcon,
+} from "lucide-react";
 import {
   Button,
   Dialog,
@@ -6,6 +13,7 @@ import {
   DialogTitle,
   DialogTrigger,
   ScrollArea,
+  toast,
 } from "@renderer/components/ui";
 import { t } from "i18next";
 import {
@@ -14,7 +22,8 @@ import {
 } from "@renderer/context";
 import { useContext, useEffect, useState } from "react";
 import { ChatForm } from "./chat-form";
-import { useMicVAD } from "@ricky0123/vad-react";
+import { useAudioRecorder } from "react-audio-voice-recorder";
+import { LiveAudioVisualizer } from "react-audio-visualize";
 
 export const Chat = () => {
   const { currentChat, chatAgents, updateChat, destroyChat } =
@@ -23,21 +32,41 @@ export const Chat = () => {
   const { EnjoyApp } = useContext(AppSettingsProviderContext);
 
   const askForMediaAccess = () => {
-    EnjoyApp.system.preferences.mediaAccess("microphone");
+    EnjoyApp.system.preferences.mediaAccess("microphone").then((access) => {
+      if (!access) {
+        toast.warning(t("noMicrophoneAccess"));
+      }
+    });
   };
 
-  const vad = useMicVAD({
-    workletURL: "./vad.worklet.bundle.min.js", // setting workletURL
-    modelURL: "./silero_vad.onnx", // setting modelURL
-    startOnLoad: false,
-    onSpeechEnd: (audio) => {
-      console.log("Speech end detected");
-      // do something with `audio` (Float32Array of audio samples at sample rate 16000)...
-      const audioArray = new Float32Array(audio); // Example audio data
-      vad.pause();
-      return audioArray;
-    },
-  });
+  const {
+    startRecording,
+    stopRecording,
+    togglePauseResume,
+    recordingBlob,
+    isRecording,
+    isPaused,
+    recordingTime,
+    mediaRecorder,
+  } = useAudioRecorder();
+
+  useEffect(() => {
+    if (!recordingBlob) return;
+
+    console.log(recordingBlob);
+  }, [recordingBlob]);
+
+  useEffect(() => {
+    askForMediaAccess();
+  }, []);
+
+  useEffect(() => {
+    if (!isRecording) return;
+
+    if (recordingTime >= 60) {
+      stopRecording();
+    }
+  }, [recordingTime]);
 
   if (!currentChat) {
     return (
@@ -81,18 +110,46 @@ export const Chat = () => {
       <div className="flex-1 space-y-4 px-4 mb-4"></div>
       <div className="absolute bottom-0 w-full h-16 border-t z-10 bg-background flex items-center">
         <div className="w-full flex justify-center">
-          {vad.listening ? (
-            <Button
-              onClick={() => vad.pause()}
-              className="rounded-full bg-red-500 hover:bg-red-600 shadow w-10 h-10"
-              size="icon"
-            >
-              <SquareIcon fill="white" className="w-6 h-6 text-white" />
-            </Button>
+          {isRecording ? (
+            <div className="flex items-center space-x-2">
+              <LiveAudioVisualizer
+                mediaRecorder={mediaRecorder}
+                barWidth={2}
+                gap={2}
+                width={140}
+                height={30}
+                fftSize={512}
+                maxDecibels={-10}
+                minDecibels={-80}
+                smoothingTimeConstant={0.4}
+              />
+              <span className="text-sm text-muted-foreground">
+                {Math.floor(recordingTime / 60)}:
+                {String(recordingTime % 60).padStart(2, "0")}
+              </span>
+              <Button
+                onClick={togglePauseResume}
+                className="rounded-full shadow w-8 h-8"
+                size="icon"
+              >
+                {isPaused ? (
+                  <PlayIcon fill="white" className="w-4 h-4" />
+                ) : (
+                  <PauseIcon fill="white" className="w-4 h-4" />
+                )}
+              </Button>
+              <Button
+                onClick={stopRecording}
+                className="rounded-full bg-red-500 hover:bg-red-600 shadow w-8 h-8"
+                size="icon"
+              >
+                <SquareIcon fill="white" className="w-4 h-4 text-white" />
+              </Button>
+            </div>
           ) : (
             <Button
-              onClick={() => vad.start()}
-              className="rounded-full bg-red-500 hover:bg-red-600 shadow w-10 h-10"
+              onClick={startRecording}
+              className="rounded-full shadow w-10 h-10"
               size="icon"
             >
               <MicIcon className="w-6 h-6" />
