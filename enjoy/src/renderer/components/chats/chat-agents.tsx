@@ -10,9 +10,7 @@ import { PlusCircleIcon } from "lucide-react";
 import { useContext, useEffect, useState } from "react";
 import { t } from "i18next";
 import { useDebounce } from "@uidotdev/usehooks";
-import {
-  ChatProviderContext,
-} from "@renderer/context";
+import { ChatProviderContext } from "@renderer/context";
 
 export const ChatAgents = () => {
   const {
@@ -38,7 +36,7 @@ export const ChatAgents = () => {
             value={query}
             onChange={(event) => setQuery(event.target.value)}
             className="rounded-full"
-            placeholder="Search"
+            placeholder={t("search")}
           />
           <Button
             onClick={() => setSelected(null)}
@@ -68,8 +66,8 @@ export const ChatAgents = () => {
                 <AvatarFallback>{chatAgent.name[0]}</AvatarFallback>
               </Avatar>
               <div className="flex-1">
-                <div className="text-sm truncate">{chatAgent.name}</div>
-                <div className="text-xs text-muted-foreground truncate">
+                <div className="text-sm line-clamp-1">{chatAgent.name}</div>
+                <div className="text-xs text-muted-foreground line-clamp-1">
                   {chatAgent.introduction}
                 </div>
               </div>

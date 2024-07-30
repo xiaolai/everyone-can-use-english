@@ -5,6 +5,7 @@ type ChatType = {
   language: string;
   config: {
     sttEngine: WhisperConfigType["service"];
+    [key: string]: any;
   };
   digest?: string;
   createdAt: string;

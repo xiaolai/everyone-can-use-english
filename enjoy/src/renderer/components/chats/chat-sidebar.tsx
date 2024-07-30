@@ -108,12 +108,14 @@ export const ChatSidebar = () => {
       <Dialog open={displayChatForm} onOpenChange={setDisplayChatForm}>
         <DialogContent className="max-w-screen-md h-5/6">
           <DialogTitle className="sr-only"></DialogTitle>
-          <ChatForm
-            chatAgents={chatAgents}
-            onSave={(data) =>
-              createChat(data).then(() => setDisplayChatForm(false))
-            }
-          />
+          <ScrollArea className="h-full px-4">
+            <ChatForm
+              chatAgents={chatAgents}
+              onSave={(data) =>
+                createChat(data).then(() => setDisplayChatForm(false))
+              }
+            />
+          </ScrollArea>
         </DialogContent>
       </Dialog>
       <Dialog open={displayAgentForm} onOpenChange={setDisplayAgentForm}>
