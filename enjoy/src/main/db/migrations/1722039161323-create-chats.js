@@ -24,6 +24,10 @@ async function up({ context: queryInterface }) {
       type: DataTypes.TEXT,
       allowNull: true,
     },
+    config: {
+      type: DataTypes.JSON,
+      defaultValue: {},
+    },
     created_at: {
       type: DataTypes.DATE,
       allowNull: false,
@@ -88,9 +92,9 @@ async function up({ context: queryInterface }) {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      state: {
-        type: DataTypes.STRING,
-        allowNull: true,
+      config: {
+        type: DataTypes.JSON,
+        defaultValue: {},
       },
       created_at: {
         type: DataTypes.DATE,

@@ -42,6 +42,9 @@ export class Chat extends Model<Chat> {
   @Column(DataType.TEXT)
   digest: string;
 
+  @Column(DataType.JSON)
+  config: any;
+
   @HasMany(() => ChatSession, {
     foreignKey: "chatId",
     constraints: false,
@@ -57,6 +60,16 @@ export class Chat extends Model<Chat> {
     hooks: true,
   })
   members: ChatMember[];
+
+  @Column(DataType.VIRTUAL)
+  get membersCount(): number {
+    return this.members.length;
+  }
+
+  @Column(DataType.VIRTUAL)
+  get sttEngine(): string {
+    return this.config?.sttEngine;
+  }
 
   @AfterCreate
   static async notifyForCreate(chat: Chat) {

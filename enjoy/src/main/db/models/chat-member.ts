@@ -42,8 +42,8 @@ export class ChatMember extends Model<ChatMember> {
   @Column(DataType.STRING)
   userType: string;
 
-  @Column(DataType.STRING)
-  state: string;
+  @Column(DataType.JSON)
+  config: any;
 
   @BelongsTo(() => Chat, {
     foreignKey: "chatId",

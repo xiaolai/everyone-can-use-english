@@ -3,6 +3,9 @@ type ChatType = {
   name: string;
   topic: string;
   language: string;
+  config: {
+    sttEngine: WhisperConfigType["service"];
+  };
   digest?: string;
   createdAt: string;
   updatedAt: string;
@@ -33,7 +36,10 @@ type ChatMemberType = {
   chatId: string;
   userId: string;
   userType: "Agent" | "User";
-  state: "active" | "passive";
+  config: {
+    preset: string;
+    [key: string]: any;
+  };
   agent?: ChatAgentType;
   user?: UserType;
 };
@@ -53,6 +59,7 @@ type ChatMessageType = {
   memberId: string;
   sessionId: string;
   content: string;
+  language: string;
   state: "pending" | "completed";
   createdAt: string;
   updatedAt: string;
