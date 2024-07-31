@@ -220,7 +220,7 @@ export const ChatForm = (props: {
                 <FormLabel>
                   {t("members")}({field.value.length})
                 </FormLabel>
-                <ScrollArea className="w-full h-36 border rounded-lg p-2 bg-muted">
+                <ScrollArea className="w-full h-36 rounded-lg p-2 bg-muted">
                   <div className="grid grid-cols-3 gap-3">
                     <div
                       className={`flex items-center space-x-1 px-2 py-1 rounded-lg w-full overflow-hidden relative hover:shadow border cursor-pointer ${
@@ -262,7 +262,13 @@ export const ChatForm = (props: {
                             if (editingMember?.userId === chatAgent.id) {
                               setEditingMember(null);
                             } else {
-                              setEditingMember(member);
+                              setEditingMember(
+                                member || {
+                                  userId: chatAgent.id,
+                                  userType: "Agent",
+                                  config: {},
+                                }
+                              );
                             }
                           }}
                         >
