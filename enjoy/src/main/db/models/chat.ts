@@ -16,7 +16,7 @@ import log from "@main/logger";
 import { ChatAgent, ChatMember, ChatSession } from "@main/db/models";
 import mainWindow from "@main/window";
 
-const logger = log.scope("db/models/note");
+const logger = log.scope("db/models/chat");
 @Table({
   modelName: "Chat",
   tableName: "chats",

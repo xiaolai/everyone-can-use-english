@@ -14,8 +14,9 @@ import {
 } from "sequelize-typescript";
 import mainWindow from "@main/window";
 import log from "@main/logger";
+import { ChatMember, ChatSession } from "@main/db/models";
 
-const logger = log.scope("db/models/note");
+const logger = log.scope("db/models/chat-message");
 @Table({
   modelName: "ChatMessage",
   tableName: "chat_messages",
@@ -41,4 +42,16 @@ export class ChatMessage extends Model<ChatMessage> {
 
   @Column(DataType.STRING)
   state: string;
+
+  @BelongsTo(() => ChatSession, {
+    foreignKey: "sessionId",
+    constraints: false,
+  })
+  session: ChatSession;
+
+  @BelongsTo(() => ChatMember, {
+    foreignKey: "memberId",
+    constraints: false,
+  })
+  member: ChatMember;
 }
