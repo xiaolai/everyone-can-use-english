@@ -1,10 +1,7 @@
 import { ipcMain, IpcMainEvent } from "electron";
 import { ChatSession } from "@main/db/models";
-import { FindOptions, WhereOptions, Attributes } from "sequelize";
+import { FindOptions, Attributes } from "sequelize";
 import log from "@main/logger";
-import { t } from "i18next";
-import echogarden from "@main/echogarden";
-import whisper from "@/main/whisper";
 
 const logger = log.scope("db/handlers/chats-handler");
 
@@ -14,20 +11,15 @@ class ChatSessionsHandler {
     options: FindOptions<Attributes<ChatSession>> & { query?: string }
   ) {}
 
-  private async create(_event: IpcMainEvent, buffer: ArrayBuffer) {
-    logger.debug('create chat session');
-    const rawAudio = await echogarden.ensureRawAudio(
-      Buffer.from(buffer),
-      16000
-    );
-    const audioBuffer = await echogarden.encodeRawAudioToWave(rawAudio);
-    const result = await whisper.transcribe({
-      blob: {
-        type: "audio/wav",
-        arrayBuffer: audioBuffer,
-      },
-    });
-    logger.info(result)
+  private async create(
+    _event: IpcMainEvent,
+    params: {
+      chatId: string;
+      content: string;
+      url: string;
+    }
+  ) {
+    logger.debug("create chat session");
   }
 
   private async reply() {}

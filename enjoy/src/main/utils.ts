@@ -49,7 +49,9 @@ export function enjoyUrlToPath(enjoyUrl: string): string {
   let filePath = enjoyUrl;
 
   if (
-    enjoyUrl.match(/enjoy:\/\/library\/(audios|videos|recordings|speeches|segments)/g)
+    enjoyUrl.match(
+      /enjoy:\/\/library\/(audios|videos|recordings|speeches|segments)/g
+    )
   ) {
     filePath = path.posix.join(
       settings.userDataPath(),
@@ -75,15 +77,13 @@ export function pathToEnjoyUrl(filePath: string): string {
   let enjoyUrl = filePath;
 
   if (filePath.startsWith(settings.userDataPath())) {
-    enjoyUrl = `enjoy://library/${filePath.replace(
-      settings.userDataPath(),
-      ""
-    )}`;
+    enjoyUrl = `enjoy://library/${filePath
+      .replace(settings.userDataPath(), "")
+      .replace(/^\//, "")}`;
   } else if (filePath.startsWith(settings.libraryPath())) {
-    enjoyUrl = `enjoy://library/${filePath.replace(
-      settings.libraryPath(),
-      ""
-    )}`;
+    enjoyUrl = `enjoy://library/${filePath
+      .replace(settings.libraryPath(), "")
+      .replace(/^\//, "")}`;
   }
 
   return enjoyUrl;

@@ -69,7 +69,7 @@ type WhisperOutputType = {
     translate: boolean;
   };
   result: {
-    languate: string;
+    language: string;
   };
   systeminfo: string;
   transcription: TranscriptionResultSegmentType[];

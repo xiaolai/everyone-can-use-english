@@ -1,7 +1,7 @@
 import {
+  LoaderIcon,
   MicIcon,
   PauseIcon,
-  PlayCircleIcon,
   PlayIcon,
   SettingsIcon,
   SquareIcon,
@@ -24,12 +24,14 @@ import { useContext, useEffect, useState } from "react";
 import { ChatForm } from "./chat-form";
 import { useAudioRecorder } from "react-audio-voice-recorder";
 import { LiveAudioVisualizer } from "react-audio-visualize";
+import { useTranscribe } from "@renderer/hooks";
 
 export const Chat = () => {
   const { currentChat, chatAgents, updateChat, destroyChat } =
     useContext(ChatProviderContext);
   const [displayChatForm, setDisplayChatForm] = useState(false);
   const { EnjoyApp } = useContext(AppSettingsProviderContext);
+  const [submitting, setSubmitting] = useState(false);
 
   const askForMediaAccess = () => {
     EnjoyApp.system.preferences.mediaAccess("microphone").then((access) => {
@@ -39,11 +41,24 @@ export const Chat = () => {
     });
   };
 
+  const { transcribe } = useTranscribe();
+
   const createChatSession = async (blob: Blob) => {
-    const buffer = await blob.arrayBuffer();
-    EnjoyApp.chatSessions.create(buffer).then(() => {
-      toast.success(t("chatSessionCreated"));
-    });
+    setSubmitting(true);
+
+    try {
+      const result = await transcribe(blob, {
+        language: currentChat.language,
+        service: currentChat.config.sttEngine,
+        align: false,
+      });
+
+      console.log(result);
+    } catch (error) {
+      toast.error(error.message);
+    }
+
+    setSubmitting(false);
   };
 
   const {
@@ -119,7 +134,11 @@ export const Chat = () => {
       <div className="flex-1 space-y-4 px-4 mb-4"></div>
       <div className="absolute bottom-0 w-full h-16 border-t z-10 bg-background flex items-center">
         <div className="w-full flex justify-center">
-          {isRecording ? (
+          {submitting ? (
+            <div>
+              <LoaderIcon className="w-6 h-6 animate-spin" />
+            </div>
+          ) : isRecording ? (
             <div className="flex items-center space-x-2">
               <LiveAudioVisualizer
                 mediaRecorder={mediaRecorder}
