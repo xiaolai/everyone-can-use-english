@@ -14,13 +14,12 @@ import {
 } from "@renderer/components/ui";
 import { t } from "i18next";
 import { useContext, useEffect, useState } from "react";
-import {
-  ChatProviderContext,
-} from "@renderer/context";
+import { ChatProviderContext } from "@renderer/context";
 import { DropdownMenuTrigger } from "@radix-ui/react-dropdown-menu";
 import { ChatForm } from "./chat-form";
 import { ChatAgents } from "./chat-agents";
 import { useDebounce } from "@uidotdev/usehooks";
+import { ChatCard } from "./chat-card";
 
 export const ChatSidebar = () => {
   const {
@@ -74,30 +73,12 @@ export const ChatSidebar = () => {
       )}
       <div className="flex flex-col space-y-2 px-2">
         {chats.map((chat) => (
-          <div
+          <ChatCard
             key={chat.id}
-            className={`rounded-lg border py-2 px-4 hover:bg-background cursor-pointer ${
-              currentChat?.id === chat.id ? "bg-background" : ""
-            }`}
-            onClick={() => setCurrentChat(chat)}
-          >
-            <div className="text-sm line-clamp-1 mb-2">
-              {chat.name}({chat.membersCount})
-            </div>
-            <div className="flex items-center -space-x-2 justify-end">
-              {chat.members.map((member) => (
-                <Avatar
-                  key={member.id}
-                  className="w-6 h-6 border bg-background"
-                >
-                  <img src={(member.agent || member.user).avatarUrl} />
-                  <AvatarFallback>
-                    {(member.agent || member.user).name[0]}
-                  </AvatarFallback>
-                </Avatar>
-              ))}
-            </div>
-          </div>
+            chat={chat}
+            selected={currentChat?.id === chat.id}
+            onSelect={setCurrentChat}
+          />
         ))}
       </div>
 
