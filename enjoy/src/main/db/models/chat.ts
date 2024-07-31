@@ -10,9 +10,10 @@ import {
   AfterCreate,
   AllowNull,
   HasMany,
+  Scopes,
 } from "sequelize-typescript";
 import log from "@main/logger";
-import { ChatMember, ChatSession } from "@main/db/models";
+import { ChatAgent, ChatMember, ChatSession } from "@main/db/models";
 import mainWindow from "@main/window";
 
 const logger = log.scope("db/models/note");
@@ -22,6 +23,28 @@ const logger = log.scope("db/models/note");
   underscored: true,
   timestamps: true,
 })
+@Scopes(() => ({
+  defaultScope: {
+    include: [
+      {
+        association: "members",
+        model: ChatMember,
+        include: [
+          {
+            association: "agent",
+            model: ChatAgent,
+            required: false,
+          },
+        ],
+        required: false,
+      },
+      {
+        association: "sessions",
+        model: ChatSession,
+      },
+    ],
+  },
+}))
 export class Chat extends Model<Chat> {
   @IsUUID("all")
   @Default(DataType.UUIDV4)
@@ -57,6 +80,7 @@ export class Chat extends Model<Chat> {
     foreignKey: "chatId",
     constraints: false,
     onDelete: "CASCADE",
+    onUpdate: "CASCADE",
     hooks: true,
   })
   members: ChatMember[];
@@ -89,20 +113,11 @@ export class Chat extends Model<Chat> {
   static async notify(chat: Chat, action: "create" | "update" | "destroy") {
     if (!mainWindow.win) return;
 
-    // query chat members and include agent
-    const members = await ChatMember.findAll({
-      where: { chatId: chat.id },
-      include: ["agent"],
-    });
-
-    const record = chat.toJSON();
-    record.members = members.map((member) => member.toJSON());
-
     mainWindow.win.webContents.send("db-on-transaction", {
       model: "Chat",
       id: chat.id,
       action: action,
-      record,
+      record: chat.toJSON(),
     });
   }
 }

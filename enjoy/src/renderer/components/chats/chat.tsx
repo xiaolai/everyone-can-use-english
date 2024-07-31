@@ -87,7 +87,7 @@ export const Chat = () => {
     <ScrollArea className="h-screen relative pb-16">
       <div className="h-12 border-b px-4 shadow flex items-center justify-center sticky top-0 z-10 bg-background mb-4">
         <span>
-          {currentChat.name}({currentChat.members.length + 1})
+          {currentChat.name}({currentChat.membersCount})
         </span>
         <Dialog open={displayChatForm} onOpenChange={setDisplayChatForm}>
           <DialogTrigger asChild>
@@ -97,20 +97,22 @@ export const Chat = () => {
           </DialogTrigger>
           <DialogContent className="max-w-screen-md h-5/6">
             <DialogTitle className="sr-only"></DialogTitle>
-            <ChatForm
-              chat={currentChat}
-              chatAgents={chatAgents}
-              onSave={(data) =>
-                updateChat(currentChat.id, data).then(() =>
-                  setDisplayChatForm(false)
-                )
-              }
-              onDestroy={() =>
-                destroyChat(currentChat.id).then(() =>
-                  setDisplayChatForm(false)
-                )
-              }
-            />
+            <ScrollArea className="h-full px-4">
+              <ChatForm
+                chat={currentChat}
+                chatAgents={chatAgents}
+                onSave={(data) =>
+                  updateChat(currentChat.id, data).then(() =>
+                    setDisplayChatForm(false)
+                  )
+                }
+                onDestroy={() =>
+                  destroyChat(currentChat.id).then(() =>
+                    setDisplayChatForm(false)
+                  )
+                }
+              />
+            </ScrollArea>
           </DialogContent>
         </Dialog>
       </div>

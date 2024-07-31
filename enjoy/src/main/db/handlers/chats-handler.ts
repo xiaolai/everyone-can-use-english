@@ -4,6 +4,7 @@ import { FindOptions, WhereOptions, Attributes, Op } from "sequelize";
 import log from "@main/logger";
 import { t } from "i18next";
 import db from "@main/db";
+import settings from "@/main/settings";
 
 const logger = log.scope("db/handlers/chats-handler");
 
@@ -23,22 +24,6 @@ class ChatsHandler {
     }
     const chats = await Chat.findAll({
       order: [["updatedAt", "DESC"]],
-      include: [
-        {
-          association: "members",
-          model: ChatMember,
-          include: [
-            {
-              association: "agent",
-              model: ChatAgent,
-            },
-          ],
-        },
-        {
-          association: "sessions",
-          model: ChatSession,
-        },
-      ],
       where,
       ...options,
     });
@@ -68,9 +53,16 @@ class ChatsHandler {
       name: string;
       language: string;
       topic: string;
+      config: {
+        sttEngine: string;
+      };
       members: Array<{
         userId: string;
         userType: string;
+        config?: {
+          prompt?: string;
+          introduction?: string;
+        };
       }>;
     }
   ) {
@@ -80,6 +72,9 @@ class ChatsHandler {
     }
 
     const transaction = await db.connection.transaction();
+    if (!chatData.config?.sttEngine) {
+      chatData.config.sttEngine = settings.whisperConfig().service;
+    }
     const chat = await Chat.create(chatData, {
       transaction,
     });
@@ -87,8 +82,7 @@ class ChatsHandler {
       await ChatMember.create(
         {
           chatId: chat.id,
-          userId: member.userId,
-          userType: member.userType,
+          ...member,
         },
         {
           include: [Chat],
@@ -108,9 +102,16 @@ class ChatsHandler {
       name: string;
       language: string;
       topic: string;
+      config: {
+        sttEngine: string;
+      };
       members: Array<{
         userId: string;
         userType: string;
+        config: {
+          prompt?: string;
+          introduction?: string;
+        };
       }>;
     }
   ) {
@@ -128,12 +129,9 @@ class ChatsHandler {
     const transaction = await db.connection.transaction();
     await chat.update(chatData, { transaction });
 
-    const chatMembers = await ChatMember.findAll({
-      where: { chatId: chat.id },
-    });
-
     // Remove members
-    for (const member of chatMembers) {
+    for (const member of chat.members) {
+      if (member.userType === "User") continue;
       if (!members.find((m) => m.userId === member.userId)) {
         await member.destroy({ transaction });
       }
@@ -141,15 +139,15 @@ class ChatsHandler {
 
     // Add or update members
     for (const member of members) {
-      const chatMember = chatMembers.find((m) => m.userId === member.userId);
+      const chatMember = chat.members.find((m) => m.userId === member.userId);
+
       if (chatMember) {
         await chatMember.update(member, { transaction });
       } else {
         await ChatMember.create(
           {
             chatId: chat.id,
-            userId: member.userId,
-            userType: member.userType,
+            ...member,
           },
           {
             include: [Chat],
@@ -160,6 +158,18 @@ class ChatsHandler {
     }
 
     await transaction.commit();
+    await chat.reload({
+      include: [
+        {
+          association: Chat.associations.members,
+          include: [
+            {
+              association: ChatMember.associations.agent,
+            },
+          ],
+        },
+      ],
+    });
 
     return chat.toJSON();
   }

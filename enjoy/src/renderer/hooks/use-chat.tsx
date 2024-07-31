@@ -16,7 +16,6 @@ export const useChat = () => {
     EnjoyApp.chats
       .findAll({ query })
       .then((data) => {
-        console.log(data);
         dispatchChats({ type: "set", records: data });
       })
       .catch((error) => {
@@ -29,9 +28,14 @@ export const useChat = () => {
     language: string;
     topic: string;
     members: Array<{
-      userId: string;
-      userType: string;
+      userId?: string;
+      userType?: "User" | "Agent";
+      prompt?: string;
+      introduction?: string;
     }>;
+    config: {
+      sttEngine: string;
+    };
   }) => {
     return EnjoyApp.chats
       .create(data)
@@ -50,14 +54,21 @@ export const useChat = () => {
       language: string;
       topic: string;
       members: Array<{
-        userId: string;
-        userType: string;
+        userId?: string;
+        userType?: "User" | "Agent";
+        prompt?: string;
+        introduction?: string;
       }>;
+      config: {
+        sttEngine: string;
+      };
     }
   ) => {
     return EnjoyApp.chats
       .update(id, data)
-      .then(() => {
+      .then((chat) => {
+        console.log(chat);
+        dispatchChats({ type: "update", record: chat });
         toast.success(t("models.chats.updated"));
       })
       .catch((error) => {

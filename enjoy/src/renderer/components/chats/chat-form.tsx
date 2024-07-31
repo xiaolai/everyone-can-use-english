@@ -1,5 +1,5 @@
 import { zodResolver } from "@hookform/resolvers/zod";
-import { ChangeHandler, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { z } from "zod";
 import {
   AlertDialog,
@@ -16,6 +16,7 @@ import {
   Button,
   Checkbox,
   Form,
+  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -33,7 +34,10 @@ import {
 import { t } from "i18next";
 import { ChangeEventHandler, useContext, useState } from "react";
 import { CheckCircleIcon } from "lucide-react";
-import { AppSettingsProviderContext } from "@renderer/context";
+import {
+  AISettingsProviderContext,
+  AppSettingsProviderContext,
+} from "@renderer/context";
 import { LANGUAGES } from "@/constants";
 
 export const ChatForm = (props: {
@@ -43,7 +47,8 @@ export const ChatForm = (props: {
     name: string;
     topic: string;
     language: string;
-    members: Array<{ userId: string; userType: "User" | "Agent" }>;
+    members: Array<Partial<ChatMemberType>>;
+    config: any;
   }) => void;
   onDestroy?: () => void;
 }) => {
@@ -51,60 +56,69 @@ export const ChatForm = (props: {
   const { user, learningLanguage, nativeLanguage } = useContext(
     AppSettingsProviderContext
   );
-  const [editingMember, setEditingMember] = useState<{
-    userId?: string;
-    userType?: "User" | "Agent";
-    prompt?: string;
-    introduction?: string;
-  } | null>();
+  const { whisperConfig } = useContext(AISettingsProviderContext);
+  const [editingMember, setEditingMember] =
+    useState<Partial<ChatMemberType> | null>();
 
   const chatFormSchema = z.object({
     name: z.string().min(1),
     topic: z.string(),
     language: z.string(),
+    config: z.object({
+      sttEngine: z.string(),
+    }),
     members: z
       .array(
-        z
-          .object({
-            userId: z.string(),
-            userType: z.enum(["User", "Agent"]).default("Agent"),
+        z.object({
+          userId: z.string(),
+          userType: z.enum(["User", "Agent"]).default("Agent"),
+          config: z.object({
             prompt: z.string().optional(),
             introduction: z.string().optional(),
-          })
-          .required({
-            userId: true,
-            userType: true,
-          })
+          }),
+        })
       )
-      .min(1),
+      .min(2),
   });
 
   const form = useForm<z.infer<typeof chatFormSchema>>({
     resolver: zodResolver(chatFormSchema),
-    values: chat || {
-      name: "New Chat",
-      topic: "Casual Chat",
-      language: learningLanguage,
-      members: [
-        {
-          userId: user.id,
-          userType: "User",
-          introduction: `I am ${nativeLanguage} speaker learning ${learningLanguage}.`,
+    values: chat
+      ? {
+          name: chat.name,
+          topic: chat.topic,
+          language: chat.language,
+          config: chat.config,
+          members: [...chat.members],
+        }
+      : {
+          name: "New Chat",
+          topic: "Casual Chat.",
+          language: learningLanguage,
+          config: {
+            sttEngine: whisperConfig.service,
+          },
+          members: [
+            {
+              userId: user.id.toString(),
+              userType: "User",
+              config: {
+                introduction: `I am ${nativeLanguage} speaker learning ${learningLanguage}.`,
+              },
+            },
+          ],
         },
-      ],
-    },
   });
 
   const onSubmit = form.handleSubmit((data) => {
-    const { name, topic, language, members } = data;
+    console.log(data);
+    const { name, topic, language, members, config } = data;
     return onSave({
       name,
       topic,
       language,
-      members: members.map((m) => ({
-        userId: m.userId,
-        userType: m.userType,
-      })),
+      members,
+      config,
     });
   });
 
@@ -168,30 +182,58 @@ export const ChatForm = (props: {
           />
           <FormField
             control={form.control}
+            name="config.sttEngine"
+            render={({ field }) => (
+              <FormItem className="grid w-full items-center">
+                <FormLabel>{t("sttAiService")}</FormLabel>
+                <Select value={field.value} onValueChange={field.onChange}>
+                  <SelectTrigger>
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="local">{t("local")}</SelectItem>
+                    <SelectItem value="azure">{t("azureAi")}</SelectItem>
+                    <SelectItem value="cloudflare">
+                      {t("cloudflareAi")}
+                    </SelectItem>
+                    <SelectItem value="openai">OpenAI</SelectItem>
+                  </SelectContent>
+                </Select>
+                <FormDescription>
+                  {form.watch("config.sttEngine") === "local" &&
+                    t("localSpeechToTextDescription")}
+                  {form.watch("config.sttEngine") === "azure" &&
+                    t("azureSpeechToTextDescription")}
+                  {form.watch("config.sttEngine") === "cloudflare" &&
+                    t("cloudflareSpeechToTextDescription")}
+                  {form.watch("config.sttEngine") === "openai" &&
+                    t("openaiSpeechToTextDescription")}
+                </FormDescription>
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
             name="members"
             render={({ field }) => (
               <FormItem>
                 <FormLabel>
                   {t("members")}({field.value.length})
                 </FormLabel>
-                <ScrollArea className="w-full h-36 bg-muted rounded-lg p-2">
-                  <div className="grid grid-cols-3 gap-2">
+                <ScrollArea className="w-full h-36 border rounded-lg p-2 bg-muted">
+                  <div className="grid grid-cols-3 gap-3">
                     <div
-                      className={`flex items-center space-x-1 px-2 py-1 rounded-lg w-full overflow-hidden relative hover:bg-background hover:border cursor-pointer ${
-                        editingMember?.userId === user.id
-                          ? "bg-background border"
+                      className={`flex items-center space-x-1 px-2 py-1 rounded-lg w-full overflow-hidden relative hover:shadow border cursor-pointer ${
+                        editingMember?.userType === "User"
+                          ? "border-blue-500 bg-background"
                           : ""
                       }`}
                       onClick={() => {
                         const member = field.value.find(
-                          (m) => m.userId === user.id
+                          (m) => m.userType === "User"
                         );
-                        setEditingMember(
-                          member || {
-                            userId: user.id,
-                            userType: "User",
-                          }
-                        );
+
+                        setEditingMember(member);
                       }}
                     >
                       <Avatar className="w-10 h-10">
@@ -208,9 +250,9 @@ export const ChatForm = (props: {
                       .map((chatAgent) => (
                         <div
                           key={chatAgent.id}
-                          className={`flex items-center space-x-1 px-2 py-1 rounded-lg w-full overflow-hidden relative cursor-pointer hover:bg-background hover:border ${
+                          className={`flex items-center space-x-1 px-2 py-1 rounded-lg w-full overflow-hidden relative cursor-pointer border hover:shadow ${
                             editingMember?.userId === chatAgent.id
-                              ? "bg-background border"
+                              ? "border-blue-500 bg-background"
                               : ""
                           }`}
                           onClick={() => {
@@ -220,12 +262,7 @@ export const ChatForm = (props: {
                             if (editingMember?.userId === chatAgent.id) {
                               setEditingMember(null);
                             } else {
-                              setEditingMember(
-                                member || {
-                                  userId: chatAgent.id,
-                                  userType: "Agent",
-                                }
-                              );
+                              setEditingMember(member);
                             }
                           }}
                         >
@@ -281,27 +318,15 @@ export const ChatForm = (props: {
                         );
                       }
                     }}
-                    onPromptChange={(event) => {
-                      const prompt = event.target.value;
+                    onConfigChange={(config) => {
+                      editingMember.config = config;
+                      setEditingMember({ ...editingMember });
 
-                      editingMember.prompt = prompt;
-                      field.onChange([
-                        ...field.value.filter(
-                          (m) => m.userId !== editingMember.userId
-                        ),
-                        editingMember,
-                      ]);
-                    }}
-                    onIntroductionChange={(event) => {
-                      const introduction = event.target.value;
-
-                      editingMember.introduction = introduction;
-                      field.onChange([
-                        ...field.value.filter(
-                          (m) => m.userId !== editingMember.userId
-                        ),
-                        editingMember,
-                      ]);
+                      field.onChange(
+                        field.value.map((m) =>
+                          m.userId === editingMember.userId ? editingMember : m
+                        )
+                      );
                     }}
                   />
                 )}
@@ -347,18 +372,12 @@ export const ChatForm = (props: {
 
 const MemberForm = (props: {
   topic: string;
-  members: Array<{ userId?: string; userType?: "User" | "Agent" }>;
-  member: {
-    userId?: string;
-    userType?: "User" | "Agent";
-    prompt?: string;
-    introduction?: string;
-  };
+  members: Array<Partial<ChatMemberType>>;
+  member: Partial<ChatMemberType>;
   chatAgents: ChatAgentType[];
   checked: boolean;
   onCheckedChange: (checked: boolean) => void;
-  onPromptChange: ChangeEventHandler<HTMLTextAreaElement>;
-  onIntroductionChange: ChangeEventHandler<HTMLTextAreaElement>;
+  onConfigChange?: (config: ChatMemberType["config"]) => void;
 }) => {
   const {
     topic,
@@ -367,12 +386,9 @@ const MemberForm = (props: {
     chatAgents,
     checked,
     onCheckedChange,
-    onPromptChange,
-    onIntroductionChange,
+    onConfigChange,
   } = props;
-  const { user, learningLanguage, nativeLanguage } = useContext(
-    AppSettingsProviderContext
-  );
+  const { user } = useContext(AppSettingsProviderContext);
   const chatAgent = chatAgents.find((a) => a.id === member.userId);
 
   const fullPrompt =
@@ -381,7 +397,7 @@ const MemberForm = (props: {
 You are chatting in a chat room. You always reply in ${
       LANGUAGES.find((lang) => lang.code === chatAgent.language).name
     }.
-${member.prompt || ""}
+${member.config.prompt || ""}
 
 <Chat Topic>
 ${topic}
@@ -390,7 +406,7 @@ ${topic}
 ${members
   .map((m) => {
     if (m.userType === "User") {
-      return `- ${user.name} (${nativeLanguage} speaker, learning ${learningLanguage})`;
+      return `- ${user.name} (${m.config.introduction})`;
     } else {
       const agent = chatAgents.find((a) => a.id === m.userId);
       if (!agent) return "";
@@ -403,7 +419,7 @@ ${members
   if (member.userType === "User") {
     return (
       <>
-        <FormLabel>{t("memberConfig")}</FormLabel>
+        <Label>{t("memberConfig")}</Label>
         <div className="p-4 border rounded-lg">
           <div className="flex items-center space-x-2 mb-2">
             <Avatar className="w-12 h-12">
@@ -419,10 +435,13 @@ ${members
             <Label htmlFor="member">{t("addToChat")}</Label>
           </div>
           <div className="space-y-2">
-            <FormLabel>{t("introduction")}</FormLabel>
+            <Label>{t("introduction")}</Label>
             <Textarea
-              value={member.introduction}
-              onChange={onIntroductionChange}
+              value={member.config.introduction}
+              onChange={(event) => {
+                const introduction = event.target.value;
+                onConfigChange({ ...member.config, introduction });
+              }}
               placeholder={t("introduceYourself")}
             />
           </div>
@@ -432,7 +451,7 @@ ${members
   } else if (chatAgent) {
     return (
       <>
-        <FormLabel>{t("memberConfig")}</FormLabel>
+        <Label>{t("memberConfig")}</Label>
         <div className="p-4 border rounded-lg">
           <div className="flex items-center space-x-2 mb-2">
             <Avatar className="w-12 h-12">
@@ -457,15 +476,18 @@ ${members
           {checked && (
             <>
               <div className="space-y-2">
-                <FormLabel>{t("prompt")}</FormLabel>
+                <Label>{t("prompt")}</Label>
                 <Textarea
-                  value={member.prompt}
-                  onChange={onPromptChange}
+                  value={member.config.prompt}
+                  onChange={(event) => {
+                    const prompt = event.target.value;
+                    onConfigChange({ ...member.config, prompt });
+                  }}
                   placeholder={t("extraPromptForChat")}
                 />
               </div>
               <div className="space-y-2">
-                <FormLabel>{t("promptPreview")}</FormLabel>
+                <Label>{t("promptPreview")}</Label>
                 <Textarea className="min-h-36" disabled value={fullPrompt} />
               </div>
             </>

@@ -15,7 +15,6 @@ import {
 import { t } from "i18next";
 import { useContext, useEffect, useState } from "react";
 import {
-  AppSettingsProviderContext,
   ChatProviderContext,
 } from "@renderer/context";
 import { DropdownMenuTrigger } from "@radix-ui/react-dropdown-menu";
@@ -24,7 +23,6 @@ import { ChatAgents } from "./chat-agents";
 import { useDebounce } from "@uidotdev/usehooks";
 
 export const ChatSidebar = () => {
-  const { user } = useContext(AppSettingsProviderContext);
   const {
     chats,
     fetchChats,
@@ -84,20 +82,18 @@ export const ChatSidebar = () => {
             onClick={() => setCurrentChat(chat)}
           >
             <div className="text-sm line-clamp-1 mb-2">
-              {chat.name}({chat.members.length + 1})
+              {chat.name}({chat.membersCount})
             </div>
             <div className="flex items-center -space-x-2 justify-end">
-              <Avatar className="w-6 h-6">
-                <img src={user.avatarUrl} />
-                <AvatarFallback>{user.name[0]}</AvatarFallback>
-              </Avatar>
               {chat.members.map((member) => (
                 <Avatar
                   key={member.id}
                   className="w-6 h-6 border bg-background"
                 >
-                  <img src={member.agent.avatarUrl} />
-                  <AvatarFallback>{member.agent.name[0]}</AvatarFallback>
+                  <img src={(member.agent || member.user).avatarUrl} />
+                  <AvatarFallback>
+                    {(member.agent || member.user).name[0]}
+                  </AvatarFallback>
                 </Avatar>
               ))}
             </div>

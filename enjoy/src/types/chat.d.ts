@@ -10,6 +10,7 @@ type ChatType = {
   digest?: string;
   createdAt: string;
   updatedAt: string;
+  membersCount: number;
   sessions: ChatSessionType[];
   members: ChatMemberType[];
 };
@@ -38,7 +39,8 @@ type ChatMemberType = {
   userId: string;
   userType: "Agent" | "User";
   config: {
-    preset: string;
+    prompt?: string;
+    introduction?: string;
     [key: string]: any;
   };
   agent?: ChatAgentType;

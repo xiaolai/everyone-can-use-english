@@ -11,6 +11,7 @@ import {
   AfterCreate,
   AllowNull,
   AfterFind,
+  Scopes,
 } from "sequelize-typescript";
 import mainWindow from "@main/window";
 import log from "@main/logger";
@@ -24,6 +25,17 @@ const logger = log.scope("db/models/note");
   underscored: true,
   timestamps: true,
 })
+@Scopes(() => ({
+  defaultScope: {
+    include: [
+      {
+        association: "agent",
+        model: ChatAgent,
+        required: false,
+      },
+    ],
+  },
+}))
 export class ChatMember extends Model<ChatMember> {
   @IsUUID("all")
   @Default(DataType.UUIDV4)
@@ -72,5 +84,14 @@ export class ChatMember extends Model<ChatMember> {
 
       return user;
     }
+  }
+
+  @AfterCreate
+  @AfterUpdate
+  @AfterDestroy
+  static async updateChats(member: ChatMember) {
+    const chat = await Chat.findByPk(member.chatId);
+    if (!chat) return;
+    await chat.update({ updatedAt: new Date() });
   }
 }

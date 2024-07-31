@@ -11,9 +11,14 @@ type ChatProviderState = {
     language: string;
     topic: string;
     members: Array<{
-      userId: string;
-      userType: string;
+      userId?: string;
+      userType?: "User" | "Agent";
+      prompt?: string;
+      introduction?: string;
     }>;
+    config: {
+      sttEngine: string;
+    };
   }) => Promise<void>;
   updateChat: (
     id: string,
@@ -22,9 +27,14 @@ type ChatProviderState = {
       language: string;
       topic: string;
       members: Array<{
-        userId: string;
-        userType: string;
+        userId?: string;
+        userType?: "User" | "Agent";
+        prompt?: string;
+        introduction?: string;
       }>;
+      config: {
+        sttEngine: string;
+      };
     }
   ) => Promise<void>;
   destroyChat: (id: string) => Promise<void>;
