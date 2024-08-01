@@ -25,7 +25,7 @@ import storage from "@main/storage";
 import { Client } from "@/api";
 import echogarden from "@main/echogarden";
 import { t } from "i18next";
-import { Attributes } from "sequelize";
+import { Attributes, Transaction } from "sequelize";
 import { v5 as uuidv5 } from "uuid";
 
 const logger = log.scope("db/models/recording");
@@ -60,7 +60,7 @@ export class Recording extends Model<Recording> {
   targetId: string;
 
   @Column(DataType.STRING)
-  targetType: "Audio" | "Video" | "None";
+  targetType: "Audio" | "Video" | "ChatMessage" | "None";
 
   @HasOne(() => PronunciationAssessment, {
     foreignKey: "targetId",
@@ -249,7 +249,8 @@ export class Recording extends Model<Recording> {
       type: string;
       arrayBuffer: ArrayBuffer;
     },
-    params: Partial<Attributes<Recording>>
+    params: Partial<Attributes<Recording>>,
+    transaction?: Transaction
   ) {
     const { targetId, targetType, referenceId, referenceText, language } =
       params;
@@ -304,17 +305,22 @@ export class Recording extends Model<Recording> {
     const userId = settings.getSync("user.id");
     const id = uuidv5(`${userId}/${md5}`, uuidv5.URL);
 
-    return this.create({
-      id,
-      targetId,
-      targetType,
-      filename,
-      duration,
-      md5,
-      referenceId,
-      referenceText,
-      language,
-    });
+    return this.create(
+      {
+        id,
+        targetId,
+        targetType,
+        filename,
+        duration,
+        md5,
+        referenceId,
+        referenceText,
+        language,
+      },
+      {
+        transaction,
+      }
+    );
   }
 
   static notify(recording: Recording, action: "create" | "update" | "destroy") {

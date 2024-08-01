@@ -110,7 +110,7 @@ export const useChat = () => {
     fetchChats();
     addDblistener(onChatUpdate);
 
-    () => {
+    return () => {
       removeDbListener(onChatUpdate);
     };
   }, []);

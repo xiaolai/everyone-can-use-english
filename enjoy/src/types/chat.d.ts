@@ -62,8 +62,8 @@ type ChatMessageType = {
   memberId: string;
   sessionId: string;
   content: string;
-  language: string;
   state: "pending" | "completed";
   createdAt: string;
   updatedAt: string;
+  member?: ChatMemberType;
 };

@@ -38,10 +38,6 @@ const logger = log.scope("db/models/chat");
         ],
         required: false,
       },
-      {
-        association: "sessions",
-        model: ChatSession,
-      },
     ],
   },
 }))

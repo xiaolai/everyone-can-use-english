@@ -3,4 +3,5 @@ export * from "./chat-agents";
 export * from "./chat-agent-form";
 export * from "./chat-card";
 export * from "./chat-form";
+export * from "./chat-session";
 export * from "./chat-sidebar";

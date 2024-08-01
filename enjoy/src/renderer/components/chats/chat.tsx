@@ -19,19 +19,27 @@ import { t } from "i18next";
 import {
   AppSettingsProviderContext,
   ChatProviderContext,
+  DbProviderContext,
 } from "@renderer/context";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useReducer, useState } from "react";
 import { ChatForm } from "./chat-form";
 import { useAudioRecorder } from "react-audio-voice-recorder";
 import { LiveAudioVisualizer } from "react-audio-visualize";
 import { useTranscribe } from "@renderer/hooks";
+import { chatSessionsReducer } from "@renderer/reducers";
+import { ChatSession } from "./chat-session";
 
 export const Chat = () => {
   const { currentChat, chatAgents, updateChat, destroyChat } =
     useContext(ChatProviderContext);
   const [displayChatForm, setDisplayChatForm] = useState(false);
-  const { EnjoyApp } = useContext(AppSettingsProviderContext);
+  const { EnjoyApp, user } = useContext(AppSettingsProviderContext);
+  const { addDblistener, removeDbListener } = useContext(DbProviderContext);
   const [submitting, setSubmitting] = useState(false);
+  const [chatSessions, dispatchChatSessions] = useReducer(
+    chatSessionsReducer,
+    []
+  );
 
   const askForMediaAccess = () => {
     EnjoyApp.system.preferences.mediaAccess("microphone").then((access) => {
@@ -41,7 +49,43 @@ export const Chat = () => {
     });
   };
 
+  const fetchChatSessions = async (chatId: string) => {
+    EnjoyApp.chatSessions.findAll({ where: { chatId } }).then((data) => {
+      console.log(data);
+      dispatchChatSessions({ type: "set", records: data });
+    });
+  };
+
   const { transcribe } = useTranscribe();
+
+  const onChatSessionUpdate = (event: CustomEvent) => {
+    const { model, action, record } = event.detail;
+    if (model === "ChatSession") {
+      switch (action) {
+        case "create":
+          dispatchChatSessions({ type: "append", record });
+          break;
+        case "update":
+          dispatchChatSessions({ type: "update", record });
+          break;
+        case "destroy":
+          dispatchChatSessions({ type: "remove", record });
+          break;
+      }
+    } else if (model === "ChatMessage") {
+      switch (action) {
+        case "create":
+          dispatchChatSessions({ type: "addMessage", message: record });
+          break;
+        case "update":
+          dispatchChatSessions({ type: "updateMessage", message: record });
+          break;
+        case "destroy":
+          dispatchChatSessions({ type: "removeMessage", message: record });
+          break;
+      }
+    }
+  };
 
   const createChatSession = async (blob: Blob) => {
     setSubmitting(true);
@@ -53,7 +97,18 @@ export const Chat = () => {
         align: false,
       });
 
-      console.log(result);
+      const member = currentChat.members.find(
+        (member) => member.userId === user.id.toString()
+      );
+
+      EnjoyApp.chatSessions.create({
+        chatId: currentChat.id,
+        chatMessage: {
+          memberId: member.id,
+          content: result.transcript,
+        },
+        url: result.url,
+      });
     } catch (error) {
       toast.error(error.message);
     }
@@ -73,14 +128,22 @@ export const Chat = () => {
   } = useAudioRecorder();
 
   useEffect(() => {
+    if (!currentChat) return;
+
+    askForMediaAccess();
+    fetchChatSessions(currentChat.id);
+    addDblistener(onChatSessionUpdate);
+
+    return () => {
+      removeDbListener(onChatSessionUpdate);
+    };
+  }, [currentChat?.id]);
+
+  useEffect(() => {
     if (!recordingBlob) return;
 
     createChatSession(recordingBlob);
   }, [recordingBlob]);
-
-  useEffect(() => {
-    askForMediaAccess();
-  }, []);
 
   useEffect(() => {
     if (!isRecording) return;
@@ -131,7 +194,11 @@ export const Chat = () => {
           </DialogContent>
         </Dialog>
       </div>
-      <div className="flex-1 space-y-4 px-4 mb-4"></div>
+      <div className="flex-1 space-y-4 px-4 mb-4">
+        {chatSessions.map((chatSession) => (
+          <ChatSession key={chatSession.id} chatSession={chatSession} />
+        ))}
+      </div>
       <div className="absolute bottom-0 w-full h-16 border-t z-10 bg-background flex items-center">
         <div className="w-full flex justify-center">
           {submitting ? (

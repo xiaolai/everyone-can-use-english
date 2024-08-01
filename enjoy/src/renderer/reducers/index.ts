@@ -1,6 +1,7 @@
 export * from "./audios-reducer";
 export * from "./chats-reducer";
 export * from "./chat-agents-reducer";
+export * from "./chat-sessions-reducer";
 export * from "./conversations-reducer";
 export * from "./messages-reducer";
 export * from "./llm-messages-reducer";
