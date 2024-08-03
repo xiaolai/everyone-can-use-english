@@ -66,4 +66,5 @@ type ChatMessageType = {
   createdAt: string;
   updatedAt: string;
   member?: ChatMemberType;
+  recording?: RecordingType;
 };

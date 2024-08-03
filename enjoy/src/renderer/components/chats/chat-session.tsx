@@ -1,6 +1,12 @@
-import { Avatar, AvatarFallback, AvatarImage } from "@renderer/components/ui";
-import { MarkdownWrapper } from "@renderer/components";
+import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+  Button,
+} from "@renderer/components/ui";
+import { MarkdownWrapper, WavesurferPlayer } from "@renderer/components";
 import { formatDateTime } from "@renderer/lib/utils";
+import { t } from "i18next";
 
 export const ChatSession = (props: { chatSession: ChatSessionType }) => {
   const {
@@ -54,10 +60,25 @@ export const ChatMessage = (props: { chatMessage: ChatMessageType }) => {
             </AvatarFallback>
           </Avatar>
         </div>
-        <div className="flex flex-col gap-2 px-4 py-2 mb-2 bg-sky-500/30 border-sky-500 rounded-lg shadow-sm max-w-full">
-          <MarkdownWrapper className="select-text prose dark:prose-invert">
-            {chatMessage.content}
-          </MarkdownWrapper>
+        <div className="flex justify-end">
+          <div className="flex flex-col gap-2 px-4 py-2 mb-2 bg-sky-500/30 border-sky-500 rounded-lg shadow-sm w-full max-w-lg">
+            {chatMessage.recording && (
+              <WavesurferPlayer
+                id={chatMessage.recording.id}
+                src={chatMessage.recording.src}
+              />
+            )}
+            <MarkdownWrapper className="select-text prose dark:prose-invert">
+              {chatMessage.content}
+            </MarkdownWrapper>
+            {chatMessage.state === "pending" && (
+              <div className="w-full flex items-center justify-end space-x-4">
+                <Button variant="secondary">{t("refine")}</Button>
+                <Button variant="secondary">{t("reRecord")}</Button>
+                <Button variant="default">{t("confirm")}</Button>
+              </div>
+            )}
+          </div>
         </div>
         <div className="flex justify-end text-xs text-muted-foreground timestamp">
           {formatDateTime(chatMessage.createdAt)}

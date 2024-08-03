@@ -59,6 +59,8 @@ export class ChatMessage extends Model<ChatMessage> {
   @Column(DataType.TEXT)
   content: string;
 
+  @AllowNull(false)
+  @Default("pending")
   @Column(DataType.STRING)
   state: string;
 

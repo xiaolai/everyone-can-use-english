@@ -183,7 +183,7 @@ export const WavesurferPlayer = (props: {
         <div className={`flex justify-center ${initialized ? "" : "hidden"}`}>
           <Button
             onClick={onPlayClick}
-            className="aspect-square rounded-full p-2 w-12 h-12 bg-blue-600 hover:bg-blue-500"
+            className="aspect-square rounded-full p-2 w-full max-w-[50%] h-auto bg-blue-600 hover:bg-blue-500"
           >
             {isPlaying ? (
               <PauseIcon className="w-6 h-6 text-white" />
