@@ -7,6 +7,7 @@ import {
 import { MarkdownWrapper, WavesurferPlayer } from "@renderer/components";
 import { formatDateTime } from "@renderer/lib/utils";
 import { t } from "i18next";
+import { MicIcon } from "lucide-react";
 
 export const ChatSession = (props: { chatSession: ChatSessionType }) => {
   const {
@@ -72,10 +73,17 @@ export const ChatMessage = (props: { chatMessage: ChatMessageType }) => {
               {chatMessage.content}
             </MarkdownWrapper>
             {chatMessage.state === "pending" && (
-              <div className="w-full flex items-center justify-end space-x-4">
-                <Button variant="secondary">{t("refine")}</Button>
-                <Button variant="secondary">{t("reRecord")}</Button>
-                <Button variant="default">{t("confirm")}</Button>
+              <div className="w-full flex items-center justify-end space-x-2">
+                <Button size="sm" variant="secondary">
+                  {t("refine")}
+                </Button>
+                <Button size="sm" variant="secondary">
+                  <MicIcon className="w-4 h-4 mr-2" />
+                  {t("reRecord")}
+                </Button>
+                <Button size="sm" variant="default">
+                  {t("confirm")}
+                </Button>
               </div>
             )}
           </div>

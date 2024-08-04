@@ -40,6 +40,8 @@ export const Chat = () => {
     chatSessionsReducer,
     []
   );
+  const [currentSession, setCurrentSession] =
+    useState<ChatSessionType | null>();
 
   const askForMediaAccess = () => {
     EnjoyApp.system.preferences.mediaAccess("microphone").then((access) => {
@@ -51,7 +53,6 @@ export const Chat = () => {
 
   const fetchChatSessions = async (chatId: string) => {
     EnjoyApp.chatSessions.findAll({ where: { chatId } }).then((data) => {
-      console.log(data);
       dispatchChatSessions({ type: "set", records: data });
     });
   };
@@ -153,6 +154,14 @@ export const Chat = () => {
     }
   }, [recordingTime]);
 
+  useEffect(() => {
+    if (chatSessions.length) {
+      setCurrentSession(chatSessions[chatSessions.length - 1]);
+    } else {
+      setCurrentSession(null);
+    }
+  }, [chatSessions]);
+
   if (!currentChat) {
     return (
       <div className="flex items-center justify-center h-screen">
@@ -245,6 +254,7 @@ export const Chat = () => {
             <Button
               onClick={startRecording}
               className="rounded-full shadow w-10 h-10"
+              disabled={currentSession?.state === "pending"}
               size="icon"
             >
               <MicIcon className="w-6 h-6" />

@@ -26,7 +26,7 @@ class ChatSessionsHandler {
       };
     }
     const chatSessions = await ChatSession.findAll({
-      order: [["updatedAt", "DESC"]],
+      order: [["createdAt", "ASC"]],
       where,
       ...options,
     });
