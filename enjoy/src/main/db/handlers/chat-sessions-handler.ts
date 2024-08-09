@@ -118,11 +118,21 @@ class ChatSessionsHandler {
     return session.toJSON();
   }
 
+  private async update(_event: IpcMainEvent, sessionId: string, data: any) {
+    const session = await ChatSession.findByPk(sessionId);
+    if (!session) {
+      throw new Error("Session not found");
+    }
+
+    await session.update(data);
+  }
+
   private async reply() {}
 
   register() {
     ipcMain.handle("chat-sessions-find-all", this.findAll);
     ipcMain.handle("chat-sessions-create", this.create);
+    ipcMain.handle("chat-sessions-update", this.update);
     ipcMain.handle("chat-sessions-reply", this.reply);
   }
 }

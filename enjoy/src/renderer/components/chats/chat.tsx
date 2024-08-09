@@ -19,29 +19,20 @@ import { t } from "i18next";
 import {
   AppSettingsProviderContext,
   ChatProviderContext,
-  DbProviderContext,
 } from "@renderer/context";
-import { useContext, useEffect, useReducer, useState } from "react";
-import { ChatForm } from "./chat-form";
+import { useContext, useEffect, useState } from "react";
 import { useAudioRecorder } from "react-audio-voice-recorder";
 import { LiveAudioVisualizer } from "react-audio-visualize";
-import { useTranscribe } from "@renderer/hooks";
-import { chatSessionsReducer } from "@renderer/reducers";
-import { ChatSession } from "./chat-session";
+import { useTranscribe, useChatSession } from "@renderer/hooks";
+import { ChatSession, ChatForm } from "@renderer/components";
 
 export const Chat = () => {
   const { currentChat, chatAgents, updateChat, destroyChat } =
     useContext(ChatProviderContext);
   const [displayChatForm, setDisplayChatForm] = useState(false);
   const { EnjoyApp, user } = useContext(AppSettingsProviderContext);
-  const { addDblistener, removeDbListener } = useContext(DbProviderContext);
-  const [submitting, setSubmitting] = useState(false);
-  const [chatSessions, dispatchChatSessions] = useReducer(
-    chatSessionsReducer,
-    []
-  );
-  const [currentSession, setCurrentSession] =
-    useState<ChatSessionType | null>();
+  const { chatSessions, currentSession, createChatSession, submitting } =
+    useChatSession(currentChat);
 
   const askForMediaAccess = () => {
     EnjoyApp.system.preferences.mediaAccess("microphone").then((access) => {
@@ -51,70 +42,26 @@ export const Chat = () => {
     });
   };
 
-  const fetchChatSessions = async (chatId: string) => {
-    EnjoyApp.chatSessions.findAll({ where: { chatId } }).then((data) => {
-      dispatchChatSessions({ type: "set", records: data });
-    });
-  };
-
   const { transcribe } = useTranscribe();
 
-  const onChatSessionUpdate = (event: CustomEvent) => {
-    const { model, action, record } = event.detail;
-    if (model === "ChatSession") {
-      switch (action) {
-        case "create":
-          dispatchChatSessions({ type: "append", record });
-          break;
-        case "update":
-          dispatchChatSessions({ type: "update", record });
-          break;
-        case "destroy":
-          dispatchChatSessions({ type: "remove", record });
-          break;
-      }
-    } else if (model === "ChatMessage") {
-      switch (action) {
-        case "create":
-          dispatchChatSessions({ type: "addMessage", message: record });
-          break;
-        case "update":
-          dispatchChatSessions({ type: "updateMessage", message: record });
-          break;
-        case "destroy":
-          dispatchChatSessions({ type: "removeMessage", message: record });
-          break;
-      }
-    }
-  };
-
-  const createChatSession = async (blob: Blob) => {
-    setSubmitting(true);
-
+  const handleRecording = async (blob: Blob) => {
     try {
-      const result = await transcribe(blob, {
+      const { transcript, url } = await transcribe(blob, {
         language: currentChat.language,
         service: currentChat.config.sttEngine,
         align: false,
       });
 
-      const member = currentChat.members.find(
-        (member) => member.userId === user.id.toString()
-      );
-
-      EnjoyApp.chatSessions.create({
-        chatId: currentChat.id,
-        chatMessage: {
-          memberId: member.id,
-          content: result.transcript,
-        },
-        url: result.url,
-      });
+      if (currentSession && currentSession.state === "pending") {
+      } else {
+        await createChatSession({
+          transcript,
+          recordingUrl: url,
+        });
+      }
     } catch (error) {
       toast.error(error.message);
     }
-
-    setSubmitting(false);
   };
 
   const {
@@ -129,21 +76,11 @@ export const Chat = () => {
   } = useAudioRecorder();
 
   useEffect(() => {
-    if (!currentChat) return;
-
     askForMediaAccess();
-    fetchChatSessions(currentChat.id);
-    addDblistener(onChatSessionUpdate);
-
-    return () => {
-      removeDbListener(onChatSessionUpdate);
-    };
-  }, [currentChat?.id]);
+  }, []);
 
   useEffect(() => {
     if (!recordingBlob) return;
-
-    createChatSession(recordingBlob);
   }, [recordingBlob]);
 
   useEffect(() => {
@@ -153,14 +90,6 @@ export const Chat = () => {
       stopRecording();
     }
   }, [recordingTime]);
-
-  useEffect(() => {
-    if (chatSessions.length) {
-      setCurrentSession(chatSessions[chatSessions.length - 1]);
-    } else {
-      setCurrentSession(null);
-    }
-  }, [chatSessions]);
 
   if (!currentChat) {
     return (
