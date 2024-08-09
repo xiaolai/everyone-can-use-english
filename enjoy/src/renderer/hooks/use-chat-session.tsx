@@ -3,10 +3,8 @@ import {
   DbProviderContext,
   AppSettingsProviderContext,
 } from "@renderer/context";
-import { toast } from "@renderer/components/ui";
 import { t } from "i18next";
-import { chatSessionsReducer, chatsReducer } from "@renderer/reducers";
-import { useTranscribe } from "@renderer/hooks";
+import { chatSessionsReducer } from "@renderer/reducers";
 
 export const useChatSession = (chat: ChatType) => {
   const { EnjoyApp, user } = useContext(AppSettingsProviderContext);
@@ -16,7 +14,6 @@ export const useChatSession = (chat: ChatType) => {
     []
   );
   const [submitting, setSubmitting] = useState(false);
-  const { transcribe } = useTranscribe();
 
   const currentSession = chatSessions.length
     ? chatSessions[chatSessions.length - 1]

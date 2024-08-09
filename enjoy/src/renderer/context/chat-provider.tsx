@@ -1,6 +1,9 @@
-import { createContext, useContext, useEffect, useReducer, useState } from "react";
+import {
+  createContext,
+  useEffect,
+  useState,
+} from "react";
 import { useChat, useChatAgent } from "@renderer/hooks";
-import { chatSessionsReducer } from "@renderer/reducers";
 
 type ChatProviderState = {
   chats: ChatType[];
@@ -74,10 +77,6 @@ export const ChatProvider = ({ children }: { children: React.ReactNode }) => {
     createChatAgent,
     destroyChatAgent,
   } = useChatAgent();
-  const [chatSessions, dispatchChatSessions] = useReducer(
-    chatSessionsReducer,
-    []
-  );
 
   useEffect(() => {
     if (currentChat) return;
