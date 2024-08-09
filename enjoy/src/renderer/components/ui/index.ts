@@ -7,6 +7,7 @@ export * from "./badage";
 export * from "./breadcrumb";
 export * from "./button";
 export * from "./card";
+export * from "./checkbox";
 export * from "./collapsible";
 export * from "./command";
 export * from "./dialog";

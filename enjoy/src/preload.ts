@@ -620,4 +620,72 @@ contextBridge.exposeInMainWorld("__ENJOY_APP__", {
       return ipcRenderer.invoke("notes-sync", id);
     },
   },
+  chats: {
+    findAll: (params: { query?: string; offset?: number; limit?: number }) => {
+      return ipcRenderer.invoke("chats-find-all", params);
+    },
+    findOne: (params: any) => {
+      return ipcRenderer.invoke("chats-find-one", params);
+    },
+    create: (params: any) => {
+      return ipcRenderer.invoke("chats-create", params);
+    },
+    update: (id: string, params: any) => {
+      return ipcRenderer.invoke("chats-update", id, params);
+    },
+    destroy: (id: string) => {
+      return ipcRenderer.invoke("chats-destroy", id);
+    },
+  },
+  chatAgents: {
+    findAll: (params: { query?: string; offset?: number; limit?: number }) => {
+      return ipcRenderer.invoke("chat-agents-find-all", params);
+    },
+    findOne: (params: any) => {
+      return ipcRenderer.invoke("chat-agents-find-one", params);
+    },
+    create: (params: any) => {
+      return ipcRenderer.invoke("chat-agents-create", params);
+    },
+    update: (id: string, params: any) => {
+      return ipcRenderer.invoke("chat-agents-update", id, params);
+    },
+    destroy: (id: string) => {
+      return ipcRenderer.invoke("chat-agents-destroy", id);
+    },
+  },
+  chatSessions: {
+    findAll: (params: { chatId: string; offset?: number; limit?: number }) => {
+      return ipcRenderer.invoke("chat-sessions-find-all", params);
+    },
+    findOne: (params: any) => {
+      return ipcRenderer.invoke("chat-sessions-find-one", params);
+    },
+    create: (params: any) => {
+      return ipcRenderer.invoke("chat-sessions-create", params);
+    },
+    invoke: (id: string, params: any) => {
+      return ipcRenderer.invoke("chat-sessions-invoke", id, params);
+    },
+    destroy: (id: string) => {
+      return ipcRenderer.invoke("chat-sessions-destroy", id);
+    },
+  },
+  chatMessages: {
+    findAll: (params: { chatSessionId: string; offset?: number; limit?: number }) => {
+      return ipcRenderer.invoke("chat-messages-find-all", params);
+    },
+    findOne: (params: any) => {
+      return ipcRenderer.invoke("chat-messages-find-one", params);
+    },
+    create: (params: any) => {
+      return ipcRenderer.invoke("chat-messages-create", params);
+    },
+    update: (id: string, params: any) => {
+      return ipcRenderer.invoke("chat-messages-update", id, params);
+    },
+    destroy: (id: string) => {
+      return ipcRenderer.invoke("chat-messages-destroy", id);
+    },
+  },
 });

@@ -32,6 +32,7 @@ import {
   NotebookPenIcon,
   SpeechIcon,
   GraduationCapIcon,
+  MessagesSquareIcon,
 } from "lucide-react";
 import { useLocation, Link } from "react-router-dom";
 import { t } from "i18next";
@@ -70,6 +71,14 @@ export const Sidebar = () => {
               tooltip={t("sidebar.home")}
               active={activeTab === "/"}
               Icon={HomeIcon}
+            />
+
+            <SidebarItem
+              href="/chats"
+              label={t("sidebar.chats")}
+              tooltip={t("sidebar.chats")}
+              active={activeTab.startsWith("/chats")}
+              Icon={MessagesSquareIcon}
             />
 
             <SidebarItem

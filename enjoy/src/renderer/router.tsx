@@ -23,6 +23,7 @@ import PronunciationAssessmentsNew from "./pages/pronunciation-assessments/new";
 import Courses from "./pages/courses/index";
 import Course from "./pages/courses/show";
 import Chapter from "./pages/courses/chapter";
+import Chats from "./pages/chats";
 
 export default createHashRouter([
   {
@@ -31,6 +32,10 @@ export default createHashRouter([
     errorElement: <ErrorPage />,
     children: [
       { index: true, element: <Home /> },
+      {
+        path: "/chats",
+        element: <Chats />,
+      },
       {
         path: "/courses",
         element: <Courses />,

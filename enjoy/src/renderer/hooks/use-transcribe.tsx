@@ -42,7 +42,7 @@ export const useTranscribe = () => {
   };
 
   const transcribe = async (
-    mediaSrc: string,
+    mediaSrc: string | Blob,
     params?: {
       targetId?: string;
       targetType?: string;
@@ -50,6 +50,7 @@ export const useTranscribe = () => {
       language: string;
       service: WhisperConfigType["service"] | "upload";
       isolate?: boolean;
+      align?: boolean;
     }
   ): Promise<{
     engine: string;
@@ -58,6 +59,7 @@ export const useTranscribe = () => {
     timeline: TimelineEntry[];
     originalText?: string;
     tokenId?: number;
+    url: string;
   }> => {
     const url = await transcode(mediaSrc);
     const {
@@ -67,6 +69,7 @@ export const useTranscribe = () => {
       language,
       service,
       isolate = false,
+      align = true,
     } = params || {};
     const blob = await (await fetch(url)).blob();
 
@@ -117,7 +120,15 @@ export const useTranscribe = () => {
     } else {
       throw new Error(t("whisperServiceNotSupported"));
     }
+
     let transcript = result.text;
+    if (!align) {
+      return {
+        ...result,
+        transcript,
+        url,
+      };
+    }
 
     /*
      * if timeline is available and the transcript contains punctuations
@@ -187,6 +198,7 @@ export const useTranscribe = () => {
       originalText,
       transcript,
       timeline,
+      url,
     };
   };
 
@@ -338,7 +350,10 @@ export const useTranscribe = () => {
     tokenId: number;
     timeline?: TimelineEntry[];
   }> => {
-    const { id, token, region } = await webApi.generateSpeechToken(params);
+    const { id, token, region } = await webApi.generateSpeechToken({
+      ...params,
+      purpose: "transcribe",
+    });
     const config = sdk.SpeechConfig.fromAuthorizationToken(token, region);
     const audioConfig = sdk.AudioConfig.fromWavFileInput(file);
     // setting the recognition language to learning language, such as 'en-US'.

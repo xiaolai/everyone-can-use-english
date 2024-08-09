@@ -228,7 +228,7 @@ class Whipser {
         logger.info(`stderr: ${output}`);
         if (output.startsWith("whisper_print_progress_callback")) {
           const progress = parseInt(output.match(/\d+%/)?.[0] || "0");
-          if (typeof progress === "number") onProgress(progress);
+          if (typeof progress === "number" && onProgress) onProgress(progress);
         }
       });
 
