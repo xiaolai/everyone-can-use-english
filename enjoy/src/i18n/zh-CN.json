@@ -659,5 +659,7 @@
   "ipInfo": "IP 信息",
   "platformInfo": "设备信息",
   "networkState": "网络状态",
-  "connectError": "连接错误"
+  "connectError": "连接错误",
+  "deleteChatAgent": "删除角色",
+  "deleteChatAgentConfirmation": "您确定要删除此角色吗？"
 }
